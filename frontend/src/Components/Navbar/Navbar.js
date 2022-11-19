@@ -1,5 +1,4 @@
-// eslint-disable-next-line no-unused-vars
-import { Navbar as BootstrapNavbar } from 'bootstrap';
+
 
 /**
  * Render the Navbar which is styled by using Bootstrap
@@ -8,40 +7,48 @@ import { Navbar as BootstrapNavbar } from 'bootstrap';
  * - the router will show the Page associated to this URI when the user click on a nav-link
  */
 
-const Navbar = () => {
-  const navbarWrapper = document.querySelector('#navbarWrapper');
-  const navbar = `
-  <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <div class="container-fluid">
-          <a class="navbar-brand" href="#">Add your brand here</a>
-          <button
-            class="navbar-toggler"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent"
-            aria-expanded="false"
-            aria-label="Toggle navigation"
-          >
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-              <li class="nav-item">
-                <a class="nav-link" aria-current="page" href="#" data-uri="/">Home</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#" data-uri="/game">Game</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#" data-uri="/new">New Page</a>
-              </li>                        
-            </ul>
-          </div>
-        </div>
-      </nav>
-  `;
-  navbarWrapper.innerHTML = navbar;
-};
+ import { getAuthenticatedUser, getAnonymUser } from "../../utils/auths";
 
-export default Navbar;
+ const Navbar = () => {
+const userAnonyme=getAnonymUser.usernam
+  console.log(getAuthenticatedUser,userAnonyme)
+  const navbarWrapper = document.querySelector('#navbarWrapper');
+   let navbar='';
+
+ // if(!getAnonymUser && !getAuthenticatedUser){
+  
+ navbar += `
+   <h1>
+   DISCOVER OR RE  <span style="color:#FFFF8F">DISCOVER THE </span> <span style="color:#C41E3A">CAPITAL OF EUROPE	</span>
+  </h1>
+   `;
+/* }else{
+  navbar += `
+  <ul>
+  <li >
+    <a data-uri="/Ranking">Ranking</a>
+
+  ${getAuthenticatedUser ? ' <li> <a data-uri="/Ranking">MyStats</a> </li>' : ''}
+  ${getAnonymUser ? ' <li> <a data-uri="/Ranking">Login/Register</a> </li>' : ''}
+    <li>
+    <a data-uri="/Ranking">Contact</a>
+   </li> 
+   </li> 
+  </ul>
+  `;
+ }
+ */
+ 
+ 
+ navbar += `
+ <hr class="hr1">  
+ <hr class="hr2">  
+ <hr class="hr3"> 
+ `;
+  
+   
+   navbarWrapper.innerHTML = navbar;
+ };
+ 
+ export default Navbar;
+ 
