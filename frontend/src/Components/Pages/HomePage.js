@@ -78,6 +78,7 @@ const HomePage = () => {
 
    const authenticatedUser = await response.json();
    setAuthenticatedUser(authenticatedUser)
+   console.log(authenticatedUser)
   }
   
   if(type==="register"){

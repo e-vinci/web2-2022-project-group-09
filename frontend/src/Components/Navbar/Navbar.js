@@ -7,11 +7,9 @@
  * - the router will show the Page associated to this URI when the user click on a nav-link
  */
 
- import { getAuthenticatedUser, getAnonymUser } from "../../utils/auths";
 
  const Navbar = () => {
-const userAnonyme=getAnonymUser.usernam
-  console.log(getAuthenticatedUser,userAnonyme)
+
   const navbarWrapper = document.querySelector('#navbarWrapper');
    let navbar='';
 
