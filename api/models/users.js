@@ -36,7 +36,7 @@ async function login(username,password){
       );
     
       const authenticatedUser = {
-        username:userNameFound,
+        username:userNameFound.username,
         token,
       };
    

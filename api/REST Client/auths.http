@@ -17,15 +17,30 @@ POST {{baseUrl}}/login
     "password":"zayz"
  }  
 
- ###
-POST {{baseUrl}}/register
+###
+POST {{baseUrl}}/login
  Content-Type: application/json 
 
  {
     "username":"user2",
     "password":"zayz"
  }  
+###
+POST {{baseUrl}}/register
+ Content-Type: application/json 
+
+ {
+    "username":"user3",
+    "password":"zayz"
+ }  
 
 ###
 GET {{baseUrl}}/logout
 
+###
+POST {{baseUrl}}/loginAnonyme
+ Content-Type: application/json 
+
+ {
+    "username":"user3"
+ }  
