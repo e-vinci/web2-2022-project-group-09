@@ -1,10 +1,18 @@
 import UserIcon1 from '../../img/userI1.jpg';
 import UserIcon2 from '../../img/userI2.png';
-import { setAnonymeUser, setAuthenticatedUser } from '../../utils/auths';
+import { isAuthenticated, setAnonymeUser, setAuthenticatedUser } from '../../utils/auths';
 import Navbar from '../Navbar/Navbar';
+import Navigate from '../Router/Navigate';
 
-const homePage=`
-  
+let homePage="";
+
+if(isAuthenticated()){
+  console.log("if")
+  homePage='<p> Vous etes deja connecter <a href="/logout" > cliquer ici </a> pour vous deconnecter </p>'
+
+}else{
+  console.log("else")
+homePage=`
 <form class="connexion">  
        <img src="${UserIcon1}">     
       <div class="container">  
@@ -45,11 +53,13 @@ const homePage=`
       </div>   
   </form> 
 
+` 
+}
 
-
-`
 
 const HomePage = () => {
+  Navbar();
+  console.log(isAuthenticated())
   const main = document.querySelector('main');  
   main.innerHTML = homePage
 
@@ -78,7 +88,6 @@ const HomePage = () => {
 
    const authenticatedUser = await response.json();
    setAuthenticatedUser(authenticatedUser)
-   console.log(authenticatedUser)
   }
   
   if(type==="register"){
@@ -103,28 +112,11 @@ setAuthenticatedUser(authenticatedUser)
   }
 
   if(type==="anonymLogin"){
- const OPTIONS={
-  method:'POST',
-  body:JSON.stringify({
-    username:usernameAnonyme,
-  }),
-  headers:{
-    'Content-Type':'application/json' ,
+    console.log(usernameAnonyme)
+   setAnonymeUser(usernameAnonyme); 
   }
 
-};
-const response=await fetch('/api/auth/loginAnonyme',OPTIONS);
-
-if (!response.ok) throw new Error(`fetch error : ${response.status} : ${response.statusText}`);
-
-const authenticatedUser = await response.json();
-   setAnonymeUser(authenticatedUser); 
-
-
-
-  }
-
-  Navbar();
+  Navigate('/new');
 });
 
 

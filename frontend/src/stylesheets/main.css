@@ -1,87 +1,119 @@
 body {
-    background-color:#A9A9A9;
-      margin:0 0;
-     
+  background-color:#A9A9A9;
+    margin:0 0;
+   
+}
+/*--------------------------------------------------------------------------------NAVBAR-----------------------------------------------------------*/ 
+h1{
+  text-align:center ;
+ }
+
+ hr{
+  height:10px;
+   
+     display:inline-block;
+      margin:20px -1px;  
+      width: 33%;
   }
- /*--------------------------------------------------------------------------------HEADER-----------------------------------------------------------*/ 
-  h1{
-    text-align:center ;
+  
+  .hr1{
+    background-color:black;
+   float:left;
+
+  }
+  .hr2{
+    background-color:rgb(255, 255, 0);
+width: 33.82%;
+  }
+  .hr3{
+    background-color:#C41E3A;
+    float:right;
+
+  }
+  #navbarWrapper ul{
+    display: flex ;
+    justify-content: center;
+    list-style: none;
+    margin: 0 ; padding: 0;
+  }
+  #navbarWrapper li {
+    margin-top: 30px;
+    }
+  #navbarWrapper li a{
+  font-size: x-large;
+    padding:  50px;
+  cursor:pointer ;
+  text-decoration: none;
+  color: inherit; 
+  }
+  #navbarWrapper a:hover{
+    font-size: xx-large;
+  }
+
+ #navbarWrapper li:first-child:hover {
+    color: black;
+}
+#navbarWrapper li:nth-child(2):hover {
+  color: yellow;
+}
+#navbarWrapper li:nth-child(3):hover {
+color: red;
+}
+
+ /*--------------------------------------------------------------------------------HOMEPAGE-----------------------------------------------------------*/ 
+
+  .connexion{
+    margin-top:40px;
+    display:flex;
+     justify-content:center;
+   
    }
-
-   hr{
-    height:10px;
-      width:33%;
-       display:inline-block;
-        margin:20px -1px;  
-        
-    }
-    
-    .hr1{
-      background-color:black;
-     float:left;
-    
-    }
-    .hr2{
-      background-color:rgb(255, 255, 0);
-        width:34%
-    }
-    .hr3{
-      background-color:#C41E3A;
-      float:right
-    
-    }
-   /*--------------------------------------------------------------------------------HOMEPAGE-----------------------------------------------------------*/ 
-
-    .connexion{
-      margin-top:40px;
+   .connexion2{
+     margin-top:40px;
       display:flex;
-       justify-content:center;
+     justify-content:center;
+   }
+   
+   img{
+    position:absolute;
+     margin-top: -20px;
+     height:50px;
+       border-radius: 50%;
+    
+   }
+   .container{
+    display:block;
+    margin:auto auto;	
+    border:1px solid;
+    border-width:  0.4em;
+    padding:30px;
+    border-color: black #FFFF8F #C41E3A;
      
-     }
-     .connexion2{
-       margin-top:40px;
-        display:flex;
-       justify-content:center;
-     }
-     
-     img{
-      position:absolute;
-       margin-top: -20px;
-       height:50px;
-         border-radius: 50%;
-      
-     }
-     .container{
-      display:block;
-      margin:auto auto;	
-      border:1px solid;
-      border-width:  0.4em;
-      padding:30px;
-      border-color: black #FFFF8F #C41E3A;
-       
-     }
-     
-     .container input{
-        width:350px;
-       height:40px;
-           text-align:center
-     }
-     .container div{
+   }
+   
+   .container input{
+      width:350px;
+     height:40px;
+         text-align:center
+   }
+   .container div{
 
-       margin-top:10px;
-       
-     }
-     .container input[type=submit]{
+     margin-top:10px;
      
-      cursor:pointer;
-    }
-     .container input[type=checkbox]{
-     
-       height:30px; 
-         width:20px;
-     }
-     .container input[type=checkbox] div{
-       height:30px; 
-         width:20px;
-     }
-     
+   }
+   .container input[type=submit]{
+   
+    cursor:pointer;
+  }
+   .container input[type=checkbox]{
+   
+     height:30px; 
+       width:20px;
+   }
+   .container input[type=checkbox] div{
+     height:30px; 
+       width:20px;
+   }
+   
+/*--------------------------------------------------------------------------------CoONTACTPAGE-----------------------------------------------------------*/ 
+
