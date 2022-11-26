@@ -14,8 +14,9 @@ router.get('/', (req, res) => {
 
 router.post('/addMessageUser', (req, res) => {
     const user_id = req.session.user_id;
-    const content = req.body.content
-    const type = req.body.type
+    const content = req?.body?.content?.length !== 0 ? req.body.content : undefined;
+    const type =req?.body?.type?.length !== 0 ? req.body.type : undefined;
+    if(!content || !type) return res.sendStatus(400);
     const data = { user_id, type, content }
 
     return res.json({ newMessage: Message.saveUserMessage(data) })
@@ -23,8 +24,9 @@ router.post('/addMessageUser', (req, res) => {
 });
 
 router.post('/addMessageVisitor', (req, res) => {
-    const content = req.body.content
-    const type = req.body.type
+    const content = req?.body?.content?.length !== 0 ? req.body.content : undefined;
+    const type =req?.body?.type?.length !== 0 ? req.body.type : undefined;
+    if(!content || !type) return res.sendStatus(400);
     const data = { type, content }
 
     return res.json({ newMessage: Message.saveVisitorMessage(data) })
