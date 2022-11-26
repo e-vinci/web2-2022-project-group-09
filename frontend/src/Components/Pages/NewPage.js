@@ -3,8 +3,8 @@ import { clearPage } from '../../utils/render';
 import Navbar from '../Navbar/Navbar';
 
 const NewPage = () => {
-  clearPage();
   Navbar();
+  clearPage();
   renderGoBackHomeButton();
 };
 

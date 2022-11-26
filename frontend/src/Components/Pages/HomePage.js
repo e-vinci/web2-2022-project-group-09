@@ -4,15 +4,15 @@ import { isAuthenticated, setAnonymeUser, setAuthenticatedUser } from '../../uti
 import Navbar from '../Navbar/Navbar';
 import Navigate from '../Router/Navigate';
 
-let homePage="";
+let homePage = "";
 
-if(isAuthenticated()){
+if (isAuthenticated()) {
   console.log("if")
-  homePage='<p> Vous etes deja connecter <a href="/logout" > cliquer ici </a> pour vous deconnecter </p>'
+  homePage = '<p> Vous etes deja connecter <a href="/logout" > cliquer ici </a> pour vous deconnecter </p>'
 
-}else{
+} else {
   console.log("else")
-homePage=`
+  homePage = `
 <form class="connexion">  
        <img src="${UserIcon1}">     
       <div class="container">  
@@ -53,71 +53,71 @@ homePage=`
       </div>   
   </form> 
 
-` 
+`
 }
 
 
 const HomePage = () => {
   Navbar();
   console.log(isAuthenticated())
-  const main = document.querySelector('main');  
+  const main = document.querySelector('main');
   main.innerHTML = homePage
 
-  document.addEventListener('submit',async (e)=>{
+  document.addEventListener('submit', async (e) => {
     e.preventDefault();
-    const type=e.submitter.id
-    const username=document.querySelector('#username').value;
-    const password=document.querySelector('#password').value;
-    const usernameAnonyme=document.querySelector('#usernameAnonym').value;
-  
-   if(type==="login"){
-    
-    const OPTIONS={
-      method:'POST',
-      body:JSON.stringify({
-        username,
-        password
-      }),
-      headers:{
-        'Content-Type':'application/json' ,
-      }
+    const type = e.submitter.id
+    const username = document.querySelector('#username')?.value;
+    const password = document.querySelector('#password')?.value;
+    const usernameAnonyme = document.querySelector('#usernameAnonym')?.value;
 
-    };
-   const response=await fetch('/api/auth/login',OPTIONS);
-   if (!response.ok) throw new Error(`fetch error : ${response.status} : ${response.statusText}`);
+    if (type === "login") {
 
-   const authenticatedUser = await response.json();
-   setAuthenticatedUser(authenticatedUser)
-  }
-  
-  if(type==="register"){
+      const OPTIONS = {
+        method: 'POST',
+        body: JSON.stringify({
+          username,
+          password
+        }),
+        headers: {
+          'Content-Type': 'application/json',
+        }
 
-   const OPTIONS={
-    method:'POST',
-    body:JSON.stringify({
-      username,
-      password
-    }),
-    headers:{
-      'Content-Type':'application/json' ,
+      };
+      const response = await fetch('/api/auth/login', OPTIONS);
+      if (!response.ok) throw new Error(`fetch error : ${response.status} : ${response.statusText}`);
+
+      const authenticatedUser = await response.json();
+      setAuthenticatedUser(authenticatedUser)
     }
 
-  };
- const response=await fetch('/api/auth/register',OPTIONS);
- if (!response.ok) throw new Error(`fetch error : ${response.status} : ${response.statusText}`);
+    if (type === "register") {
 
- const authenticatedUser = await response.json();
-setAuthenticatedUser(authenticatedUser)
+      const OPTIONS = {
+        method: 'POST',
+        body: JSON.stringify({
+          username,
+          password
+        }),
+        headers: {
+          'Content-Type': 'application/json',
+        }
 
-  }
+      };
+      const response = await fetch('/api/auth/register', OPTIONS);
+      if (!response.ok) throw new Error(`fetch error : ${response.status} : ${response.statusText}`);
 
-  if(type==="anonymLogin"){
-    console.log(usernameAnonyme)
-   setAnonymeUser(usernameAnonyme); 
-  }
+      const authenticatedUser = await response.json();
+      setAuthenticatedUser(authenticatedUser)
 
-  Navigate('/new');
-});
+    }
+
+    if (type === "anonymLogin") {
+
+      setAnonymeUser(usernameAnonyme);
+    }
+    Navbar();
+    Navigate('/new');
+  });
 
 
 
