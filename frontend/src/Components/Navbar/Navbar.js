@@ -21,7 +21,7 @@ navbar += `
  <li>
    <a  href="#" data-uri="/contact">Contact</a>
   </li> 
-  ${isAuthenticated() ? '<li> <a data-uri="/logout" >Logout</a> </li>' :''}
+  ${isAuthenticated() ? '<li> <a href="#" data-uri="/logout" >Logout</a> </li>' :''}
  </ul>
  `;
 }

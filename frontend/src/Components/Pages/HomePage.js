@@ -1,8 +1,10 @@
 import UserIcon1 from '../../img/userI1.jpg';
 import UserIcon2 from '../../img/userI2.png';
 import { isAuthenticated, setAnonymeUser, setAuthenticatedUser } from '../../utils/auths';
+
 import Navbar from '../Navbar/Navbar';
 import Navigate from '../Router/Navigate';
+
 
 let homePage = "";
 
@@ -58,7 +60,6 @@ if (isAuthenticated()) {
 
 
 const HomePage = () => {
-  Navbar();
   console.log(isAuthenticated())
   const main = document.querySelector('main');
   main.innerHTML = homePage
