@@ -9,11 +9,9 @@ import Navigate from '../Router/Navigate';
 let homePage = "";
 
 if (isAuthenticated()) {
-  console.log("if")
   homePage = '<p> Vous etes deja connecter <a href="/logout" > cliquer ici </a> pour vous deconnecter </p>'
 
 } else {
-  console.log("else")
   homePage = `
 <form class="connexion">  
        <img src="${UserIcon1}">     
@@ -60,7 +58,6 @@ if (isAuthenticated()) {
 
 
 const HomePage = () => {
-  console.log(isAuthenticated())
   const main = document.querySelector('main');
   main.innerHTML = homePage
 

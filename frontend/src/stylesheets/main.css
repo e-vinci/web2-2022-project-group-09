@@ -1,7 +1,7 @@
 body {
   background-color: #A9A9A9;
   margin: 0 0;
-
+  flex-direction: column;
 }
 
 /*--------------------------------------------------------------------------------NAVBAR-----------------------------------------------------------*/
@@ -84,7 +84,7 @@ hr {
   display: flex;
   justify-content: center;
 }
-
+/*
 img {
   position: absolute;
   margin-top: -20px;
@@ -92,6 +92,8 @@ img {
   border-radius: 50%;
 
 }
+ */
+
 
 .container {
   display: block;
@@ -212,4 +214,67 @@ p {
 
 .contactpage #message2 button {
   float: right;
+}
+.imgdiv{
+  position: relative;
+  display: inline-block;
+  width:150px;
+  height: 150px;
+  line-height: 150px;
+  font-size: 20px;
+  padding: 10px;
+  text-align: center;
+  border: 2px solid black;
+  cursor: pointer;
+}
+
+img{
+  width:120px;
+  height: 120px;
+  padding: 10px;;
+}
+
+.hide{
+  padding: 10px;
+  visibility: hidden;
+}
+
+.match, .showimg{
+  visibility: visible !important;
+}
+section{
+  display: grid;
+  grid-template-columns: repeat(4,10rem);
+  grid-template-rows: repeat(4,10rem);
+  grid-gap: 2rem;
+  perspective: 800px;
+}
+body{
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+;
+}
+
+.card{
+  position: relative;
+  transform-style: preserve-3d;
+  transition: all 2s cubic-bezier(0.2,0.885,0.32,1.275);
+  box-shadow: rgba(0,0,0,0.2) 0px 5px 15px;
+}
+.recto,
+.verso{
+  width: 100%;
+  height: 100%;
+  position: absolute;
+
+}
+.verso{
+  background: white;
+  backface-visibility: hidden;
+}
+.toggleCard{
+  transform: rotateY(180deg);
 }

@@ -16,8 +16,16 @@ function renderGoBackHomeButton() {
   submit.addEventListener('click', () => {
     Navigate('/');
   });
+  const btnGame = document.createElement('input');
+  btnGame.value = 'Play the game';
+  btnGame.className = 'btn btn-secondary mt-3';
+  btnGame.addEventListener('click', () => {
+    Navigate('/gameSolo');
+  });
 
   main.appendChild(submit);
+  main.appendChild(btnGame);
+
 }
 
 export default NewPage;

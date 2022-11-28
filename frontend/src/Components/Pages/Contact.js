@@ -40,7 +40,6 @@ const contactPage = () => {
 
         if (!response.ok) throw new Error(`fetch error : ${response.status} : ${response.statusText}`);
 
-        console.log(content, type)
         e.preventDefault();
 
     });
