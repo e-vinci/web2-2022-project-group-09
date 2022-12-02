@@ -46,6 +46,7 @@ const randomize = () =>{
 const cardGenerator = () =>{
     const section = document.querySelector("section");
     const cardData = randomize();
+ 
     cardData.forEach((item) =>{
         const card = document.createElement("div");
         const recto = document.createElement("img");
@@ -54,14 +55,39 @@ const cardGenerator = () =>{
         recto.classList = "recto";
         verso.classList = "verso";
         recto.src = item.imgSrc;
+        card.setAttribute("name",item.name);
         section.appendChild(card);
         card.appendChild(recto);
         card.appendChild(verso);
         card.addEventListener('click',(e) =>{
             card.classList.toggle("toggleCard");
+            regarderCarte(e);
         })
     })
 
 };
+//correspondance des cartes
+const regarderCarte= (e) => {
+  
+  const carteClick = e.target;
+  carteClick.classList.add("flipped");
+  const carteFlip=document.querySelectorAll(".flipped");
+  if(carteFlip.length===2){
+    if(carteFlip[0].getAttribute("name") === carteFlip[1].getAttribute("name")){
+        console.log("match");
+        carteFlip.forEach((card)=>{
+            card.classList.remove("flipped");
+            card.style.pointerEvents="none";
+        })
+    }else{
+        console.log("wrong");
+        carteFlip.forEach((card)=> {
+            card.classList.remove("flipped");
+            setTimeout(()=> card.classList.remove("toggleCard"), 1500);
+            
+        })
+    }
+  }
+}
 
 export default GameSoloPage;
