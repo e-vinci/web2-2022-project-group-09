@@ -1,3 +1,5 @@
+import Navbar from "../Navbar/Navbar";
+
 /**
  * Navigate to a URI by triggering the popstate event in order for the router to deal with
  * a change of browser history.
@@ -5,7 +7,6 @@
  * indirectly, the pages, then there would be a circular reference because the router
  * has to import all the pages to render them.
  */
-
 const Navigate = (toUri) => {
   const fromUri = window.location.pathname;
   if (fromUri === toUri) return;
@@ -13,6 +14,7 @@ const Navigate = (toUri) => {
   window.history.pushState({}, '', toUri);
   const popStateEvent = new PopStateEvent('popstate', { state: {} });
   dispatchEvent(popStateEvent);
+  Navbar();
 };
 
 export default Navigate;

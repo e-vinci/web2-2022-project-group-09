@@ -1,0 +1,281 @@
+body {
+  background-color: #A9A9A9;
+  margin: 0 0;
+  flex-direction: column;
+}
+
+/*--------------------------------------------------------------------------------NAVBAR-----------------------------------------------------------*/
+h1 {
+  text-align: center;
+}
+
+hr {
+  height: 10px;
+
+  display: inline-block;
+  margin: 20px -1px;
+  width: 33%;
+}
+
+.hr1 {
+  background-color: black;
+  float: left;
+
+}
+
+.hr2 {
+  background-color: rgb(255, 255, 0);
+  width: 33.82%;
+}
+
+.hr3 {
+  background-color: #C41E3A;
+  float: right;
+
+}
+
+#navbarWrapper ul {
+  display: flex;
+  justify-content: center;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+#navbarWrapper li {
+  margin-top: 30px;
+}
+
+#navbarWrapper li a {
+  font-size: x-large;
+  padding: 50px;
+  cursor: pointer;
+  text-decoration: none;
+  color: inherit;
+}
+
+#navbarWrapper a:hover {
+  font-size: xx-large;
+}
+
+#navbarWrapper li:first-child:hover {
+  color: black;
+}
+
+#navbarWrapper li:nth-child(2):hover {
+  color: yellow;
+}
+
+#navbarWrapper li:nth-child(3):hover {
+  color: red;
+}
+
+/*--------------------------------------------------------------------------------HOMEPAGE-----------------------------------------------------------*/
+
+.connexion {
+  margin-top: 40px;
+  display: flex;
+  justify-content: center;
+
+}
+
+.connexion2 {
+  margin-top: 40px;
+  display: flex;
+  justify-content: center;
+}
+/*
+img {
+  position: absolute;
+  margin-top: -20px;
+  height: 50px;
+  border-radius: 50%;
+
+}
+ */
+
+
+.container {
+  display: block;
+  margin: auto auto;
+  border: 1px solid;
+  border-width: 0.4em;
+  padding: 30px;
+  border-color: black #FFFF8F #C41E3A;
+
+}
+
+.container input {
+  width: 350px;
+  height: 40px;
+  text-align: center
+}
+
+.container div {
+
+  margin-top: 10px;
+
+}
+
+.container input[type=submit] {
+
+  cursor: pointer;
+}
+
+.container input[type=checkbox] {
+
+  height: 30px;
+  width: 20px;
+}
+
+.container input[type=checkbox] div {
+  height: 30px;
+  width: 20px;
+}
+
+/*--------------------------------------------------------------------------------CoONTACTPAGE-----------------------------------------------------------*/
+
+.contactpage #header {
+  margin-top: -20px;
+  text-align: center;
+
+}
+
+.contactpage #header button,
+p {
+
+  display: inline-block;
+  font-size: large;
+  padding: 15px;
+
+
+}
+
+.contactpage #header button {
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+
+.contactpage #header p {
+
+  color: aliceblue;
+
+}
+
+.contactpage .form {
+  display: flex;
+  justify-content: center;
+}
+
+.contactpage .form #message {
+  width: 600px;
+  height: 150px;
+}
+
+.contactpage .form #type {
+  width: 500px;
+  height: 50px;
+  text-align: center;
+}
+
+/*   VIEW */
+.contactpage #message2 {
+
+  text-align: center;
+  padding-bottom: 20px;
+
+}
+
+.contactpage #container2 {
+  margin: auto auto;
+  border: 1px solid;
+  border-width: 0.4em;
+  padding: 30px;
+  width: 50%;
+  border-color: black #FFFF8F #C41E3A;
+  border-radius: 25px;
+
+}
+
+.contactpage #type2,
+#content2 {
+  font-size: large;
+}
+
+.contactpage #type2 {
+  margin-top: -20px;
+  float: left;
+}
+
+.contactpage #content2 {
+  text-align: center;
+}
+
+.contactpage #message2 button {
+  float: right;
+}
+.imgdiv{
+  position: relative;
+  display: inline-block;
+  width:150px;
+  height: 150px;
+  line-height: 150px;
+  font-size: 20px;
+  padding: 10px;
+  text-align: center;
+  border: 2px solid black;
+  cursor: pointer;
+}
+
+img{
+  width:120px;
+  height: 120px;
+  padding: 10px;
+}
+
+.hide{
+  padding: 10px;
+  visibility: hidden;
+}
+
+.match, .showimg{
+  visibility: visible !important;
+}
+section{
+  display: grid;
+  grid-template-columns: repeat(4,10rem);
+  grid-template-rows: repeat(4,10rem);
+  grid-gap: 2rem;
+  perspective: 800px;
+}
+body{
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+;
+}
+
+.card{
+  position: relative;
+  transform-style: preserve-3d;
+  transition: all 2s cubic-bezier(0.2,0.885,0.32,1.275);
+  box-shadow: rgba(0,0,0,0.2) 0px 5px 15px;
+}
+.recto,
+.verso{
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  pointer-events: none;
+
+}
+.verso{
+  background: white;
+  backface-visibility: hidden;
+}
+.toggleCard{
+  transform: rotateY(180deg);
+}
