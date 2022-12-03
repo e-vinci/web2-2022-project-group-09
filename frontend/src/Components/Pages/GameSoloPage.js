@@ -9,16 +9,18 @@ import dinant from "../../img/dinant.png"
 const GameSoloPage = () => {
     Navbar();
     clearPage();
-   
+    const divBackGame = document.createElement('div');
+    divBackGame.className = 'divBackGame';
     const main = document.querySelector('main');
     const maxMoves = document.createElement('h1');
     maxMoves.innerHTML = 'lives : ';
     const maxMovesCount = document.createElement('span');
     maxMovesCount.className= 'playerLivesCount';
     const section = document.createElement('section');
-    main.appendChild(maxMoves);
+    main.appendChild(divBackGame);
+    divBackGame.appendChild(maxMoves);
     maxMoves.appendChild(maxMovesCount);
-    main.appendChild(section);
+    divBackGame.appendChild(section);
     let playerLives = 6;
     maxMovesCount.textContent = playerLives;
 
@@ -89,14 +91,18 @@ const regarderCarte= (e) => {
         });
         playerLives--;
         maxMovesCount.textContent=playerLives;
+
     }
   }
+
 };
 cardGenerator();
+//pour les tests
+
 };
 
 
 
-    
+
 
 export default GameSoloPage;
