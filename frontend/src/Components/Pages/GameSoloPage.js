@@ -1,10 +1,12 @@
 import { clearPage } from '../../utils/render';
 import Navbar from '../Navbar/Navbar';
-import atomium from "../../img/atomium.png"
-import bruges from "../../img/bruges.png"
-import bruxelles from "../../img/bruxelles.png"
-import namur from "../../img/namur.png"
-import dinant from "../../img/dinant.png"
+import lukaku from "../../img/Romelu-Lukaku-Belgique-Coupe-du-monde-2022.jpg"
+import deBruyn from "../../img/thumbnail_Capture d’écran 2022-12-03 à 15.16.05.png"
+import mertens from "../../img/thumbnail_MjAyMTA4ODk5ZWY4NzllZTgzMGJiZDM2OWFmN2NkZWE5M2YzYzU.jpg"
+import meunier from "../../img/thumbnail_meunier.jpg"
+import hazard from "../../img/thumbnail_image.jpg"
+import mertenss from "../../img/thumbnail_unnamed.jpg"
+
 /* eslint-disable */
 const GameSoloPage = () => {
     Navbar();
@@ -28,17 +30,21 @@ const GameSoloPage = () => {
 
 const generateData = () =>
     [
-        {imgSrc: atomium, name: "atomium"},
-        {imgSrc: bruxelles, name: "bruxelles"},
-        {imgSrc: bruges, name: "bruges"},
-        {imgSrc: namur, name: "namur"},
-        {imgSrc: dinant, name: "dinant"},
+        {imgSrc: lukaku, name: "lukaku"},
+        {imgSrc: deBruyn, name: "deBruyn"},
+        {imgSrc: mertens, name: "mertens"},
+        {imgSrc: meunier, name: "meunier"},
+        {imgSrc: hazard, name: "hazard"},
+        {imgSrc: mertenss, name: "mertenss"},
 
-        {imgSrc: atomium, name: "atomium"},
-        {imgSrc: bruxelles, name: "bruxelles"},
-        {imgSrc: bruges, name: "bruges"},
-        {imgSrc: namur, name: "namur"},
-        {imgSrc: dinant, name: "dinant"},
+
+        {imgSrc: lukaku, name: "lukaku"},
+        {imgSrc: deBruyn, name: "deBruyn"},
+        {imgSrc: mertens, name: "mertens"},
+        {imgSrc: meunier, name: "meunier"},
+        {imgSrc: hazard, name: "hazard"},
+        {imgSrc: mertenss, name: "mertenss"},
+
 
     ];
 const randomize = () =>{
