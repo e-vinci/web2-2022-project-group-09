@@ -8,6 +8,18 @@ POST {{baseUrl}}/login
     "username":"admin",
     "password":"admin"
  }  
+
+###
+DELETE http://localhost:3000/message/30
+
+###
+PATCH  http://localhost:3000/message/31
+ Content-Type: application/json 
+
+{
+   "type":"question",
+   "content":"changement"
+}
 ###
 POST {{baseUrl}}/register
  Content-Type: application/json 
@@ -26,13 +38,22 @@ POST {{baseUrl}}/login
     "password":"zayz"
  }  
 ###
-POST {{baseUrl}}/register
+POST {{baseUrl}}/login
  Content-Type: application/json 
 
  {
     "username":"uss",
     "password":"11"
  }  
+
+###
+POST  http://localhost:3000/message/addMessageUser
+  Content-Type: application/json 
+
+ {
+    "content":"uss",
+    "type":"question"
+ } 
 
 ###
 GET {{baseUrl}}/logout

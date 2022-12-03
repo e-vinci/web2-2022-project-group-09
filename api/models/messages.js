@@ -14,4 +14,13 @@ module.exports.saveVisitorMessage = (data) => {
 
 }
 
-module.exports.deleteOneFilm = (id) => db.prepare('DELETE FROM messages WHERE id_message = ?').run(id)
+module.exports.deleteOneFilm = (id,user) =>{
+    const info=db.prepare('DELETE FROM messages WHERE user_ = ? AND id_message = ?').run(user,id);
+    return info.changes;
+} 
+
+module.exports.updateOneFilm=(id,user,type,content)=>{
+    const stmt = db.prepare('UPDATE messages SET type = ? , content = ?  WHERE user_ = ? AND id_message = ?' );
+    const info = stmt.run(type,content,user,id);
+    return info.changes;
+}

@@ -36,19 +36,20 @@ router.post('/addMessageVisitor', (req, res) => {
 router.delete('/:id', (req, res) => {
     console.log("delete")
     const idMessage = req?.params?.id
-    const message = Message.list(req.session.user_id)
-    let del = false;
-
-    Array.from(message).forEach(element => {
-        if (element.id_message = idMessage) {
-            Message.deleteOneFilm(idMessage)
-            del = true;
-        }
-    });
-
-    if (!del) { return res.sendStatus(401) }
-
-
+    const message = Message.deleteOneFilm(idMessage,req.session.user_id);
+    console.log(message);
+    if(message == 0) return res.sendStatus(401);
 });
 
+router.patch('/:id', (req, res) => {
+    const content = req?.body?.content?.length !== 0 ? req.body.content : undefined;
+    const type =req?.body?.type?.length !== 0 ? req.body.type : undefined;
+    const idMessage = req?.params?.id
+    if(!content && !type) return res.sendStatus(400);
+  
+    const message = Message.updateOneFilm(idMessage,req.session.user_id,type,content);
+  
+    if (message == 0) return res.sendStatus(401);
+
+  });
 module.exports = router;
