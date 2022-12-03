@@ -73,15 +73,17 @@ hr {
 .checkBox {
   position: absolute;
   bottom: 60px;
-  right: 45%;
+  right: 42%;
   text-align: center;
   border: solid 1px black;
   padding: 20px 20px;
-
+  font-weight: bold;
+  font-size: large;
 }
 
 .checkBox a {
   color: white;
+  
 }
 
 
@@ -295,6 +297,7 @@ p {
 .contactpage #type2,
 #content2 {
   font-size: large;
+    font-weight: bold;
 }
 
 .contactpage #type2 {
