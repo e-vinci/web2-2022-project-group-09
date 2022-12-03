@@ -90,7 +90,6 @@ hr {
   margin-top: 80px;
   display: flex;
   float: left;
-  margin-left: 10%;
   height: 100%;
 }
 
@@ -98,11 +97,10 @@ hr {
   margin-top: 80px;
   display: flex;
   float: right;
-  margin-right: 10%;
   height: 100%;
 }
 
-.card,
+.card1,
 .card2 {
   position: relative;
   height: 100%;
@@ -396,3 +394,4 @@ body{
 
 
 }
+*/

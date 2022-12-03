@@ -20,7 +20,7 @@ if (isAuthenticated()) {
       <div class="card-outer">
 
       <div class="card-container">
-        <div class="card">
+        <div class="card1">
           <div class="back">
           <form class="connexion">  
           <img src="${UserIcon1}" id="userIcon"> 
@@ -169,7 +169,7 @@ const HomePage = () => {
   let cardReturned2 = false;
 
 
-  const card = document.querySelector(".card");
+  const card = document.querySelector(".card1");
   card.addEventListener("click", () => {
     if (cardReturned2 === true) {
       cardReturned2 = false;
@@ -194,7 +194,7 @@ const HomePage = () => {
   card2.addEventListener("click", () => {
     if (cardReturned === true) {
       cardReturned = false;
-      document.querySelector(".card").click();
+      document.querySelector(".card1").click();
 
       cardReturned = false;
     }
