@@ -1,7 +1,7 @@
 body {
   background-color: #A9A9A9;
   margin: 0 0;
-  flex-direction: column;
+
 }
 
 /*--------------------------------------------------------------------------------NAVBAR-----------------------------------------------------------*/
@@ -71,6 +71,103 @@ hr {
 }
 
 /*--------------------------------------------------------------------------------HOMEPAGE-----------------------------------------------------------*/
+.checkBox {
+  position: absolute;
+  bottom: 60px;
+  right: 45%;
+  text-align: center;
+  border: solid 1px black;
+  padding: 20px 20px;
+
+}
+
+.checkBox a {
+  color: white;
+}
+
+
+
+.card-outer {
+  margin-top: 80px;
+  display: flex;
+  float: left;
+  margin-left: 10%;
+  height: 100%;
+}
+
+.card-outer2 {
+  margin-top: 80px;
+  display: flex;
+  float: right;
+  margin-right: 10%;
+  height: 100%;
+}
+
+.card,
+.card2 {
+  position: relative;
+  height: 100%;
+  border-radius: 10px;
+  width: 100%;
+  transform-style: preserve-3d;
+}
+
+
+.front,
+.back {
+  display: flex;
+  width: 500px;
+  height: 200px;
+  border-radius: 10px;
+  text-align: center;
+  justify-content: center;
+  backface-visibility: hidden;
+}
+
+.back {
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform: rotateY(180deg);
+  -webkit-transform: rotateY(180deg);
+  -moz-transform: rotateY(180deg);
+  -ms-transform: rotateY(180deg);
+  -o-transform: rotateY(180deg);
+
+}
+
+
+.front {
+  animation: pulse 5s infinite;
+}
+
+.front:hover {
+
+  animation-play-state: paused;
+
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(0.7);
+  }
+
+  50% {
+    transform: scale(0.75);
+  }
+
+  100% {
+    transform: scale(0.7);
+  }
+}
+
+.front #cardGame {
+
+  width: 400px;
+  height: 500px;
+}
+
+
 
 .connexion {
   margin-top: 40px;
@@ -84,15 +181,15 @@ hr {
   display: flex;
   justify-content: center;
 }
-/*
-img {
+
+.connexion #userIcon {
   position: absolute;
   margin-top: -20px;
   height: 50px;
   border-radius: 50%;
 
 }
- */
+
 
 
 .container {
@@ -204,6 +301,7 @@ p {
 }
 
 .contactpage #type2 {
+  position: absolute;
   margin-top: -20px;
   float: left;
 }
@@ -214,7 +312,11 @@ p {
 
 .contactpage #message2 button {
   float: right;
+  cursor: pointer;
 }
+
+/* gamesolo page*/
+/*
 .imgdiv{
   position: relative;
   display: inline-block;
@@ -279,3 +381,4 @@ body{
 .toggleCard{
   transform: rotateY(180deg);
 }
+*/

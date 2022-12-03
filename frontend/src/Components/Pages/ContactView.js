@@ -14,6 +14,7 @@ const contactPage = async () => {
     });
 
     document.querySelector('#delete').addEventListener('click', async (e) => {
+        e.preventDefault();
         const { elementId } = e.target.dataset;
 
         const options = {
@@ -26,6 +27,26 @@ const contactPage = async () => {
         await fetch(`/api/message/${elementId}`, options)
         contactPage();
     });
+
+    document.querySelector('#update').addEventListener('click', async (e) => {
+        const { elementId } = e.target.dataset;
+        const message = e.target.parentElement
+        const updatedMessage = {
+            content: message.children[1].innerText,
+            type: message.children[0].innerText
+        }
+        const options = {
+            method: 'PATCH',
+            body: JSON.stringify(updatedMessage),
+            headers: {
+                'Content-Type': 'application/json',
+            },
+        }
+        const response = await fetch(`/api/message/${elementId}`, options);
+
+        if (!response.ok) alert('Le type doit etre soit une "question" soit une "suggestion"')
+        Navigate('/contactView')
+    })
 };
 
 function pageHtml(mesage) {
@@ -41,8 +62,9 @@ function pageHtml(mesage) {
             contactpage += `
         <div id="message2"> 
         <div id="container2">
-        <div id="type2"> ${element.type}</div> 
-        <div id="content2" > ${element.content} </div>
+        <div id="type2" data-element-id="${element.type}" contenteditable='true'> ${element.type}</div> 
+        <div id="content2" data-element-id=" ${element.content}" contenteditable='true'> ${element.content} </div>
+        <button type="button" id="update" data-element-id="${element.id_message}"> Update </button>
         <button type="button" id="delete" data-element-id="${element.id_message}"> Delete </button>
         </div>
         </div>

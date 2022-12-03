@@ -17,6 +17,8 @@ const contactPage = () => {
 
 
     document.querySelector('#messageSubmit').addEventListener('click', async (e) => {
+
+        e.preventDefault();
         const content = document.querySelector('#message').value;
         const type = document.querySelector('#type').value;
         let response;
@@ -40,7 +42,7 @@ const contactPage = () => {
 
         if (!response.ok) throw new Error(`fetch error : ${response.status} : ${response.statusText}`);
 
-        e.preventDefault();
+        Navigate('/contactView');
 
     });
     document.querySelector('#changePage').addEventListener('click', () => {
