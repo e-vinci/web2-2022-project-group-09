@@ -7,7 +7,7 @@ import { isAuthenticated, setAnonymeUser, setAuthenticatedUser } from '../../uti
 import Navbar from '../Navbar/Navbar';
 import Navigate from '../Router/Navigate';
 
-
+/* eslint-disable */
 let homePage = "";
 
 if (isAuthenticated()) {

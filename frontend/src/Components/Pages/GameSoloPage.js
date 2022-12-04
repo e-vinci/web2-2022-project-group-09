@@ -6,14 +6,23 @@ import deBruyn from "../../img/deBruyn.jpg"
 import meunier from "../../img/meunier.jpg"
 import hazard from "../../img/hazard.jpg"
 import mertenss from "../../img/thumbnail_unnamed.jpg"
+import Navigate from '../Router/Navigate';
 
 /* eslint-disable */
 
 const GameSoloPage = () => {
     Navbar();
     clearPage();
+    const btnRestart= document.createElement('button');
+    btnRestart.className='restart';
+    btnRestart.innerHTML="Restart";
+    btnRestart.addEventListener('click', () => {
+        Navigate('/new');
+      });
     const divBackGame = document.createElement('div');
     divBackGame.className = 'divBackGame';
+    const divBackRestart = document.createElement('div');
+    divBackRestart.className = 'divBackRestart';
     const main = document.querySelector('main');
     const maxMoves = document.createElement('h1');
     maxMoves.innerHTML = 'lives : ';
@@ -26,6 +35,20 @@ const GameSoloPage = () => {
     divBackGame.appendChild(section);
     let playerLives = 4;
     maxMovesCount.textContent = playerLives;
+    //<button class="btn"><i class="fa fa-home"></i></button>
+    const btnHome=document.createElement('button');
+    btnHome.className='btn';
+    section.appendChild(divBackRestart);
+    divBackRestart.appendChild(btnRestart);
+    divBackRestart.appendChild(btnHome);
+    const iHome= document.createElement('i');
+    iHome.className='fa fa-home';
+    btnHome.appendChild(iHome);
+    btnHome.addEventListener('click', () => {
+        Navigate('/');
+      });
+
+
     /*
     if (mode === 1) {
      console.log("1");
@@ -130,6 +153,7 @@ const regarderCarte= (e) => {
                 console.log("plus de vies");
                 carteFlip.forEach((card)=> {
                     card.classList.remove("toggleCard");
+
 
                 })
         }

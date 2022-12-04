@@ -1,7 +1,7 @@
 import Navigate from '../Router/Navigate';
 import { getAuthenticatedUser } from "../../utils/auths";
 
-
+/* eslint-disable */
 
 const contactPage = async () => {
 
