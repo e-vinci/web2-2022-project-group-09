@@ -75,7 +75,7 @@ hr {
   bottom: 60px;
   right: 42%;
   text-align: center;
-  border: solid 1px black;
+  border: solid 3px black;
   padding: 20px 20px;
   font-weight: bold;
   font-size: large;
@@ -83,7 +83,6 @@ hr {
 
 .checkBox a {
   color: white;
-  
 }
 
 
@@ -368,7 +367,7 @@ section{
   border-radius: 25% 10%;
 }
 .verso{
-  background-image: url("../img/Football_Pallo_valmiina-cropped.jpg");
+  background-image: url("../img/ballon.jpg");
   backface-visibility: hidden;
   background-position: center;
   background-size: 150px;
@@ -409,13 +408,35 @@ section{
   background-color: rgba(0, 0, 0, 0.3);
 
 }
-.level {
+.levelEasy {
   width: 500px;
   height: 100px;
   padding: 10px;
   background-color: rgba(0, 0, 0, 0.3);
   border: 2px solid rgba(0, 0, 0, 0.2);
-  font-size: 24px;
+  font-size: 28px;
+  cursor: pointer;
+
+}
+
+.levelMedium {
+  width: 500px;
+  height: 100px;
+  padding: 10px;
+  background-color: rgba(0, 0, 0, 0.3);
+  border: 2px solid rgba(0, 0, 0, 0.2);
+  font-size: 28px;
+  cursor: pointer;
+
+}
+
+.levelHard {
+  width: 500px;
+  height: 100px;
+  padding: 10px;
+  background-color: rgba(0, 0, 0, 0.3);
+  border: 2px solid rgba(0, 0, 0, 0.2);
+  font-size: 28px;
   cursor: pointer;
 
 }
@@ -429,15 +450,18 @@ section{
   cursor: pointer;
 }
 
-.level:hover {
-  background-color: #FFFF5C;
+.levelEasy:hover {
+  background-color: rgba(0, 0, 0, 0.7);
   font-size: 250%;
 
 }
-
-.level:active {
-  background-color: #B22222;
-  transform: translateY(4px);
-  box-shadow: 2px 2px 5px #fc894d;
+.levelMedium:hover {
+  background-color: rgb(255, 252, 127);
+  font-size: 250%;
 
 }
+.levelHard:hover {
+  background-color: rgb(255, 26, 7);
+  font-size: 250%;
+}
+

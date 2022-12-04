@@ -5,10 +5,18 @@ import Navbar from '../Navbar/Navbar';
 const NewPage = () => {
   Navbar();
   clearPage();
-  renderGoBackHomeButton();
-};
 
-function renderGoBackHomeButton() {
+  const onEasy = () => {
+    Navigate("/gameSolo");
+  };
+
+  const onMedium = () => {
+    Navigate("/gameSolo");
+  };
+
+  const onHard = () => {
+    Navigate("/gameSolo");
+  };
   const main = document.querySelector('main');
   const submit = document.createElement('input');
   submit.value = 'Go back to HomePage';
@@ -33,22 +41,19 @@ function renderGoBackHomeButton() {
 
   const btnEasy = document.createElement('button');
   btnEasy.innerHTML = "Easy";
-  btnEasy.className = 'level';
-  btnEasy.addEventListener('click', () => {
-    Navigate('/gameSolo');
-  });
+  btnEasy.className = 'levelEasy';
+  btnEasy.addEventListener('click', onEasy);
+
   const btnMedium = document.createElement('button');
   btnMedium.innerHTML = "Medium";
-  btnMedium.className = 'level';
-  btnMedium.addEventListener('click', () => {
-    Navigate('/gameSolo');
-  });
+  btnMedium.className = 'levelMedium';
+  btnMedium.addEventListener('click', onMedium);
+
   const btnHard = document.createElement('button');
   btnHard.innerHTML = "Hard";
-  btnHard.className = 'level';
-  btnHard.addEventListener('click', () => {
-    Navigate('/gameSolo');
-  });
+  btnHard.className = 'levelHard';
+  btnHard.addEventListener('click', onHard);
+
   main.appendChild(divBoxes);
   divBoxes.appendChild(divColumn1);
   divBoxes.appendChild(divColumn2);
@@ -60,6 +65,6 @@ function renderGoBackHomeButton() {
   divColumn2.appendChild(submit);
 
 
-}
 
-export default NewPage;
+};
+export default NewPage ;
