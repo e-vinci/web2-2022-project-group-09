@@ -5,7 +5,10 @@ import courtois from "../../img/Courtois.png"
 import deBruyn from "../../img/deBruyn.jpg"
 import meunier from "../../img/meunier.jpg"
 import hazard from "../../img/hazard.jpg"
+import hazard2 from "../../img/hazard2.jpg"
+import equipe from "../../img/equipe.jpg"
 import mertenss from "../../img/thumbnail_unnamed.jpg"
+import batshuayi from "../../img/batshuayi.jpg"
 import Navigate from '../Router/Navigate';
 import {mode} from "./LevelPage";
 
@@ -53,6 +56,7 @@ const GameSoloPage = () => {
     let secondes = 0;
     let timeOut;
     const section = document.createElement('section');
+    section.className = 'sectionCard'
 
     main.appendChild(divBackGame);
     divBackGame.appendChild(divLivesTimer);
@@ -90,6 +94,9 @@ const GameSoloPage = () => {
             {imgSrc: meunier, name: "meunier"},
             {imgSrc: hazard, name: "hazard"},
             {imgSrc: mertenss, name: "mertenss"},
+            {imgSrc: equipe, name: "equipe"},
+            {imgSrc: batshuayi, name: "batshuayi"},
+            {imgSrc: hazard2, name: "hazard2"},
 
 
             {imgSrc: lukaku, name: "lukaku"},
@@ -98,6 +105,10 @@ const GameSoloPage = () => {
             {imgSrc: meunier, name: "meunier"},
             {imgSrc: hazard, name: "hazard"},
             {imgSrc: mertenss, name: "mertenss"},
+            {imgSrc: equipe, name: "equipe"},
+            {imgSrc: batshuayi, name: "batshuayi"},
+            {imgSrc: hazard2, name: "hazard2"},
+
         ];
     const randomize = () => {
         const cardData = generateData();
