@@ -302,7 +302,7 @@ p {
     float: right;
     cursor: pointer;
 }
-
+/*
 .imgdiv {
     position: relative;
     display: inline-block;
@@ -320,7 +320,7 @@ img {
     width: 120px;
     height: 120px;
 }
-
+*/
 .hide {
     padding: 10px;
     visibility: hidden;
@@ -330,7 +330,9 @@ img {
     visibility: visible !important;
 }
 
+
 /*--------------------------------------------------------------------------------GAME PAGE-----------------------------------------------------------*/
+
 section {
     display: grid;
     grid-template-columns: repeat(4, 10rem);
@@ -338,6 +340,7 @@ section {
     grid-gap: 2rem;
     perspective: 800px;
 }
+
 
 .card {
     position: relative;
@@ -444,15 +447,7 @@ section {
     cursor: pointer;
 }
 
-.home {
-    width: 470px;
-    height: 100px;
-    padding: 10px;
-    background-color: rgba(0, 0, 0, 0.3);
-    border: 2px solid rgba(0, 0, 0, 0.2);
-    font-size: 24px;
-    cursor: pointer;
-}
+
 
 .levelEasy:hover {
     background-color: rgba(0, 0, 0, 0.7);

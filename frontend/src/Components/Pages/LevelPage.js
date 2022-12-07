@@ -27,12 +27,7 @@ const LevelPage = () => {
         Navigate("/gameSolo");
     };
     const main = document.querySelector('main');
-    const submit = document.createElement('input');
-    submit.value = 'Go back to HomePage';
-    submit.className = 'home';
-    submit.addEventListener('click', () => {
-        Navigate('/');
-    });
+
     const soloGameTitle = document.createElement("h1");
     soloGameTitle.innerHTML = 'Solo Game'
 
@@ -63,15 +58,34 @@ const LevelPage = () => {
     btnHard.className = 'levelHard';
     btnHard.addEventListener('click', onHard);
 
+    const btnEasy1 = document.createElement('button');
+    btnEasy.innerHTML = "Easy";
+    btnEasy.className = 'levelEasy';
+    btnEasy.addEventListener('click', onEasy);
+
+    const btnMedium1 = document.createElement('button');
+    btnMedium.innerHTML = "Medium";
+    btnMedium.className = 'levelMedium';
+    btnMedium.addEventListener('click', onMedium);
+
+    const btnHard1 = document.createElement('button');
+    btnHard.innerHTML = "Hard";
+    btnHard.className = 'levelHard';
+    btnHard.addEventListener('click', onHard);
+
     main.appendChild(divBoxes);
     divBoxes.appendChild(divColumn1);
-    divBoxes.appendChild(divColumn2);
     divColumn1.appendChild(soloGameTitle);
     divColumn1.appendChild(btnEasy);
     divColumn1.appendChild(btnMedium);
     divColumn1.appendChild(btnHard);
+
+    divBoxes.appendChild(divColumn2);
     divColumn2.appendChild(title1v1);
-    divColumn2.appendChild(submit);
+    divColumn2.appendChild(btnEasy1);
+    divColumn2.appendChild(btnMedium1);
+    divColumn2.appendChild(btnHard1);
+
 
 };
 export {mode, LevelPage as default};
