@@ -1,3 +1,15 @@
+
+/***************************************************************************************
+*    Author : maxinetillman (on GitHub) , developedbyed (on Youtube)
+*    URL Youtube : https://www.youtube.com/watch?v=-tlb4tv4mC4
+*    GitHub Repo : https://github.com/developedbyed/memory-game
+*    Note : This Repo is the fondation of our game we used his tips to
+*           create our methods and variables.
+*
+***************************************************************************************/
+
+
+
 # Boilerplate pour vos applications modernes utilisant Webpack, Phaser (Jeux en 2D) et un routeur
 # How to use ?
 - Si vous ne l'avez pas fait, vous pouvez cloner le repo associé au boilerplate pour initier votre application : `git clone https://github.com/e-vinci/js-router-boilerplate.git` ou `git clone https://github.com/e-vinci/js-router-boilerplate.git nom-de-votre-projet` pour créer votre projet nommé `nom-de-votre-projet`.

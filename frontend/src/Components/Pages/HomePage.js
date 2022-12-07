@@ -2,7 +2,7 @@ import anime from 'animejs/lib/anime.es';
 import UserIcon1 from '../../img/userI1.jpg';
 import UserIcon2 from '../../img/userI2.png';
 import cardGame from '../../img/gamecard.png';
-import { isAuthenticated, setAnonymeUser, setAuthenticatedUser } from '../../utils/auths';
+import {isAuthenticated, setAnonymeUser, setAuthenticatedUser} from '../../utils/auths';
 
 import Navbar from '../Navbar/Navbar';
 import Navigate from '../Router/Navigate';
@@ -11,10 +11,10 @@ import Navigate from '../Router/Navigate';
 let homePage = "";
 
 if (isAuthenticated()) {
-  homePage = '<p> Vous etes deja connecter <a href="/logout" > cliquer ici </a> pour vous deconnecter </p>'
+    homePage = '<p> Vous etes deja connecter <a href="/logout" > cliquer ici </a> pour vous deconnecter </p>'
 
 } else {
-  homePage = `
+    homePage = `
 
       <div class="card-outer">
       <div class="card-container">
@@ -93,123 +93,120 @@ if (isAuthenticated()) {
 
 
 const HomePage = () => {
-  const main = document.querySelector('main');
-  main.innerHTML = homePage
-  document.addEventListener('submit', async (e) => {
-    e.preventDefault();
-    const x = document.getElementById("checkBox");
-    if (x.checked === false) {
-      alert('Please accept the terms & conditions')
-    } else {
+    const main = document.querySelector('main');
+    main.innerHTML = homePage
+    document.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const x = document.getElementById("checkBox");
+        if (x.checked === false) {
+            alert('Please accept the terms & conditions')
+        } else {
 
 
-      const type = e.submitter.id
-      const username = document.querySelector('#username')?.value;
-      const password = document.querySelector('#password')?.value;
-      const usernameAnonyme = document.querySelector('#usernameAnonym')?.value;
+            const type = e.submitter.id
+            const username = document.querySelector('#username')?.value;
+            const password = document.querySelector('#password')?.value;
+            const usernameAnonyme = document.querySelector('#usernameAnonym')?.value;
 
-      if (type === "login") {
+            if (type === "login") {
 
-        const OPTIONS = {
-          method: 'POST',
-          body: JSON.stringify({
-            username,
-            password
-          }),
-          headers: {
-            'Content-Type': 'application/json',
-          }
+                const OPTIONS = {
+                    method: 'POST',
+                    body: JSON.stringify({
+                        username,
+                        password
+                    }),
+                    headers: {
+                        'Content-Type': 'application/json',
+                    }
 
-        };
-        const response = await fetch('/api/auth/login', OPTIONS);
-        if (!response.ok) alert('Mauvais identifiant')
+                };
+                const response = await fetch('/api/auth/login', OPTIONS);
+                if (!response.ok) alert('Mauvais identifiant')
 
-        const authenticatedUser = await response.json();
-        setAuthenticatedUser(authenticatedUser)
-      }
+                const authenticatedUser = await response.json();
+                setAuthenticatedUser(authenticatedUser)
+            }
 
-      if (type === "register") {
+            if (type === "register") {
 
-        const OPTIONS = {
-          method: 'POST',
-          body: JSON.stringify({
-            username,
-            password
-          }),
-          headers: {
-            'Content-Type': 'application/json',
-          }
+                const OPTIONS = {
+                    method: 'POST',
+                    body: JSON.stringify({
+                        username,
+                        password
+                    }),
+                    headers: {
+                        'Content-Type': 'application/json',
+                    }
 
-        };
-        const response = await fetch('/api/auth/register', OPTIONS);
-        if (!response.ok) alert('Ce compte existe deja ')
+                };
+                const response = await fetch('/api/auth/register', OPTIONS);
+                if (!response.ok) alert('Ce compte existe deja ')
 
-        const authenticatedUser = await response.json();
-        setAuthenticatedUser(authenticatedUser)
+                const authenticatedUser = await response.json();
+                setAuthenticatedUser(authenticatedUser)
 
-      }
+            }
 
-      if (type === "anonymLogin") {
+            if (type === "anonymLogin") {
 
-        setAnonymeUser(usernameAnonyme);
-      }
-      x.checked = false;
-      Navbar();
-      Navigate('/level');
-    }
-  });
+                setAnonymeUser(usernameAnonyme);
+            }
+            x.checked = false;
+            Navbar();
+            Navigate('/level');
+        }
+    });
 
-  let cardReturned = false;
-  let cardReturned2 = false;
-
-
-  const card = document.querySelector(".card1");
-  card.addEventListener("click", () => {
-    if (cardReturned2 === true) {
-      cardReturned2 = false;
-      document.querySelector(".card2").click();
-      cardReturned2 = false;
-    }
-    if (cardReturned === true) return;
-    anime({
-      targets: card,
-      scale: [{ value: 1 }, { value: 1.3 }, { value: 1, delay: 250 }],
-      rotateY: { value: "+=180", delay: 200 },
-      easing: "easeInOutSine",
-      duration: 400,
-
-    })
-
-    cardReturned = true;
-
-  });
-
-  const card2 = document.querySelector(".card2");
-  card2.addEventListener("click", () => {
-    if (cardReturned === true) {
-      cardReturned = false;
-      document.querySelector(".card1").click();
-
-      cardReturned = false;
-    }
-    if (cardReturned2 === true) return;
-    anime({
-      targets: card2,
-      scale: [{ value: 1 }, { value: 1.3 }, { value: 1, delay: 250 }],
-      rotateY: { value: "+=180", delay: 200 },
-      easing: "easeInOutSine",
-      duration: 400,
-
-    })
-    cardReturned2 = true;
+    let cardReturned = false;
+    let cardReturned2 = false;
 
 
-  });
+    const card = document.querySelector(".card1");
+    card.addEventListener("click", () => {
+        if (cardReturned2 === true) {
+            cardReturned2 = false;
+            document.querySelector(".card2").click();
+            cardReturned2 = false;
+        }
+        if (cardReturned === true) return;
+        anime({
+            targets: card,
+            scale: [{value: 1}, {value: 1.3}, {value: 1, delay: 250}],
+            rotateY: {value: "+=180", delay: 200},
+            easing: "easeInOutSine",
+            duration: 400,
+
+        })
+
+        cardReturned = true;
+
+    });
+
+    const card2 = document.querySelector(".card2");
+    card2.addEventListener("click", () => {
+        if (cardReturned === true) {
+            cardReturned = false;
+            document.querySelector(".card1").click();
+
+            cardReturned = false;
+        }
+        if (cardReturned2 === true) return;
+        anime({
+            targets: card2,
+            scale: [{value: 1}, {value: 1.3}, {value: 1, delay: 250}],
+            rotateY: {value: "+=180", delay: 200},
+            easing: "easeInOutSine",
+            duration: 400,
+
+        })
+        cardReturned2 = true;
+
+
+    });
 
 };
-
-
-
 
 
 export default HomePage;
