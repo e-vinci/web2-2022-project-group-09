@@ -316,11 +316,6 @@ p {
     cursor: pointer;
 }
 
-img {
-    width: 120px;
-    height: 120px;
-}
-*/
 .hide {
     padding: 10px;
     visibility: hidden;
@@ -332,10 +327,9 @@ img {
 
 
 /*--------------------------------------------------------------------------------GAME PAGE-----------------------------------------------------------*/
-
-section {
+.sectionCard {
     display: grid;
-    grid-template-columns: repeat(4, 10rem);
+    grid-template-columns: repeat(6, 10rem);
     grid-template-rows: repeat(4, 10rem);
     grid-gap: 2rem;
     perspective: 800px;
@@ -346,8 +340,7 @@ section {
     position: relative;
     transform-style: preserve-3d;
     transition: all 2s cubic-bezier(0.2, 0.885, 0.32, 1.275);
-    box-shadow: rgba(0, 0, 0, 0.2) 0px 5px 15px;
-
+    box-shadow: rgba(0, 0, 0, 0) 0px 5px 15px;
 }
 
 .recto,
@@ -373,10 +366,10 @@ section {
 .divBackGame {
     background: rgba(0, 0, 0, 0.4);
     height: 650px;
-    width: 750px;
+    width: 1140px;
     margin-left: auto;
     margin-right: auto;
-    padding: 20px;
+    padding:20px;
     border-radius: 30px;
 }
 
