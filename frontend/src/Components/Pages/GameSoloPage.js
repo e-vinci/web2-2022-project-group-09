@@ -13,29 +13,48 @@ import Navigate from '../Router/Navigate';
 const GameSoloPage = () => {
     Navbar();
     clearPage();
+
+
+    const divBackRestart = document.createElement('div');
+    divBackRestart.className = 'divBackRestart';
+
+    const divBackGame = document.createElement('div');
+    divBackGame.className = 'divBackGame';
+
+    const main = document.querySelector('main');
+
+    const maxMoves = document.createElement('h1');
+    maxMoves.innerHTML = 'lives : ';
+
+    const maxMovesCount = document.createElement('span');
+    maxMovesCount.className = 'playerLivesCount';
+
+    //timer
+    const timer = document.createElement('span');
+    timer.className = 'timer';
+    let heures = 0;
+    let minutes = 0;
+    let secondes = 0;
+
+    let timeOut;
+    const section = document.createElement('section');
+
+    main.appendChild(divBackGame);
+    divBackGame.appendChild(maxMoves);
+    maxMoves.appendChild(maxMovesCount);
+    maxMoves.appendChild(timer);
+    divBackGame.appendChild(section);
+
+    let playerLives = 4;
+    maxMovesCount.textContent = playerLives;
+
+    //restart button for Game Over
     const btnRestart= document.createElement('button');
     btnRestart.className='restart';
     btnRestart.innerHTML="Restart";
     btnRestart.addEventListener('click', () => {
-        Navigate('/new');
-      });
-    const divBackGame = document.createElement('div');
-    divBackGame.className = 'divBackGame';
-    const divBackRestart = document.createElement('div');
-    divBackRestart.className = 'divBackRestart';
-    const main = document.querySelector('main');
-    const maxMoves = document.createElement('h1');
-    maxMoves.innerHTML = 'lives : ';
-    const maxMovesCount = document.createElement('span');
-    maxMovesCount.className = 'playerLivesCount';
-    const section = document.createElement('section');
-    main.appendChild(divBackGame);
-    divBackGame.appendChild(maxMoves);
-    maxMoves.appendChild(maxMovesCount);
-    divBackGame.appendChild(section);
-    let playerLives = 4;
-    maxMovesCount.textContent = playerLives;
-    //<button class="btn"><i class="fa fa-home"></i></button>
+        Navigate('/level');
+    });
     const btnHome=document.createElement('button');
     btnHome.className='btn';
     section.appendChild(divBackRestart);
@@ -46,7 +65,7 @@ const GameSoloPage = () => {
     btnHome.appendChild(iHome);
     btnHome.addEventListener('click', () => {
         Navigate('/');
-      });
+    });
 
 
     /*
@@ -118,18 +137,41 @@ const cardGenerator = () =>{
     })
 
 };
+let defilerTempsBool = false;
 //correspondance des cartes
 const regarderCarte= (e) => {
 
   const carteClick = e.target;
   carteClick.classList.add("flipped");
+    if(!defilerTempsBool){
+        defilerTemps();
+        defilerTempsBool = true;
+    }
   const carteFlip=document.querySelectorAll(".flipped");
-    if (playerLives === 0 ){
-        console.log("plus de vies");
+  /*
+  if (playerLives === 0 ){
+    //juste un petit probleme quand vies = 0, faut rappuyer une fois pour afficher
+      clearTimeout(timeOut);
+      carteFlip.forEach((card)=> {
+          card.classList.remove("toggleCard");
+      })
+        divBackRestart.style.display = 'block';
+  }
+   */
+    if(carteFlip.length===2 && playerLives ===1 && carteFlip[0].getAttribute("name") !== carteFlip[1].getAttribute("name")){
+        carteFlip.forEach((card)=> {
+            card.classList.remove("flipped");
+            setTimeout(()=> card.classList.remove("toggleCard"), 1000);
+
+        });
+        playerLives =0;
+        maxMovesCount.textContent=playerLives;
+        clearTimeout(timeOut);
         carteFlip.forEach((card)=> {
             card.classList.remove("toggleCard");
-
         })
+        divBackRestart.style.display = 'block'
+
     }
   if(carteFlip.length===2){
     if(carteFlip[0].getAttribute("name") === carteFlip[1].getAttribute("name")){
@@ -149,21 +191,47 @@ const regarderCarte= (e) => {
             playerLives--;
             maxMovesCount.textContent=playerLives;
         }
-        else if (playerLives === 0 ){
-                console.log("plus de vies");
-                carteFlip.forEach((card)=> {
-                    card.classList.remove("toggleCard");
-
-
-                })
-        }
     }
   }
 
 };
 cardGenerator();
-const gameOver =()=>{
-}
+    const defilerTemps = () => {
+
+        secondes = parseInt(secondes);
+        minutes = parseInt(minutes);
+        heures = parseInt(heures);
+
+        secondes++;
+
+        if (secondes === 60) {
+            minutes++;
+            secondes = 0;
+        }
+
+        if (minutes === 60) {
+            heures++;
+            minutes = 0;
+        }
+
+        //   affichage
+        if (secondes < 10) {
+            secondes = "0" + secondes;
+        }
+
+        if (minutes < 10) {
+            minutes = "0" + minutes;
+        }
+
+        if (heures < 10) {
+            heures = "0" + heures;
+        }
+
+        timer.textContent = `${heures}:${minutes}:${secondes}`;
+
+        timeOut = setTimeout(defilerTemps, 1000);
+    };
+
 }
 
 

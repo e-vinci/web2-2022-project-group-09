@@ -2,7 +2,7 @@ import Navigate from '../Router/Navigate';
 import { clearPage } from '../../utils/render';
 import Navbar from '../Navbar/Navbar';
 
-const NewPage = () => {
+const LevelPage = () => {
   Navbar();
   clearPage();
 
@@ -67,4 +67,4 @@ const NewPage = () => {
 
 
 };
-export default NewPage ;
+export default LevelPage ;

@@ -16,10 +16,9 @@ if (isAuthenticated()) {
 } else {
   homePage = `
 
-   
       <div class="card-outer">
-
       <div class="card-container">
+      
         <div class="card1">
           <div class="back">
           <form class="connexion">  
@@ -39,9 +38,6 @@ if (isAuthenticated()) {
              <input type="submit" id="register"  value="Register"/>
        </div>  
          
-             
-         
-    
       </div>   
   </form> 
           </div>
@@ -52,8 +48,6 @@ if (isAuthenticated()) {
           </div>
         </div>
       </div>
-
-
 
       <div class="card-outer2">
       <div class="card2">
@@ -76,14 +70,11 @@ if (isAuthenticated()) {
           </form class> 
           </div>
           <div class="front ">
-        <img src=${cardGame} id="cardGame" >
+        <img src=${cardGame} id="cardGame" >  
+           </div>
+           </div>
+           </div>
            
-           </div>
-
-           </div>
-           </div>
-
-
            <form class ="checkBox">
            <div class="terms">
            <!-- Your Content -->
@@ -93,7 +84,10 @@ if (isAuthenticated()) {
 
         <input type="checkbox" id="checkBox" value="" > 
            </form>
+           <div class="by">
+           <p>This project was created by Kubra Arslan, Adame Barhdadi, Ibrahim Bekkari and Leon Kelmendi</p>
 
+</div>
 `
 }
 
@@ -161,7 +155,7 @@ const HomePage = () => {
       }
       x.checked = false;
       Navbar();
-      Navigate('/new');
+      Navigate('/level');
     }
   });
 
