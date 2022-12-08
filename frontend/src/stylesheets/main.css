@@ -733,7 +733,41 @@ position: absolute;
 #imgBall0 {
     display: none;
 }
+@media screen and (max-width :1200px) {
+    
+    .sectionCard1 {
+        display: grid;
+        grid-template-columns: repeat(3, 10rem);
+        grid-template-rows: repeat(6, 6rem);
+        grid-gap: 2rem;
+        perspective: 800px;
+    }
+    
+    
+    .divBackGame1 {
+        background: rgba(0, 0, 0, 0.4);
+        height: 750px;
+        width: 550px;
+        margin-left: auto;
+        margin-right: auto;
+        padding: 20px;
+        border-radius: 30px;
+    }
 
+    .player2,.player1 {
+        width: auto;
+    }
+    .player2{
+        margin-right: 40px;
+    }
+    #imgBall2{
+
+        right: 42px;
+    }
+    #imgBall1 {
+        left: 32px;
+    }
+}
 .recto1,
 .verso1 {
     width: 100%;
