@@ -13,6 +13,7 @@ router.get('/', (req, res) => {
 
 
 router.post('/', (req, res) => {
+    console.log(req.body.nbePoint,req.body.nbeErreu)
     const user_id = req.session.user_id;
     const nbePoint = req?.body?.nbePoint?.length !== 0 ? req.body.nbePoint : undefined;
     const nbeErreu =req?.body?.nbeErreu?.length !== 0 ? req.body.nbeErreu : undefined;
