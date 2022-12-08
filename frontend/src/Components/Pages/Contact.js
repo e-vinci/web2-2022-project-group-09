@@ -12,7 +12,7 @@ const contactPage = () => {
     if (isAuthenticated() || isUserAnonyme()) {
         main.innerHTML = page;
     } else {
-        main.innerHTML = "Vous n'avez pas acces a cet page";
+        main.innerHTML = `<center><p style="font-size: x-large" >Vous n'avez pas acces a cet page</p></center>`;
     }
 
 
@@ -81,7 +81,7 @@ function pageHtml() {
   </select>
     </div>  
          
-    <div>
+
      <div>
   <label for="message">Write your message:</label>
   </div>
@@ -90,9 +90,9 @@ function pageHtml() {
            </div>  
            
            <div>
-           <button type="submit" id="messageSubmit"  value="Submit">Submit </button>
+          <center> <button type="submit" id="messageSubmit"  value="Submit">Submit </button></center>
      </div>  
-       </div>
+
   </form>
   </div>
   </section>

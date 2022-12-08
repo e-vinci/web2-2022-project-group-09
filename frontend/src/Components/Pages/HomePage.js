@@ -122,7 +122,7 @@ const HomePage = () => {
 
                 };
                 const response = await fetch('/api/auth/login', OPTIONS);
-                if (!response.ok) alert('Mauvais identifiant')
+                if (!response.ok)  Swal.fire('Mauvais identifiant')
 
                 const authenticatedUser = await response.json();
                 setAuthenticatedUser(authenticatedUser)
@@ -142,7 +142,7 @@ const HomePage = () => {
 
                 };
                 const response = await fetch('/api/auth/register', OPTIONS);
-                if (!response.ok) alert('Ce compte existe deja ')
+                if (!response.ok)   Swal.fire('Ce compte existe deja ')
 
                 const authenticatedUser = await response.json();
                 setAuthenticatedUser(authenticatedUser)

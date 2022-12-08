@@ -1,7 +1,7 @@
 /* eslint-disable */
 
 import Navigate from '../Router/Navigate';
-import {clearPage} from '../../utils/render';
+import { clearPage } from '../../utils/render';
 import Navbar from '../Navbar/Navbar';
 
 let mode;
@@ -66,28 +66,28 @@ const LevelPage = () => {
     const btnEasy1 = document.createElement('button');
     btnEasy1.innerHTML = "Easy (4s to memorize cart)";
     btnEasy1.className = 'levelEasy';
-    btnEasy1.addEventListener('click', (e)=>{
-        const difficulte=e.target.innerHTML
+    btnEasy1.addEventListener('click', (e) => {
+        const difficulte = e.target.innerHTML
         Navigate(`/game1v1Page?difficulte=${difficulte}`)
     });
 
     const btnMedium1 = document.createElement('button');
     btnMedium1.innerHTML = "Medium  (2s to memorize cart)";
     btnMedium1.className = 'levelMedium';
-    btnMedium1.addEventListener('click', (e)=>{
-        const difficulte=e.target.innerHTML
+    btnMedium1.addEventListener('click', (e) => {
+        const difficulte = e.target.innerHTML
         Navigate(`/game1v1Page?difficulte=${difficulte}`)
     });
 
     const btnHard1 = document.createElement('button');
     btnHard1.innerHTML = "Hard  (0.7s to memorize cart)";
     btnHard1.className = 'levelHard';
-    btnHard1.addEventListener('click', (e)=>{
-        const difficulte=e.target.innerHTML
+    btnHard1.addEventListener('click', (e) => {
+        const difficulte = e.target.innerHTML
         Navigate(`/game1v1Page?difficulte=${difficulte}`)
     });
 
-     main.appendChild(divBoxes);
+    main.appendChild(divBoxes);
     divBoxes.appendChild(divColumn1);
     divBoxes.appendChild(divColumn2);
     divColumn1.appendChild(soloGameTitle);
@@ -100,4 +100,4 @@ const LevelPage = () => {
     divColumn2.appendChild(btnHard1);
 
 };
-export {mode, LevelPage as default};
+export { mode, LevelPage as default };

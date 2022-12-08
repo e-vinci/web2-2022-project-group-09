@@ -1,3 +1,5 @@
+import Swal from 'sweetalert2';
+
 import Navigate from '../Router/Navigate';
 import { getAuthenticatedUser } from "../../utils/auths";
 
@@ -44,7 +46,10 @@ const contactPage = async () => {
         }
         const response = await fetch(`/api/message/${elementId}`, options);
 
-        if (!response.ok) alert('Le type doit etre soit une "question" soit une "suggestion"')
+        if (!response.ok) Swal.fire({
+            title: 'Le type doit etre  une "question" ou une "suggestion"',
+            position: 'top',
+        })
         Navigate('/contactView')
     })
 };
@@ -73,7 +78,7 @@ function pageHtml(mesage) {
 
 
     } else {
-        contactpage += 'Vous n etes pas connecter'
+        contactpage += `<center><p style="font-size: x-large" >Vous n'etes pas connecter</p></center>`
     }
     return contactpage;
 }
