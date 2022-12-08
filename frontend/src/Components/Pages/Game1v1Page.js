@@ -81,6 +81,7 @@ const Game1v1Page = () => {
         joueur = 'Player 1';
         setTimeout(() => img.setAttribute('id', 'imgBall1'), timer + 2000);
     }
+    console.log(player1.innerHTML)
 
     const generateData = () =>
         [
@@ -142,7 +143,7 @@ const Game1v1Page = () => {
             if (carteFlip[0].getAttribute("name") === carteFlip[1].getAttribute("name") && cmptCartes === 0) {
                 let gagnant = Math.max(pointJoueur1,pointJoueur2)
                 console.log(gagnant)
-                if(gagnant === pointJoueur1){gagnant = player1.innerHTML} else{gagnant = player2.innerHTML}
+                if(gagnant === pointJoueur1){gagnant = 'Player 1'} else{gagnant = 'Player 2'}
                 Swal.fire({
                     title: `<span style="color:black"><strong>Le gagnant est ${gagnant}</strong></span>`,
                     imageUrl: `${cdm}`,
