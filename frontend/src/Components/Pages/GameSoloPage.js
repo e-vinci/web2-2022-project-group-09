@@ -171,16 +171,21 @@ const GameSoloPage = () => {
             })
             if (playerLives === 0) {
                 Swal.fire({
-                    title: `<span style="color:black"><strong>dommage.... :'(</strong></span>`,
+                    background : 'rgba(15, 15, 15, 0.7) ',
+                    title: `<span style="color:white"><strong>dommage.... :'(</strong></span>`,
                     imageUrl: `${sad}`,
                     width: 800,
                     padding: '3em',
-                    color: '#716add',
+                    showDenyButton: true,
+                    confirmButtonText:
+                        '<i class="fa fa-home"></i>',
+                    denyButtonText :
+                    '<a style="font-family:\'Games\', sans-serif;">Restart</a>\n',
                     
-                    showCancelButton: false,
-                    confirmButtonText: 'Replay',
                 }).then((result) => {
                     if (result.isConfirmed) {
+                        Navigate('/')
+                    }else if(result.isDenied){
                         Navigate('/level')
                     }
                 })
