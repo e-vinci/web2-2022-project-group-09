@@ -335,7 +335,7 @@ p {
 }
 
 /*--------------------------------------------------------------------------------GAME PAGE-----------------------------------------------------------*/
-.sectionCard {
+.sectionCard,.sectionCard1 {
     display: grid;
     grid-template-columns: repeat(6, 10rem);
     grid-template-rows: repeat(4, 10rem);
@@ -370,7 +370,7 @@ p {
     transform: rotateY(180deg);
 }
 
-.divBackGame {
+.divBackGame,.divBackGame1 {
     background: rgba(0, 0, 0, 0.4);
     height: 650px;
     width: 1140px;
@@ -682,12 +682,11 @@ p {
     margin-top: 20px;
 
 }
-
+/*---------------------------------------------------game 1v1---------------------------------------------------------*/
 .player1 {
     float: left;
     margin-left: 20px;
     background-color: white;
-
     border: solid 1px black;
     height: 700px;
     width: 200px;
@@ -721,3 +720,40 @@ p {
 #imgBall0 {
     display: none;
 }
+@media screen and (max-width :1024px) {
+    
+    .sectionCard1 {
+        display: grid;
+        grid-template-columns: repeat(3, 10rem);
+        grid-template-rows: repeat(6, 6rem);
+        grid-gap: 2rem;
+        perspective: 800px;
+    }
+    
+    
+    .divBackGame1 {
+        background: rgba(0, 0, 0, 0.4);
+        height: 750px;
+        width: 550px;
+        margin-left: auto;
+        margin-right: auto;
+        padding: 20px;
+        border-radius: 30px;
+    }
+
+    .player2,.player1 {
+        width: auto;
+    }
+    .player2{
+        margin-right: 40px;
+    }
+    #imgBall2{
+
+        right: 42px;
+    }
+    #imgBall1 {
+        left: 32px;
+    }
+}
+
+

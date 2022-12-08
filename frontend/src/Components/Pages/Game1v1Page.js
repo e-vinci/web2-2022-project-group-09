@@ -32,7 +32,7 @@ const Game1v1Page = () => {
     let pointJoueur2 = 0
 
     const divBackGame = document.createElement('div');
-    divBackGame.className = 'divBackGame';
+    divBackGame.className = 'divBackGame1';
 
     const main = document.querySelector('main');
 
@@ -60,7 +60,7 @@ const Game1v1Page = () => {
     player2Cmpt.innerHTML = `Point: ${pointJoueur2}`
 
     let section = document.createElement('section');
-    section.className = 'sectionCard'
+    section.className = 'sectionCard1'
 
     main.appendChild(divColumn1);
     main.appendChild(divColumn2);
@@ -182,7 +182,8 @@ const Game1v1Page = () => {
         })
     };
 
-    cardGenerator()
+    cardGenerator();
+    console.log("fini?")
 };
 
 

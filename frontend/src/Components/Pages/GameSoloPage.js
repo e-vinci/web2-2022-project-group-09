@@ -11,6 +11,8 @@ import mertenss from "../../img/thumbnail_unnamed.jpg"
 import batshuayi from "../../img/batshuayi.jpg"
 import Navigate from '../Router/Navigate';
 import {mode} from "./LevelPage";
+import { isAuthenticated } from '../../utils/auths';
+import { addData } from '../../models/point';
 
 /* eslint-disable */
 
@@ -48,6 +50,9 @@ const GameSoloPage = () => {
     const maxMovesCount = document.createElement('span');
     maxMovesCount.className = 'playerLivesCount';
 
+    let nbePoints = 0;
+    let nbeErreu = 0;
+    let cmptCartes = 9;
     //timer
     const timer = document.createElement('h1');
     timer.className = 'timer';
@@ -169,6 +174,8 @@ const GameSoloPage = () => {
                     card.classList.remove("flipped");
                     card.style.pointerEvents = "none";
                 })
+                nbePoints +=1;
+                cmptCartes -= 1;
             } else {
                 console.log("wrong");
                 carteFlip.forEach((card) => {
@@ -179,6 +186,11 @@ const GameSoloPage = () => {
                     playerLives--;
                     maxMovesCount.textContent = playerLives;
                 }
+                nbeErreu +=1;
+            }
+           
+            if((cmptCartes == 0 || playerLives ==0 ) && isAuthenticated()){
+                   ajouterData(nbePoints,nbeErreu);
             }
         }
 
@@ -220,5 +232,12 @@ const GameSoloPage = () => {
 
 }
 
-
+async function ajouterData(point,erreur){
+    console.log("requete")
+    const pointData= {
+        nbePoint:point,
+        nbeErreu:erreur,
+    }
+    await addData(pointData)
+}
 export default GameSoloPage;
