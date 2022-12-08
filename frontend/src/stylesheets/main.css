@@ -361,9 +361,8 @@ p {
 }
 
 
-
 .verso,.verso1 {
-  background-image: url("../img/pix.png");
+    background-image: url("../img/pix.png");
 
     backface-visibility: hidden;
     background-position: center;
