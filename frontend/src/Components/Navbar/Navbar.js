@@ -15,9 +15,9 @@ const Navbar = () => {
     navbar += `
  <ul>
  <li >
-   <a data-uri="/Ranking">Ranking</a>
+   <a data-uri="/ranking">Ranking</a>
    </li> 
- ${isAuthenticated() ? ' <li> <a data-uri="/Ranking">MyStats</a> </li>   ' : '<li> <a   href="#"  data-uri="/" >Login/Register</a> </li>'}
+ ${isAuthenticated() ? ' <li> <a data-uri="/mystats">MyStats</a> </li>   ' : '<li> <a   href="#"  data-uri="/" >Login/Register</a> </li>'}
  <li>
    <a  href="#" data-uri="/contact">Contact</a>
   </li> 
