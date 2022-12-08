@@ -13,6 +13,7 @@ import Navigate from '../Router/Navigate';
 import cdm from '../../img/cdm.jpg';
 import ballonJ from '../../img/ballonJ.png';
 
+/* eslint-disable */
 
 const Game1v1Page = () => {
     clearPage()

@@ -12,6 +12,8 @@ import mertenss from "../../img/thumbnail_unnamed.jpg"
 import batshuayi from "../../img/batshuayi.jpg"
 import Navigate from '../Router/Navigate';
 import cdm from '../../img/cdm.jpg';
+import sad from '../../img/sad.png';
+
 import {mode} from "./LevelPage";
 import { isAuthenticated } from '../../utils/auths';
 import { addData } from '../../models/point';
@@ -167,7 +169,22 @@ const GameSoloPage = () => {
             carteFlip.forEach((card) => {
                 card.classList.remove("toggleCard");
             })
-            divBackRestart.style.display = 'block'
+            if (playerLives === 0) {
+                Swal.fire({
+                    title: `<span style="color:black"><strong>dommage.... :'(</strong></span>`,
+                    imageUrl: `${sad}`,
+                    width: 800,
+                    padding: '3em',
+                    color: '#716add',
+                    
+                    showCancelButton: false,
+                    confirmButtonText: 'Replay',
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        Navigate('/level')
+                    }
+                })
+            }
         }
         if (carteFlip.length === 2) {
             if (carteFlip[0].getAttribute("name") === carteFlip[1].getAttribute("name")) {

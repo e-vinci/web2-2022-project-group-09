@@ -1,5 +1,5 @@
 body {
-    background-image: url("../img/foot.jpg");
+   background-color: #77DD77;
     margin: 0 0;
 
 }
@@ -360,7 +360,7 @@ p {
 }
 
 .verso {
-    background-image: url("../img/ballon.jpg");
+    background-image: url("../img/pix.png");
     backface-visibility: hidden;
     background-position: center;
     background-size: 150px;
