@@ -70,8 +70,16 @@ POST {{baseUrl}}/loginAnonyme
  }  
  
 ###
-GET http://localhost:3000/message
+GET http://localhost:3000/point
 
+###
+POST http://localhost:3000/point
+Content-Type: application/json
+
+{
+   "nbePoint":"3",
+   "nbeErreu":"5"
+}
 
 ### 
 POST http://localhost:3000/message/addMessageUser

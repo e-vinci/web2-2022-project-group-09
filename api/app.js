@@ -6,6 +6,7 @@ const cookieSession = require('cookie-session');
 
 const authRouter = require('./routes/auths');
 const messageRouteur = require('./routes/message');
+const pointRouteur = require('./routes/point');
 
 
 const app = express();
@@ -29,5 +30,6 @@ app.use(cookieParser());
 
 app.use('/auth', authRouter);
 app.use('/message', messageRouteur);
+app.use('/point',pointRouteur);
 
 module.exports = app;
