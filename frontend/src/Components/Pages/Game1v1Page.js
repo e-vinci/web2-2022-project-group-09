@@ -205,6 +205,10 @@ const Game1v1Page = () => {
     };
 
     cardGenerator();
+<<<<<<< HEAD
+=======
+   
+>>>>>>> f570c99f30b47ce9ad8a8a1f62c4e54a0ea6d2fb
 };
 
 

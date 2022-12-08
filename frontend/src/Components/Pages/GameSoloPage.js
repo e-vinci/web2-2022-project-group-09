@@ -1,3 +1,4 @@
+import Swal from 'sweetalert2';
 import {clearPage} from '../../utils/render';
 import Navbar from '../Navbar/Navbar';
 import lukaku from "../../img/Romelu-Lukaku.jpg"
@@ -10,6 +11,7 @@ import equipe from "../../img/equipe.jpg"
 import mertenss from "../../img/thumbnail_unnamed.jpg"
 import batshuayi from "../../img/batshuayi.jpg"
 import Navigate from '../Router/Navigate';
+import cdm from '../../img/cdm.jpg';
 import {mode} from "./LevelPage";
 import { isAuthenticated } from '../../utils/auths';
 import { addData } from '../../models/point';
@@ -49,7 +51,7 @@ const GameSoloPage = () => {
 
     const maxMovesCount = document.createElement('span');
     maxMovesCount.className = 'playerLivesCount';
-
+    
     let nbePoints = 0;
     let nbeErreu = 0;
     let cmptCartes = 9;
@@ -192,6 +194,22 @@ const GameSoloPage = () => {
             if((cmptCartes == 0 || playerLives ==0 ) && isAuthenticated()){
                    ajouterData(nbePoints,nbeErreu);
             }
+        }
+        if (cmptCartes === 0) {
+            Swal.fire({
+                title: `<span style="color:black"><strong>bravo tu a reussis en ${heures} : ${minutes} : ${secondes}</strong></span>`,
+                imageUrl: `${cdm}`,
+                width: 800,
+                padding: '3em',
+                color: '#716add',
+                background: `#fff url("https://acegif.com/wp-content/uploads/gif/confetti-31.gif")`,
+                showCancelButton: true,
+                confirmButtonText: 'Replay',
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    Navigate('/level')
+                }
+            })
         }
 
     };
