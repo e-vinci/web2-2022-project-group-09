@@ -1,3 +1,4 @@
+import Swal from 'sweetalert2';
 import {clearPage} from '../../utils/render';
 import Navbar from '../Navbar/Navbar';
 import lukaku from "../../img/Romelu-Lukaku.jpg"
@@ -10,6 +11,7 @@ import equipe from "../../img/equipe.jpg"
 import mertenss from "../../img/thumbnail_unnamed.jpg"
 import batshuayi from "../../img/batshuayi.jpg"
 import Navigate from '../Router/Navigate';
+import cdm from '../../img/cdm.jpg';
 import {mode} from "./LevelPage";
 
 /* eslint-disable */
@@ -30,6 +32,7 @@ const GameSoloPage = () => {
     console.log("ici" + mode);
 
     clearPage();
+    let cmptCartes = 9;
     const divBackRestart = document.createElement('div');
     divBackRestart.className = 'divBackRestart';
 
@@ -162,6 +165,7 @@ const GameSoloPage = () => {
             })
             divBackRestart.style.display = 'block'
         }
+           
         if (carteFlip.length === 2) {
             if (carteFlip[0].getAttribute("name") === carteFlip[1].getAttribute("name")) {
                 console.log("match");
@@ -169,17 +173,36 @@ const GameSoloPage = () => {
                     card.classList.remove("flipped");
                     card.style.pointerEvents = "none";
                 })
+                cmptCartes -= 1;
+                console.log(cmptCartes);
+                
             } else {
                 console.log("wrong");
                 carteFlip.forEach((card) => {
                     card.classList.remove("flipped");
-                    setTimeout(() => card.classList.remove("toggleCard"), 1000);
+                   
                 });
                 if (playerLives > 0) {
                     playerLives--;
                     maxMovesCount.textContent = playerLives;
                 }
             }
+        }
+        if (cmptCartes === 0) {
+            Swal.fire({
+                title: `<span style="color:black"><strong>bravo tu a reussis en ${heures} : ${minutes} : ${secondes}</strong></span>`,
+                imageUrl: `${cdm}`,
+                width: 800,
+                padding: '3em',
+                color: '#716add',
+                background: `#fff url("https://acegif.com/wp-content/uploads/gif/confetti-31.gif")`,
+                showCancelButton: true,
+                confirmButtonText: 'Replay',
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    Navigate('/level')
+                }
+            })
         }
 
     };
