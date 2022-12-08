@@ -335,7 +335,7 @@ p {
 }
 
 /*--------------------------------------------------------------------------------GAME PAGE-----------------------------------------------------------*/
-.sectionCard,.sectionCard1 {
+.sectionCard {
     display: grid;
     grid-template-columns: repeat(6, 10rem);
     grid-template-rows: repeat(4, 10rem);
@@ -344,6 +344,7 @@ p {
 }
 
 .card {
+   
     position: relative;
     transform-style: preserve-3d;
     transition: all 2s cubic-bezier(0.2, 0.885, 0.32, 1.275);
@@ -359,8 +360,11 @@ p {
     border-radius: 25% 10%;
 }
 
-.verso {
-    background-image: url("../img/pix.png");
+
+
+.verso,.verso1 {
+  background-image: url("../img/pix.png");
+
     backface-visibility: hidden;
     background-position: center;
     background-size: 150px;
@@ -370,7 +374,7 @@ p {
     transform: rotateY(180deg);
 }
 
-.divBackGame,.divBackGame1 {
+.divBackGame {
     background: rgba(0, 0, 0, 0.4);
     height: 650px;
     width: 1140px;
@@ -518,8 +522,8 @@ p {
     background-color: rgba(0, 0, 0, 0.7);
     position: absolute;
     margin-left: 22.5%;
-    margin-top: 4%;
-    width: 605px;
+    margin-top: 9%;
+    width: 400px;
     height: 400px;
     border-radius: 30px;
     z-index: 4;
@@ -683,77 +687,71 @@ p {
 
 }
 /*---------------------------------------------------game 1v1---------------------------------------------------------*/
+
+.divScore{
+    text-align: center;
+}
+.score{
+    display: inline-block;
+    font-size: xx-large;
+    margin-top: 50px;
+}
+.divJoueur{
+  display: flex;
+  margin-top: -170px;
+  position: relative;
+}
 .player1 {
-    float: left;
-    margin-left: 20px;
     background-color: white;
     border: solid 1px black;
-    height: 700px;
+    height: 150px;
     width: 200px;
 }
 
 .player2 {
-    float: right;
-    margin-right: 20px;
+    position: absolute;
+    right: 0;
     background-color: white;
     border: solid 1px black;
-    height: 700px;
+    height: 150px;
     width: 200px;
 }
 
 #imgBall1 {
     position: absolute;
+   float: left; 
     width: 100px;
-    top: 400px;
-    left: 75px;
     border: 0;
+    margin: 50px;
 }
 
 #imgBall2 {
-    position: absolute;
+position: absolute;
+    right: 0;
     width: 100px;
-    top: 400px;
-    right: 75px;
     border: 0;
+    margin: 50px;
 }
 
 #imgBall0 {
     display: none;
 }
-@media screen and (max-width :1200px) {
-    
-    .sectionCard1 {
-        display: grid;
-        grid-template-columns: repeat(3, 10rem);
-        grid-template-rows: repeat(6, 6rem);
-        grid-gap: 2rem;
-        perspective: 800px;
-    }
-    
-    
-    .divBackGame1 {
-        background: rgba(0, 0, 0, 0.4);
-        height: 750px;
-        width: 550px;
-        margin-left: auto;
-        margin-right: auto;
-        padding: 20px;
-        border-radius: 30px;
-    }
 
-    .player2,.player1 {
-        width: auto;
-    }
-    .player2{
-        margin-right: 40px;
-    }
-    #imgBall2{
-
-        right: 42px;
-    }
-    #imgBall1 {
-        left: 32px;
-    }
+.recto1,
+.verso1 {
+    width: 100%;
+    height: 100%;
+margin-top: 20px;
+    position: absolute;
+    pointer-events: none;
+    border-radius: 25% 10%;
 }
-
-
+.divBackGame1 {
+    background: rgba(0, 0, 0, 0.4);
+    height: 750px;
+    width: 1140px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 20px;
+    border-radius: 30px;
+}

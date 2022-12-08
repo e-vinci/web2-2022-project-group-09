@@ -47,31 +47,49 @@ const Game1v1Page = () => {
     img.src = `${ballonJ}`
     img.setAttribute('id', 'imgBall0')
 
+    const divScore =document.createElement("div")
+    divScore.className="divScore"
+
+    const divJoueur =document.createElement("div")
+    divJoueur.className="divJoueur"
+
     const player1 = document.createElement("h1");
     player1.innerHTML = 'Player 1'
 
     const player1Cmpt = document.createElement("h6");
-    player1Cmpt.innerHTML = `Point: ${pointJoueur1}`
+    player1Cmpt.innerHTML = `${pointJoueur1}&nbsp; -`
+    player1Cmpt.className='score'
 
 
     const player2 = document.createElement("h1");
     player2.innerHTML = 'Player 2'
 
     const player2Cmpt = document.createElement("h6");
-    player2Cmpt.innerHTML = `Point: ${pointJoueur2}`
+    player2Cmpt.innerHTML = `&nbsp; ${pointJoueur2}`
+    player2Cmpt.className='score'
 
     let section = document.createElement('section');
-    section.className = 'sectionCard1'
+    section.className = 'sectionCard'
 
-    main.appendChild(divColumn1);
-    main.appendChild(divColumn2);
-    divColumn1.appendChild(player1);
-    player1.appendChild(player1Cmpt)
-    main.appendChild(img)
-    divColumn2.appendChild(player2);
-    player2.appendChild(player2Cmpt)
+
+  
     main.appendChild(divBackGame);
+    divBackGame.appendChild(divScore)
+    divBackGame.appendChild(divJoueur)
+ 
+
+    divJoueur.appendChild(divColumn1);
+    divJoueur.appendChild(divColumn2);
+    divScore.appendChild(player1Cmpt);
+    divScore.appendChild(player2Cmpt);
+
+    divColumn1.appendChild(player1);
+    divJoueur.appendChild(img)
+    divColumn2.appendChild(player2);
+ 
     divBackGame.appendChild(section);
+    
+    
 
     let joueur = tirageAuSort(player1, player2);
 
@@ -126,7 +144,7 @@ const Game1v1Page = () => {
                     cart.style.pointerEvents = "none";
                 })
                 cmptCartes -= 1;
-                if (joueur === 'Player 1') { pointJoueur1 += 1; mettreAJourCompteur(player1Cmpt, pointJoueur1) } else { pointJoueur2 += 1; mettreAJourCompteur(player2Cmpt, pointJoueur2) }
+                if (joueur === 'Player 1') { pointJoueur1 += 1; mettreAJourCompteur(player1Cmpt, pointJoueur1,'joueur1') } else { pointJoueur2 += 1; mettreAJourCompteur(player2Cmpt, pointJoueur2,'joueur2') }
 
             } else {
                 carteFlip.forEach((card) => {
@@ -171,8 +189,8 @@ const Game1v1Page = () => {
             const recto = document.createElement("img");
             const verso = document.createElement("div");
             card.classList = "card";
-            recto.classList = "recto";
-            verso.classList = "verso";
+            recto.classList = "recto1";
+            verso.classList = "verso1";
             recto.src = item.imgSrc;
             card.setAttribute("name", item.name);
             section.appendChild(card);
@@ -192,9 +210,15 @@ const Game1v1Page = () => {
 };
 
 
-function mettreAJourCompteur(playerCmpt, cmpt) {
+function mettreAJourCompteur(playerCmpt, cmpt,joueur) {
     const player = playerCmpt;
-    player.innerHTML = `Point: ${cmpt}`
+    
+   if(joueur === 'joueur1'){
+    player.innerHTML = `${cmpt} -`
+   }else{
+    player.innerHTML = `&nbsp ${cmpt}`
+   }
+  
 
 }
 function tirageAuSort(j1, j2) {
