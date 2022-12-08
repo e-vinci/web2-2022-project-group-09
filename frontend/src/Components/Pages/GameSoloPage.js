@@ -13,6 +13,8 @@ import batshuayi from "../../img/batshuayi.jpg"
 import Navigate from '../Router/Navigate';
 import cdm from '../../img/cdm.jpg';
 import {mode} from "./LevelPage";
+import { isAuthenticated } from '../../utils/auths';
+import { addData } from '../../models/point';
 
 /* eslint-disable */
 
@@ -32,7 +34,7 @@ const GameSoloPage = () => {
     console.log("ici" + mode);
 
     clearPage();
-    let cmptCartes = 9;
+    
     const divBackRestart = document.createElement('div');
     divBackRestart.className = 'divBackRestart';
 
@@ -51,6 +53,9 @@ const GameSoloPage = () => {
     const maxMovesCount = document.createElement('span');
     maxMovesCount.className = 'playerLivesCount';
 
+    let nbePoints = 0;
+    let nbeErreu = 0;
+    let cmptCartes = 9;
     //timer
     const timer = document.createElement('h1');
     timer.className = 'timer';
@@ -172,10 +177,11 @@ const GameSoloPage = () => {
                 carteFlip.forEach((card) => {
                     card.classList.remove("flipped");
                     card.style.pointerEvents = "none";
-                })
+                })           
+
+                nbePoints +=1;
                 cmptCartes -= 1;
-                console.log(cmptCartes);
-                
+
             } else {
                 console.log("wrong");
                 carteFlip.forEach((card) => {
@@ -186,6 +192,11 @@ const GameSoloPage = () => {
                     playerLives--;
                     maxMovesCount.textContent = playerLives;
                 }
+                nbeErreu +=1;
+            }
+           
+            if((cmptCartes == 0 || playerLives ==0 ) && isAuthenticated()){
+                   ajouterData(nbePoints,nbeErreu);
             }
         }
         if (cmptCartes === 0) {
@@ -243,5 +254,12 @@ const GameSoloPage = () => {
 
 }
 
-
+async function ajouterData(point,erreur){
+    console.log("requete")
+    const pointData= {
+        nbePoint:point,
+        nbeErreu:erreur,
+    }
+    await addData(pointData)
+}
 export default GameSoloPage;
