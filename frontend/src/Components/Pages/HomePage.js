@@ -1,13 +1,13 @@
+import Swal from 'sweetalert2';
 import anime from 'animejs/lib/anime.es';
 import UserIcon1 from '../../img/userI1.jpg';
 import UserIcon2 from '../../img/userI2.png';
 import cardGame from '../../img/gamecard.png';
 import {isAuthenticated, setAnonymeUser, setAuthenticatedUser} from '../../utils/auths';
-
 import Navbar from '../Navbar/Navbar';
 import Navigate from '../Router/Navigate';
 
-/* eslint-disable */
+
 let homePage = "";
 
 if (isAuthenticated()) {
@@ -99,7 +99,7 @@ const HomePage = () => {
         e.preventDefault();
         const x = document.getElementById("checkBox");
         if (x.checked === false) {
-            alert('Please accept the terms & conditions')
+            Swal.fire('Please accept the terms & condition')
         } else {
 
 

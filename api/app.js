@@ -7,6 +7,7 @@ const cookieSession = require('cookie-session');
 const authRouter = require('./routes/auths');
 const messageRouteur = require('./routes/message');
 
+
 const app = express();
 const expiryDateIn3Months = new Date(Date.now() + 1000 * 60 * 60 * 24 * 30 * 3);
 const cookieSecreteKey = 'YouWouldnot!not!like!mybelgium';
@@ -28,4 +29,5 @@ app.use(cookieParser());
 
 app.use('/auth', authRouter);
 app.use('/message', messageRouteur);
+
 module.exports = app;

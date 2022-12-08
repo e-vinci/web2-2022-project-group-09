@@ -58,6 +58,8 @@ POST  http://localhost:3000/message/addMessageUser
 ###
 GET {{baseUrl}}/logout
 
+###
+
 
 ###
 POST {{baseUrl}}/loginAnonyme
