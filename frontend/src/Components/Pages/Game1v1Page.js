@@ -183,7 +183,7 @@ const Game1v1Page = () => {
     };
 
     cardGenerator();
-    console.log("fini?")
+   
 };
 
 

@@ -34,7 +34,6 @@ const GameSoloPage = () => {
     console.log("ici" + mode);
 
     clearPage();
-    
     const divBackRestart = document.createElement('div');
     divBackRestart.className = 'divBackRestart';
 
@@ -52,7 +51,7 @@ const GameSoloPage = () => {
 
     const maxMovesCount = document.createElement('span');
     maxMovesCount.className = 'playerLivesCount';
-
+    
     let nbePoints = 0;
     let nbeErreu = 0;
     let cmptCartes = 9;
@@ -170,23 +169,20 @@ const GameSoloPage = () => {
             })
             divBackRestart.style.display = 'block'
         }
-           
         if (carteFlip.length === 2) {
             if (carteFlip[0].getAttribute("name") === carteFlip[1].getAttribute("name")) {
                 console.log("match");
                 carteFlip.forEach((card) => {
                     card.classList.remove("flipped");
                     card.style.pointerEvents = "none";
-                })           
-
+                })
                 nbePoints +=1;
                 cmptCartes -= 1;
-
             } else {
                 console.log("wrong");
                 carteFlip.forEach((card) => {
                     card.classList.remove("flipped");
-                   
+                    setTimeout(() => card.classList.remove("toggleCard"), 1000);
                 });
                 if (playerLives > 0) {
                     playerLives--;
