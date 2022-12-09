@@ -1,18 +1,19 @@
 import Swal from 'sweetalert2';
-import lukaku from "../../img/Romelu-Lukaku.jpg"
-import courtois from "../../img/Courtois.png"
-import deBruyn from "../../img/deBruyn.jpg"
-import meunier from "../../img/meunier.jpg"
+
+import witsel from "../../img/Axel_Witsel.jpg"
+import carrasco from "../../img/Carrasco.jpg"
+import deBruyn from "../../img/Kevin_De_Bruyne.jpg"
+import batshuayi from "../../img/Michy_Batshuayi.jpg"
+import lukaku from "../../img/Romelu_Lukaku.jpg"
+import team from "../../img/team.jpg"
+import courtois from "../../img/Thibaut_Courtois.jpg"
+import tielemans from "../../img/Youri_Tielemans.jpg"
 import hazard from "../../img/hazard.jpg"
-import hazard2 from "../../img/hazard2.jpg"
-import equipe from "../../img/equipe.jpg"
-import mertenss from "../../img/thumbnail_unnamed.jpg"
-import batshuayi from "../../img/batshuayi.jpg"
+
 import { clearPage } from "../../utils/render"
 import Navigate from '../Router/Navigate';
 import cdm from '../../img/cdm.jpg';
 import ballonJ from '../../img/ballonJ.png';
-
 
 
 const Game1v1Page = () => {
@@ -103,26 +104,26 @@ const Game1v1Page = () => {
 
     const generateData = () =>
         [
-            { imgSrc: lukaku, name: "lukaku" },
-            { imgSrc: courtois, name: "courtois" },
-            { imgSrc: deBruyn, name: "deBruyn" },
-            { imgSrc: meunier, name: "meunier" },
-            { imgSrc: hazard, name: "hazard" },
-            { imgSrc: mertenss, name: "mertenss" },
-            { imgSrc: equipe, name: "equipe" },
-            { imgSrc: batshuayi, name: "batshuayi" },
-            { imgSrc: hazard2, name: "hazard2" },
+            {imgSrc: lukaku, name: "lukaku"},
+            {imgSrc: courtois, name: "courtois"},
+            {imgSrc: deBruyn, name: "deBruyn"},
+            {imgSrc: batshuayi, name: "batshuayi"},
+            {imgSrc: carrasco, name: "carrasco"},
+            {imgSrc: team, name: "team"},
+            {imgSrc: tielemans, name: "tielemans"},
+            {imgSrc: witsel, name: "witsel"},
+            {imgSrc: hazard, name: "hazard"},
 
 
-            { imgSrc: lukaku, name: "lukaku" },
-            { imgSrc: courtois, name: "courtois" },
-            { imgSrc: deBruyn, name: "deBruyn" },
-            { imgSrc: meunier, name: "meunier" },
-            { imgSrc: hazard, name: "hazard" },
-            { imgSrc: mertenss, name: "mertenss" },
-            { imgSrc: equipe, name: "equipe" },
-            { imgSrc: batshuayi, name: "batshuayi" },
-            { imgSrc: hazard2, name: "hazard2" },
+            {imgSrc: lukaku, name: "lukaku"},
+            {imgSrc: courtois, name: "courtois"},
+            {imgSrc: deBruyn, name: "deBruyn"},
+            {imgSrc: batshuayi, name: "batshuayi"},
+            {imgSrc: carrasco, name: "carrasco"},
+            {imgSrc: team, name: "team"},
+            {imgSrc: tielemans, name: "tielemans"},
+            {imgSrc: hazard, name: "hazard"},
+            {imgSrc: witsel, name: "witsel"},
 
         ];
     const randomize = () => {

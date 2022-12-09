@@ -3,8 +3,6 @@ import anime from 'animejs/lib/anime.es';
 import UserIcon1 from '../../img/userI1.jpg';
 import UserIcon2 from '../../img/userI2.png';
 import cardGame from '../../img/drapclickk.png';
-import {isAuthenticated, setAnonymeUser, setAuthenticatedUser} from '../../utils/auths';
-import cardGame from '../../img/gamecard.png';
 import {clearAuthenticatedUser, setAnonymeUser, setAuthenticatedUser} from '../../utils/auths';
 import Navbar from '../Navbar/Navbar';
 import Navigate from '../Router/Navigate';
@@ -77,7 +75,8 @@ let homePage = "";
            <!-- Your Content -->
            <!-- Your Content -->
          </div>
-         I accept the <a href="https://www.termsandconditionsgenerator.com/live.php?token=W7ej6n7AD9xsGGwDXSD6uwai7u6pUTUM" target="_blank"> terms & conditions:  </a>
+         <div class="accept">I accept the <a href="https://www.termsandconditionsgenerator.com/live.php?token=W7ej6n7AD9xsGGwDXSD6uwai7u6pUTUM" target="_blank"> terms & conditions:  </a>
+            </div>
 
         <input type="checkbox" id="checkBox" value="" > 
            </form>
