@@ -14,7 +14,7 @@ import Navigate from '../Router/Navigate';
 import cdm from '../../img/cdm.jpg';
 import sad from '../../img/sad.png';
 
-import { isAuthenticated } from '../../utils/auths';
+import { getAuthenticatedUser } from '../../utils/auths';
 import { addData } from '../../models/point';
 
 /* eslint-disable */
@@ -214,7 +214,7 @@ const GameSoloPage = () => {
                 nbeErreu +=1;
             }
            
-            if((cmptCartes == 0 || playerLives ==0 ) && isAuthenticated()){
+            if((cmptCartes == 0 || playerLives ==0 ) && getAuthenticatedUser()){
                    ajouterData(nbePoints,nbeErreu);
             }
         }

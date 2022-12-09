@@ -1,4 +1,4 @@
-import { getAnonymUser, getAuthenticatedUser, isAuthenticated, isUserAnonyme } from "../../utils/auths"
+import { getAnonymUser, getAuthenticatedUser, isAuthenticated } from "../../utils/auths"
 import Navigate from '../Router/Navigate';
 import { clearPage } from '../../utils/render';
 
@@ -8,7 +8,7 @@ const contactPage = () => {
     clearPage();
     const page = pageHtml();
     const main = document.querySelector('main');
-    if (getAuthenticatedUser() || isUserAnonyme()) {
+    if (getAuthenticatedUser() || getAnonymUser()) {
         main.innerHTML = page;
     } else {
         main.innerHTML = `<center><p style="font-size: x-large" >Vous n'avez pas acces a cet page</p></center>`;
