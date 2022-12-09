@@ -1,5 +1,5 @@
 const express = require('express');
-const { login, register, readOneFromUserName } = require('../models/users')
+const { login, register } = require('../models/users')
 
 const router = express.Router();
 
@@ -29,14 +29,7 @@ router.post('/register', async (req, res) => {
   return res.json({ username: newUser.username });
 });
 
-router.post('/loginAnonyme', (req, res) => {
-  const username = req?.body?.username?.length !== 0 ? req.body.username : undefined;
-  if (!username) return res.sendStatus(400)
-  const newUser = readOneFromUserName(username);
-  if (newUser) return res.sendStatus(401);
 
-  return res.json({ usernam: username });
-});
 
 router.get('/logout', (req, res) => {
   req.session = null;
