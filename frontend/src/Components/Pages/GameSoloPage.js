@@ -218,18 +218,23 @@ const GameSoloPage = () => {
                    ajouterData(nbePoints,nbeErreu);
             }
         }
-        if (cmptCartes === 0) {
+        if (cmptCartes === 8) {
             Swal.fire({
-                title: `<span style="color:black"><strong>bravo tu a reussis en ${heures} : ${minutes} : ${secondes}</strong></span>`,
+                title: `<span style="color:white"><strong>bravo tu a reussis en ${heures} : ${minutes} : ${secondes}</strong></span>`,
                 imageUrl: `${cdm}`,
                 width: 800,
                 padding: '3em',
                 color: '#716add',
-                background: `#fff url("https://acegif.com/wp-content/uploads/gif/confetti-31.gif")`,
-                showCancelButton: true,
-                confirmButtonText: 'Replay',
+                background: `rgba(15, 15, 15, 0.7)`,
+                showDenyButton: true,
+                confirmButtonText:
+                        '<i class="fa fa-home"></i>',
+                    denyButtonText :
+                    '<a style="font-family:\'Games\', sans-serif;">Restart</a>\n',
             }).then((result) => {
                 if (result.isConfirmed) {
+                    Navigate('/')
+                }else if(result.isDenied){
                     Navigate('/level')
                 }
             })

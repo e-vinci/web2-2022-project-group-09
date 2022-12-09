@@ -162,16 +162,21 @@ const Game1v1Page = () => {
                 let gagnant = Math.max(pointJoueur1,pointJoueur2)
                 if(gagnant === pointJoueur1){gagnant = 'Player 1'} else{gagnant = 'Player 2'}
                 Swal.fire({
-                    title: `<span style="color:black"><strong>Le gagnant est ${gagnant}</strong></span>`,
+                    title: `<span style="color:white"><strong>Le gagnant est ${gagnant}</strong></span>`,
                     imageUrl: `${cdm}`,
                     width: 800,
                     padding: '3em',
                     color: '#716add',
-                    background: `#fff url("https://acegif.com/wp-content/uploads/gif/confetti-31.gif")`,
-                    showCancelButton: true,
-                    confirmButtonText: 'Replay',
+                    background: `rgba(15, 15, 15, 0.7)`,
+                    showDenyButton: true,
+                    confirmButtonText:
+                        '<i class="fa fa-home"></i>',
+                    denyButtonText :
+                    '<a style="font-family:\'Games\', sans-serif;">Restart</a>\n',
                 }).then((result) => {
                     if (result.isConfirmed) {
+                        Navigate('/')
+                    }else if(result.isDenied){
                         Navigate('/level')
                     }
                 })

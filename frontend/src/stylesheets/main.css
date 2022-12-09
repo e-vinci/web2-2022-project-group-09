@@ -1,544 +1,544 @@
 body {
-   background-color: #77DD77;
-    margin: 0 0;
+  background-color: #77DD77;
+   margin: 0 0;
 
 }
 
 /*--------------------------------------------------------------------------------NAVBAR-----------------------------------------------------------*/
 h1 {
-    text-align: center;
+   text-align: center;
 }
 
 hr {
-    height: 10px;
-    display: inline-block;
-    margin: 20px -1px;
-    width: 33%;
+   height: 10px;
+   display: inline-block;
+   margin: 20px -1px;
+   width: 33%;
 }
 
 .hr1 {
-    background-color: black;
-    float: left;
+   background-color: black;
+   float: left;
 
 }
 
 .hr2 {
-    background-color: rgb(255, 255, 0);
-    width: 33.82%;
+   background-color: rgb(255, 255, 0);
+   width: 33.82%;
 }
 
 .hr3 {
-    background-color: #C41E3A;
-    float: right;
+   background-color: #C41E3A;
+   float: right;
 
 }
 
 #navbarWrapper ul {
-    display: flex;
-    justify-content: center;
-    list-style: none;
-    margin: 0;
-    padding: 0;
+   display: flex;
+   justify-content: center;
+   list-style: none;
+   margin: 0;
+   padding: 0;
 }
 
 #navbarWrapper li {
-    margin-top: 30px;
+   margin-top: 30px;
 }
 
 #navbarWrapper li a {
-    font-size: x-large;
-    padding: 50px;
-    cursor: pointer;
-    text-decoration: none;
-    color: inherit;
+   font-size: x-large;
+   padding: 50px;
+   cursor: pointer;
+   text-decoration: none;
+   color: inherit;
 }
 
 #navbarWrapper a:hover {
-    font-size: xx-large;
+   font-size: xx-large;
 }
 
 #navbarWrapper li:first-child:hover {
-    color: black;
+   color: black;
 }
 
 #navbarWrapper li:nth-child(2):hover {
-    color: yellow;
+   color: yellow;
 }
 
 #navbarWrapper li:nth-child(3):hover {
-    color: red;
+   color: red;
 }
 
 /*--------------------------------------------------------------------------------HOMEPAGE-----------------------------------------------------------*/
 .checkBox {
-    position: absolute;
-    bottom: 60px;
-    right: 42%;
-    text-align: center;
-    border: solid 3px black;
-    padding: 20px 20px;
-    font-weight: bold;
-    font-size: large;
+   position: absolute;
+   bottom: 60px;
+   right: 42%;
+   text-align: center;
+   border: solid 3px black;
+   padding: 20px 20px;
+   font-weight: bold;
+   font-size: large;
 }
 
 .checkBox a {
-    color: white;
+   color: white;
 }
 
 .card-outer {
-    margin-top: 80px;
-    display: flex;
-    float: left;
-    height: 100%;
+   margin-top: 80px;
+   display: flex;
+   float: left;
+   height: 100%;
 }
 
 .card-outer2 {
-    margin-top: 80px;
-    display: flex;
-    float: right;
-    height: 100%;
+   margin-top: 80px;
+   display: flex;
+   float: right;
+   height: 100%;
 }
 
 .card1,
 .card2 {
-    position: relative;
-    height: 100%;
-    border-radius: 10px;
-    width: 100%;
-    transform-style: preserve-3d;
+   position: relative;
+   height: 100%;
+   border-radius: 10px;
+   width: 100%;
+   transform-style: preserve-3d;
 }
 
 .front,
 .back {
-    display: flex;
-    width: 500px;
-    height: 200px;
-    border-radius: 10px;
-    text-align: center;
-    justify-content: center;
-    backface-visibility: hidden;
+   display: flex;
+   width: 500px;
+   height: 200px;
+   border-radius: 10px;
+   text-align: center;
+   justify-content: center;
+   backface-visibility: hidden;
 }
 
 .back {
-    position: absolute;
-    top: 0;
-    left: 0;
-    transform: rotateY(180deg);
-    -webkit-transform: rotateY(180deg);
-    -moz-transform: rotateY(180deg);
-    -ms-transform: rotateY(180deg);
-    -o-transform: rotateY(180deg);
+   position: absolute;
+   top: 0;
+   left: 0;
+   transform: rotateY(180deg);
+   -webkit-transform: rotateY(180deg);
+   -moz-transform: rotateY(180deg);
+   -ms-transform: rotateY(180deg);
+   -o-transform: rotateY(180deg);
 }
 
 .front {
-    animation: pulse 2s infinite;
-    cursor: pointer;
+   animation: pulse 2s infinite;
+   cursor: pointer;
 }
 
 .front:hover {
-    animation-play-state: paused;
+   animation-play-state: paused;
 }
 
 @keyframes pulse {
-    0% {
-        transform: scale(0.7);
-    }
+   0% {
+       transform: scale(0.7);
+   }
 
-    50% {
-        transform: scale(0.75);
-    }
+   50% {
+       transform: scale(0.75);
+   }
 
-    100% {
-        transform: scale(0.7);
-    }
+   100% {
+       transform: scale(0.7);
+   }
 }
 
 .front #cardGame {
 
-    width: 500px;
-    height: 600px;
+   width: 500px;
+   height: 600px;
 
 }
 
 .connexion {
-    margin-top: 40px;
-    display: flex;
-    justify-content: center;
+   margin-top: 40px;
+   display: flex;
+   justify-content: center;
 }
 
 .connexion2 {
-    margin-top: 40px;
-    display: flex;
-    justify-content: center;
+   margin-top: 40px;
+   display: flex;
+   justify-content: center;
 }
 
 .connexion #userIcon {
-    position: absolute;
-    margin-top: -20px;
-    height: 50px;
-    border-radius: 50%;
+   position: absolute;
+   margin-top: -20px;
+   height: 50px;
+   border-radius: 50%;
 
 }
 
 .container {
-    display: block;
-    margin: auto auto;
-    border: 1px solid;
-    border-width: 0.4em;
-    padding: 30px;
-    border-color: black #FFFF8F #C41E3A;
-    height: 350px;
+   display: block;
+   margin: auto auto;
+   border: 1px solid;
+   border-width: 0.4em;
+   padding: 30px;
+   border-color: black #FFFF8F #C41E3A;
+   height: 350px;
 }
 
 .container input {
-    width: 350px;
-    height: 40px;
-    text-align: center
+   width: 350px;
+   height: 40px;
+   text-align: center
 }
 
 .container div {
-    margin-top: 10px;
+   margin-top: 10px;
 }
 
 .container input[type=submit] {
 
-    cursor: pointer;
+   cursor: pointer;
 }
 
 .container input[type=checkbox] {
-    height: 30px;
-    width: 20px;
+   height: 30px;
+   width: 20px;
 }
 
 .container input[type=checkbox] div {
-    height: 30px;
-    width: 20px;
+   height: 30px;
+   width: 20px;
 }
 
 .by {
-    font-size: 24px;
-    margin: auto;
-    width: 370px;
-    height: 100px;
+   font-size: 24px;
+   margin: auto;
+   width: 370px;
+   height: 100px;
 }
 
 .by p {
-    font-family: 'Games', sans-serif;
-    text-align: center;
+   font-family: 'Games', sans-serif;
+   text-align: center;
 }
 
 /*--------------------------------------------------------------------------------CONTACTPAGE-----------------------------------------------------------*/
 .contactpage #header {
-    margin-top: -20px;
-    text-align: center;
+   margin-top: -20px;
+   text-align: center;
 
 }
 
 .contactpage #header button,
 p {
-    display: inline-block;
-    font-size: x-large;
-    padding: 15px;
+   display: inline-block;
+   font-size: x-large;
+   padding: 15px;
 }
 
 .contactpage #header button {
-    border: none;
-    background: none;
-    cursor: pointer;
+   border: none;
+   background: none;
+   cursor: pointer;
 
 }
 
 .contactpage #header p {
-    color: aliceblue;
+   color: aliceblue;
 
 }
 
 .contactpage .form {
-    display: flex;
-    justify-content: center;
+   display: flex;
+   justify-content: center;
 }
 
 .contactpage .form #message {
-    width: 600px;
-    height: 50px;
+   width: 600px;
+   height: 50px;
 }
 
 .contactpage .form #type {
-    width: 500px;
-    height: 50px;
-    text-align: center;
+   width: 500px;
+   height: 50px;
+   text-align: center;
 }
 
 .contactpage .form button {
-    width: 200px;
-    height: 50px;
+   width: 200px;
+   height: 50px;
 
 }
 
 /*--------------------------------------------------------------------------------VIEW-----------------------------------------------------------*/
 .contactpage #message2 {
-    text-align: center;
-    padding-bottom: 20px;
+   text-align: center;
+   padding-bottom: 20px;
 }
 
 .contactpage #container2 {
-    margin: auto auto;
-    border: 1px solid;
-    border-width: 0.4em;
-    padding: 30px;
-    width: 50%;
-    border-color: black #FFFF8F #C41E3A;
-    border-radius: 25px;
+   margin: auto auto;
+   border: 1px solid;
+   border-width: 0.4em;
+   padding: 30px;
+   width: 50%;
+   border-color: black #FFFF8F #C41E3A;
+   border-radius: 25px;
 }
 
 .contactpage #type2,
 #content2 {
-    font-size: large;
-    font-weight: bold;
+   font-size: large;
+   font-weight: bold;
 }
 
 .contactpage #type2 {
-    position: absolute;
-    margin-top: -20px;
-    float: left;
+   position: absolute;
+   margin-top: -20px;
+   float: left;
 }
 
 .contactpage #content2 {
-    text-align: center;
+   text-align: center;
 }
 
 .contactpage #message2 button {
-    float: right;
-    cursor: pointer;
+   float: right;
+   cursor: pointer;
 }
 
 .imgdiv {
-    position: relative;
-    display: inline-block;
-    width: 150px;
-    height: 150px;
-    line-height: 150px;
-    font-size: 20px;
-    padding: 10px;
-    text-align: center;
-    border: 2px solid black;
-    cursor: pointer;
+   position: relative;
+   display: inline-block;
+   width: 150px;
+   height: 150px;
+   line-height: 150px;
+   font-size: 20px;
+   padding: 10px;
+   text-align: center;
+   border: 2px solid black;
+   cursor: pointer;
 }
 
 .hide {
-    padding: 10px;
-    visibility: hidden;
+   padding: 10px;
+   visibility: hidden;
 }
 
 .match,
 .showimg {
-    visibility: visible !important;
+   visibility: visible !important;
 }
 
 /*--------------------------------------------------------------------------------GAME PAGE-----------------------------------------------------------*/
 .sectionCard {
-    display: grid;
-    grid-template-columns: repeat(6, 10rem);
-    grid-template-rows: repeat(4, 10rem);
-    grid-gap: 2rem;
-    perspective: 800px;
+   display: grid;
+   grid-template-columns: repeat(6, 10rem);
+   grid-template-rows: repeat(4, 10rem);
+   grid-gap: 2rem;
+   perspective: 800px;
 }
 
 .card {
-   
-    position: relative;
-    transform-style: preserve-3d;
-    transition: all 2s cubic-bezier(0.2, 0.885, 0.32, 1.275);
-    box-shadow: rgba(0, 0, 0, 0) 0px 5px 15px;
+  
+   position: relative;
+   transform-style: preserve-3d;
+   transition: all 2s cubic-bezier(0.2, 0.885, 0.32, 1.275);
+   box-shadow: rgba(0, 0, 0, 0) 0px 5px 15px;
 }
 
 .recto,
 .verso {
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    pointer-events: none;
-    border-radius: 25% 10%;
+   width: 100%;
+   height: 100%;
+   position: absolute;
+   pointer-events: none;
+   border-radius: 25% 10%;
 }
 
 
 .verso,.verso1 {
-    background-image: url("../img/pix.png");
+   background-image: url("../img/pix.png");
 
-    backface-visibility: hidden;
-    background-position: center;
-    background-size: 150px;
+   backface-visibility: hidden;
+   background-position: center;
+   background-size: 150px;
 }
 
 .toggleCard {
-    transform: rotateY(180deg);
+   transform: rotateY(180deg);
 }
 
 .divBackGame {
-    background: rgba(0, 0, 0, 0.4);
-    height: 700px;
-    width: 1140px;
-    margin-left: auto;
-    margin-right: auto;
-    padding: 20px;
-    border-radius: 30px;
+   background: rgba(0, 0, 0, 0.4);
+   height: 700px;
+   width: 1140px;
+   margin-left: auto;
+   margin-right: auto;
+   padding: 20px;
+   border-radius: 30px;
 }
 
 .divLivesTimer {
-    font-family: 'Games', sans-serif;
+   font-family: 'Games', sans-serif;
 
 }
 
 .maxMoves {
-    text-align: center;
+   text-align: center;
 }
 
 .timer {
-    position: absolute; /* si je met pas absolute, les vies et la difficulté est pas centré*/
-    background: lime;
-    float: left;
-    top: 120px;
+   position: absolute; /* si je met pas absolute, les vies et la difficulté est pas centré*/
+   background: lime;
+   float: left;
+   top: 120px;
 }
 
 /*--------------------------------------------------------------------------------LEVEL PAGE-----------------------------------------------------------*/
 
 .column1 {
-    width: 500px;
-    border: 5px solid rgba(0, 0, 0, 0.3);
-    border-radius: .5em;
-    padding: 20px;
-    margin: 1em;
-    float: left;
-    background-color: rgba(0, 0, 0, 0.3);
-    font-family: 'Games', sans-serif;
+   width: 500px;
+   border: 5px solid rgba(0, 0, 0, 0.3);
+   border-radius: .5em;
+   padding: 20px;
+   margin: 1em;
+   float: left;
+   background-color: rgba(0, 0, 0, 0.3);
+   font-family: 'Games', sans-serif;
 
 }
 
 .column2 {
-    width: 500px;
-    border: 5px solid rgba(0, 0, 0, 0.3);
-    border-radius: .5em;
-    padding: 20px;
-    margin: 1em;
-    float: right;
-    background-color: rgba(0, 0, 0, 0.3);
-    font-family: 'Games', sans-serif;
+   width: 500px;
+   border: 5px solid rgba(0, 0, 0, 0.3);
+   border-radius: .5em;
+   padding: 20px;
+   margin: 1em;
+   float: right;
+   background-color: rgba(0, 0, 0, 0.3);
+   font-family: 'Games', sans-serif;
 
 }
 
 .levelEasy {
-    width: 500px;
-    height: 100px;
-    padding: 10px;
-    background-color: rgba(0, 0, 0, 0.3);
-    border: 2px solid rgba(0, 0, 0, 0.2);
-    font-size: 28px;
-    cursor: pointer;
-    font-family: 'Games', sans-serif;
+   width: 500px;
+   height: 100px;
+   padding: 10px;
+   background-color: rgba(0, 0, 0, 0.3);
+   border: 2px solid rgba(0, 0, 0, 0.2);
+   font-size: 28px;
+   cursor: pointer;
+   font-family: 'Games', sans-serif;
 
 }
 
 .levelMedium {
-    width: 500px;
-    height: 100px;
-    padding: 10px;
-    background-color: rgba(0, 0, 0, 0.3);
-    border: 2px solid rgba(0, 0, 0, 0.2);
-    font-size: 28px;
-    cursor: pointer;
-    font-family: 'Games', sans-serif;
+   width: 500px;
+   height: 100px;
+   padding: 10px;
+   background-color: rgba(0, 0, 0, 0.3);
+   border: 2px solid rgba(0, 0, 0, 0.2);
+   font-size: 28px;
+   cursor: pointer;
+   font-family: 'Games', sans-serif;
 
 }
 
 .levelHard {
-    width: 500px;
-    height: 100px;
-    padding: 10px;
-    background-color: rgba(0, 0, 0, 0.3);
-    border: 2px solid rgba(0, 0, 0, 0.2);
-    font-size: 28px;
-    cursor: pointer;
-    font-family: 'Games', sans-serif;
+   width: 500px;
+   height: 100px;
+   padding: 10px;
+   background-color: rgba(0, 0, 0, 0.3);
+   border: 2px solid rgba(0, 0, 0, 0.2);
+   font-size: 28px;
+   cursor: pointer;
+   font-family: 'Games', sans-serif;
 
 }
 
 .home {
-    width: 470px;
-    height: 100px;
-    padding: 10px;
-    background-color: rgba(0, 0, 0, 0.3);
-    border: 2px solid rgba(0, 0, 0, 0.2);
-    font-size: 24px;
-    cursor: pointer;
+   width: 470px;
+   height: 100px;
+   padding: 10px;
+   background-color: rgba(0, 0, 0, 0.3);
+   border: 2px solid rgba(0, 0, 0, 0.2);
+   font-size: 24px;
+   cursor: pointer;
 }
 
 .levelEasy:hover {
-    background-color: rgba(0, 0, 0, 0.7);
-    font-size: 250%;
+   background-color: rgba(0, 0, 0, 0.7);
+   font-size: 250%;
 }
 
 .levelMedium:hover {
-    background-color: rgb(255, 252, 127);
-    font-size: 250%;
+   background-color: rgb(255, 252, 127);
+   font-size: 250%;
 }
 
 .levelHard:hover {
-    background-color: rgb(255, 26, 7);
-    font-size: 250%;
+   background-color: rgb(255, 26, 7);
+   font-size: 250%;
 }
 
 .restart {
-    color: green;
-    z-index: 4;
-    position: absolute;
-    margin-left: 15%;
-    margin-top: 40%;
-    width: 200px;
-    height: 50px;
-    border: 2px solid black;
-    cursor: pointer;
-    border-radius: 30px;
-    font-size: 150%;
-    font-family: 'Games', sans-serif;
+   color: green;
+   z-index: 4;
+   position: absolute;
+   margin-left: 15%;
+   margin-top: 40%;
+   width: 200px;
+   height: 50px;
+   border: 2px solid black;
+   cursor: pointer;
+   border-radius: 30px;
+   font-size: 150%;
+   font-family: 'Games', sans-serif;
 }
 
 .restart:hover {
-    background-color: rgba(192, 192, 192, 0.9);
+   background-color: rgba(192, 192, 192, 0.9);
 }
 
 .btn {
-    position: absolute;
-    /*border: none; /* Remove borders */
-    color: green;
-    /* White text */
-    padding: 12px 16px;
-    /* Some padding */
-    margin-left: 67%;
-    margin-top: 40%;
-    width: 50px;
-    height: 50px;
-    z-index: 4;
-    border: 2px solid black;
-    cursor: pointer;
-    border-radius: 30px;
-    font-size: 110%;
-    text-align: center;
+   position: absolute;
+   /*border: none; /* Remove borders */
+   color: green;
+   /* White text */
+   padding: 12px 16px;
+   /* Some padding */
+   margin-left: 67%;
+   margin-top: 40%;
+   width: 50px;
+   height: 50px;
+   z-index: 4;
+   border: 2px solid black;
+   cursor: pointer;
+   border-radius: 30px;
+   font-size: 110%;
+   text-align: center;
 }
 
 .btn:hover {
-    background-color: rgba(192, 192, 192, 0.9);
+   background-color: rgba(192, 192, 192, 0.9);
 }
 
 .divBackRestart {
-    background-color: rgba(0, 0, 0, 0.7);
-    position: absolute;
-    margin-left: 22.5%;
-    margin-top: 9%;
-    width: 400px;
-    height: 400px;
-    border-radius: 30px;
-    z-index: 4;
-    display: none;
+   background-color: rgba(0, 0, 0, 0.7);
+   position: absolute;
+   margin-left: 22.5%;
+   margin-top: 9%;
+   width: 400px;
+   height: 400px;
+   border-radius: 30px;
+   z-index: 4;
+   display: none;
 }
 
 
@@ -550,64 +550,64 @@ p {
 
 #mystats {
 
-    border-radius: 25px;
-    border: 5px solid;
-    border-color: black yellow red yellow;
+   border-radius: 25px;
+   border: 5px solid;
+   border-color: black yellow red yellow;
 
-    margin: auto;
+   margin: auto;
 
-    width: 35%;
+   width: 35%;
 
-    background-color: rgba(75, 2, 2, 0.3);
+   background-color: rgba(75, 2, 2, 0.3);
 
-    text-align: center;
-    padding: 20px;
-    font-family: Arial, Helvetica, sans-serif;
-    color: white;
+   text-align: center;
+   padding: 20px;
+   font-family: Arial, Helvetica, sans-serif;
+   color: white;
 }
 
 
 .game-played {
 
-    border-color: black yellow red yellow;
+   border-color: black yellow red yellow;
 
-    border-radius: 25px;
+   border-radius: 25px;
 
-    text-align: right;
-    background: linear-gradient(90deg, black, yellow, red);
+   text-align: right;
+   background: linear-gradient(90deg, black, yellow, red);
 }
 
 
 .game-error {
 
-    border-radius: 25px;
+   border-radius: 25px;
 
-    margin-top: 2cm;
+   margin-top: 2cm;
 
-    background: linear-gradient(90deg, black, yellow, red);
+   background: linear-gradient(90deg, black, yellow, red);
 
-    text-align: right;
+   text-align: right;
 }
 
 
 .total-point {
 
-    border-radius: 25px;
+   border-radius: 25px;
 
-    margin-top: 2cm;
-    margin-bottom: 1cm;
+   margin-top: 2cm;
+   margin-bottom: 1cm;
 
-    background: linear-gradient(90deg, black, yellow, red);
+   background: linear-gradient(90deg, black, yellow, red);
 
-    text-align: right;
+   text-align: right;
 }
 
 
 .title {
-    text-align: left;
-    float: left;
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 20px;
+   text-align: left;
+   float: left;
+   font-family: Arial, Helvetica, sans-serif;
+   font-size: 20px;
 }
 
 
@@ -617,151 +617,151 @@ p {
 
 .ranking {
 
-    border-radius: 25px;
-    border: 5px solid;
-    border-color: black yellow red yellow;
+   border-radius: 25px;
+   border: 5px solid;
+   border-color: black yellow red yellow;
 
-    margin: auto;
+   margin: auto;
 
-    width: 35%;
+   width: 35%;
 
-    background-color: rgba(75, 2, 2, 0.3);
+   background-color: rgba(75, 2, 2, 0.3);
 
-    text-align: center;
-    padding-left: 15px;
-    padding-right: 15px;
-    padding-bottom: 10px;
-    padding-top: 50px;
+   text-align: center;
+   padding-left: 15px;
+   padding-right: 15px;
+   padding-bottom: 10px;
+   padding-top: 50px;
 
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 40px;
+   font-family: Arial, Helvetica, sans-serif;
+   font-size: 40px;
 }
 
 
 .podium {
-    width: 180px;
-    display: inline-block;
+   width: 180px;
+   display: inline-block;
 }
 
 
 .podium_rank {
-    margin: auto;
-    display: flex;
-    position: static;
-    justify-content: center;
-    align-items: last baseline;
+   margin: auto;
+   display: flex;
+   position: static;
+   justify-content: center;
+   align-items: last baseline;
 }
 
 
 .userName {
-    text-align: center;
+   text-align: center;
 }
 
 
 .podium .first {
-    min-height: 300px;
+   min-height: 300px;
 
-    background:
-        linear-gradient(to bottom, black, yellow, red);
-    text-align: center;
-    border: 1px solid;
-    border-color: black yellow red yellow;
+   background:
+       linear-gradient(to bottom, black, yellow, red);
+   text-align: center;
+   border: 1px solid;
+   border-color: black yellow red yellow;
 }
 
 
 .podium .second {
-    min-height: 200px;
-    background: linear-gradient(to bottom, black, yellow, red);
-    margin-bottom: 0px;
-    border: 1px solid;
-    border-color: black yellow red yellow;
+   min-height: 200px;
+   background: linear-gradient(to bottom, black, yellow, red);
+   margin-bottom: 0px;
+   border: 1px solid;
+   border-color: black yellow red yellow;
 
 }
 
 
 .podium .trois {
-    min-height: 100px;
-    background: linear-gradient(to bottom, black, yellow, red);
+   min-height: 100px;
+   background: linear-gradient(to bottom, black, yellow, red);
 
-    border: 1px solid;
-    border-color: black yellow red yellow;
+   border: 1px solid;
+   border-color: black yellow red yellow;
 }
 
 
 .morePoint {
-    text-align: center;
-    margin-top: 20px;
+   text-align: center;
+   margin-top: 20px;
 
 }
 /*---------------------------------------------------game 1v1---------------------------------------------------------*/
 
 .divScore{
-    text-align: center;
+   text-align: center;
 }
 .score{
-    display: inline-block;
-    font-size: xx-large;
-    margin-top: 50px;
+   display: inline-block;
+   font-size: xx-large;
+   margin-top: 50px;
 }
 .divJoueur{
-  display: flex;
-  margin-top: -170px;
-  position: relative;
+ display: flex;
+ margin-top: -170px;
+ position: relative;
 }
 .player1 {
-    background-color: white;
-    border: solid 1px black;
-    height: 150px;
-    width: 200px;
+   background-color: white;
+   border: solid 1px black;
+   height: 150px;
+   width: 200px;
 }
 
 .player2 {
-    position: absolute;
-    right: 0;
-    background-color: white;
-    border: solid 1px black;
-    height: 150px;
-    width: 200px;
+   position: absolute;
+   right: 0;
+   background-color: white;
+   border: solid 1px black;
+   height: 150px;
+   width: 200px;
 }
 
 #imgBall1 {
-    position: absolute;
-   float: left; 
-    width: 100px;
-    border: 0;
-    margin: 50px;
+   position: absolute;
+  float: left; 
+   width: 100px;
+   border: 0;
+   margin: 50px;
 }
 
 #imgBall2 {
 position: absolute;
-    right: 0;
-    width: 100px;
-    border: 0;
-    margin: 50px;
+   right: 0;
+   width: 100px;
+   border: 0;
+   margin: 50px;
 }
 
 #imgBall0 {
-    display: none;
+   display: none;
 }
 
 .recto1,
 .verso1 {
-    width: 100%;
-    height: 100%;
+   width: 100%;
+   height: 100%;
 margin-top: 20px;
-    position: absolute;
-    pointer-events: none;
-    border-radius: 25% 10%;
+   position: absolute;
+   pointer-events: none;
+   border-radius: 25% 10%;
 }
 .divBackGame1 {
-    background: rgba(0, 0, 0, 0.4);
-    height: 750px;
-    width: 1140px;
-    margin-left: auto;
-    margin-right: auto;
-    padding: 20px;
-    border-radius: 30px;
+   background: rgba(0, 0, 0, 0.4);
+   height: 750px;
+   width: 1140px;
+   margin-left: auto;
+   margin-right: auto;
+   padding: 20px;
+   border-radius: 30px;
 }
 .swal2-title {
-  font-family: 'Games', sans-serif;
+ font-family: 'Games', sans-serif;
 }
