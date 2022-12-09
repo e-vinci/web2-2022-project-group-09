@@ -3,7 +3,6 @@ import Swal from 'sweetalert2';
 import Navigate from '../Router/Navigate';
 import { getAuthenticatedUser } from "../../utils/auths";
 
-/* eslint-disable */
 
 const contactPage = async () => {
 
@@ -15,42 +14,47 @@ const contactPage = async () => {
         Navigate('/contact');
     });
 
-    document.querySelector('#delete').addEventListener('click', async (e) => {
-        e.preventDefault();
-        const { elementId } = e.target.dataset;
+    document.querySelectorAll('#delete').forEach(b=>{
+        b.addEventListener('click', async (e) => {
+            e.preventDefault();
+            const { elementId } = e.target.dataset;
+    
+            const options = {
+                method: 'DELETE',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+            };
+    
+            await fetch(`/api/message/${elementId}`, options)
+            contactPage();
+        });
+    })
 
-        const options = {
-            method: 'DELETE',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-        };
 
-        await fetch(`/api/message/${elementId}`, options)
-        contactPage();
-    });
-
-    document.querySelector('#update').addEventListener('click', async (e) => {
-        const { elementId } = e.target.dataset;
-        const message = e.target.parentElement
-        const updatedMessage = {
-            content: message.children[1].innerText,
-            type: message.children[0].innerText
-        }
-        const options = {
-            method: 'PATCH',
-            body: JSON.stringify(updatedMessage),
-            headers: {
-                'Content-Type': 'application/json',
-            },
-        }
-        const response = await fetch(`/api/message/${elementId}`, options);
-
-        if (!response.ok) Swal.fire({
-            title: 'Le type doit etre  une "question" ou une "suggestion"',
-            position: 'top',
+    document.querySelectorAll('#update').forEach(b=>{
+        b.addEventListener('click', async (e) => {
+            const { elementId } = e.target.dataset;
+            const message = e.target.parentElement
+            const updatedMessage = {
+                content: message.children[1].innerText,
+                type: message.children[0].innerText
+            }
+            const options = {
+                method: 'PATCH',
+                body: JSON.stringify(updatedMessage),
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+            }
+            const response = await fetch(`/api/message/${elementId}`, options);
+    
+            if (!response.ok) Swal.fire({
+                title: 'Le type doit etre  une "question" ou une "suggestion"',
+                position: 'top',
+            })
+            Navigate('/contactView')
         })
-        Navigate('/contactView')
     })
 };
 
