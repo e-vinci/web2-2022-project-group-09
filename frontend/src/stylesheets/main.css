@@ -131,7 +131,8 @@ hr {
 }
 
 .front {
-    animation: pulse 5s infinite;
+    animation: pulse 2s infinite;
+    cursor: pointer;
 }
 
 .front:hover {
