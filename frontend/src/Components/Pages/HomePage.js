@@ -2,7 +2,7 @@ import Swal from 'sweetalert2';
 import anime from 'animejs/lib/anime.es';
 import UserIcon1 from '../../img/userI1.jpg';
 import UserIcon2 from '../../img/userI2.png';
-import cardGame from '../../img/gamecard.png';
+import cardGame from '../../img/drapclickk.png';
 import {isAuthenticated, setAnonymeUser, setAuthenticatedUser} from '../../utils/auths';
 import Navbar from '../Navbar/Navbar';
 import Navigate from '../Router/Navigate';

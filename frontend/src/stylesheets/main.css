@@ -1,5 +1,6 @@
 body {
-   background-color: #77DD77;
+    background-image: url("../img/foot.jpg");
+    background-size:cover;
     margin: 0 0;
 
 }
@@ -39,6 +40,8 @@ hr {
     list-style: none;
     margin: 0;
     padding: 0;
+    font-family: 'Games', sans-serif;
+
 }
 
 #navbarWrapper li {
@@ -393,10 +396,10 @@ p {
 }
 
 .timer {
-    position: absolute; /* si je met pas absolute, les vies et la difficulté est pas centré*/
+    position: absolute;
     background: lime;
     float: left;
-    top: 120px;
+    margin-top: auto;
 }
 
 /*--------------------------------------------------------------------------------LEVEL PAGE-----------------------------------------------------------*/
