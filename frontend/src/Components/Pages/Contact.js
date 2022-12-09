@@ -4,12 +4,11 @@ import { clearPage } from '../../utils/render';
 
 
 
-
 const contactPage = () => {
     clearPage();
     const page = pageHtml();
     const main = document.querySelector('main');
-    if (isAuthenticated() || isUserAnonyme()) {
+    if (getAuthenticatedUser() || isUserAnonyme()) {
         main.innerHTML = page;
     } else {
         main.innerHTML = `<center><p style="font-size: x-large" >Vous n'avez pas acces a cet page</p></center>`;
@@ -51,7 +50,7 @@ const contactPage = () => {
 };
 
 function pageHtml() {
-    const user = isAuthenticated() ? getAuthenticatedUser() : getAnonymUser();
+    const user = getAuthenticatedUser() ? getAuthenticatedUser()?.username : getAnonymUser();
     const contactpage = `<section class="contactpage">
 
   <div id="header">

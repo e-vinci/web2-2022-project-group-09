@@ -3,17 +3,12 @@ import anime from 'animejs/lib/anime.es';
 import UserIcon1 from '../../img/userI1.jpg';
 import UserIcon2 from '../../img/userI2.png';
 import cardGame from '../../img/gamecard.png';
-import {isAuthenticated, setAnonymeUser, setAuthenticatedUser} from '../../utils/auths';
+import {clearAuthenticatedUser, setAnonymeUser, setAuthenticatedUser} from '../../utils/auths';
 import Navbar from '../Navbar/Navbar';
 import Navigate from '../Router/Navigate';
 
 
 let homePage = "";
-
-if (isAuthenticated()) {
-    homePage = '<p> Vous etes deja connecter <a href="/logout" > cliquer ici </a> pour vous deconnecter </p>'
-
-} else {
     homePage = `
 
       <div class="card-outer">
@@ -89,10 +84,11 @@ if (isAuthenticated()) {
 
 </div>
 `
-}
+
 
 
 const HomePage = () => {
+    clearAuthenticatedUser();
     const main = document.querySelector('main');
     main.innerHTML = homePage
     document.addEventListener('submit', async (e) => {
