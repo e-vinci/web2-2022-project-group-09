@@ -14,7 +14,6 @@ import Navigate from '../Router/Navigate';
 import cdm from '../../img/cdm.jpg';
 import sad from '../../img/sad.png';
 
-import {mode} from "./LevelPage";
 import { isAuthenticated } from '../../utils/auths';
 import { addData } from '../../models/point';
 
@@ -22,18 +21,19 @@ import { addData } from '../../models/point';
 
 const GameSoloPage = () => {
     Navbar();
-    const levels = () => {
-        //Change settings with the gamemode
-        if (mode === "easy") {
-            playerLives = 15;
-        } else if (mode === "medium") {
-            playerLives = 10;
-        } else if (mode === "hard") {
-            playerLives = 5;
-        }
+    const difficulte = window.location.search.split('=')[1].split('%')[0]
+    if (difficulte === 'Easy') {
+        playerLives = 15;
+    } else if (difficulte === 'Medium') {
+        playerLives = 10;
+
+    } else {
+        playerLives = 5;
+
     }
-    levels();
-    console.log("ici" + mode);
+    const difficulteH1 = document.createElement('h1');
+    difficulteH1.innerHTML = difficulte;
+    difficulteH1.className = 'difficulteH1';
 
     clearPage();
     const divBackRestart = document.createElement('div');
@@ -69,9 +69,10 @@ const GameSoloPage = () => {
 
     main.appendChild(divBackGame);
     divBackGame.appendChild(divLivesTimer);
+    divLivesTimer.appendChild(timer);
+    divLivesTimer.appendChild(difficulteH1);
     divLivesTimer.appendChild(maxMoves);
     maxMoves.appendChild(maxMovesCount);
-    divLivesTimer.appendChild(timer);
     divBackGame.appendChild(section);
 
     let playerLives;

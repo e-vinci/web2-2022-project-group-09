@@ -4,28 +4,11 @@ import Navigate from '../Router/Navigate';
 import { clearPage } from '../../utils/render';
 import Navbar from '../Navbar/Navbar';
 
-let mode;
 
 const LevelPage = () => {
 
     Navbar();
     clearPage();
-
-    const onEasy = () => {
-        mode = "easy";
-        Navigate("/gameSolo");
-        console.log(mode)
-    };
-
-    const onMedium = () => {
-        mode = "medium";
-        Navigate("/gameSolo");
-    };
-
-    const onHard = () => {
-        mode = "hard";
-        Navigate("/gameSolo");
-    };
     const main = document.querySelector('main');
     const submit = document.createElement('input');
     submit.value = 'Go back to HomePage';
@@ -51,17 +34,30 @@ const LevelPage = () => {
     const btnEasy = document.createElement('button');
     btnEasy.innerHTML = "Easy";
     btnEasy.className = 'levelEasy';
-    btnEasy.addEventListener('click', onEasy);
+    btnEasy.addEventListener('click', (e) => {
+        const difficulte = e.target.innerHTML
+        Navigate(`/gameSolo?difficulte=${difficulte}`)
+    });
 
     const btnMedium = document.createElement('button');
     btnMedium.innerHTML = "Medium";
     btnMedium.className = 'levelMedium';
-    btnMedium.addEventListener('click', onMedium);
+    btnMedium.addEventListener('click', (e) => {
+        const difficulte = e.target.innerHTML
+        Navigate(`/gameSolo?difficulte=${difficulte}`)
+    });
 
     const btnHard = document.createElement('button');
     btnHard.innerHTML = "Hard";
     btnHard.className = 'levelHard';
-    btnHard.addEventListener('click', onHard);
+    btnHard.addEventListener('click', (e) => {
+        const difficulte = e.target.innerHTML
+        Navigate(`/gameSolo?difficulte=${difficulte}`)
+    });
+
+
+
+
 
     const btnEasy1 = document.createElement('button');
     btnEasy1.innerHTML = "Easy (4s to memorize cart)";
@@ -100,4 +96,4 @@ const LevelPage = () => {
     divColumn2.appendChild(btnHard1);
 
 };
-export { mode, LevelPage as default };
+export default LevelPage;

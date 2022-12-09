@@ -375,7 +375,7 @@ p {
 
 .divBackGame {
     background: rgba(0, 0, 0, 0.4);
-    height: 650px;
+    height: 700px;
     width: 1140px;
     margin-left: auto;
     margin-right: auto;
@@ -385,6 +385,7 @@ p {
 
 .divLivesTimer {
     font-family: 'Games', sans-serif;
+
 }
 
 .maxMoves {
@@ -392,10 +393,10 @@ p {
 }
 
 .timer {
-    position: absolute;
+    position: absolute; /* si je met pas absolute, les vies et la difficulté est pas centré*/
     background: lime;
     float: left;
-    top: 100px;
+    top: 120px;
 }
 
 /*--------------------------------------------------------------------------------LEVEL PAGE-----------------------------------------------------------*/
@@ -408,6 +409,8 @@ p {
     margin: 1em;
     float: left;
     background-color: rgba(0, 0, 0, 0.3);
+    font-family: 'Games', sans-serif;
+
 }
 
 .column2 {
@@ -418,6 +421,8 @@ p {
     margin: 1em;
     float: right;
     background-color: rgba(0, 0, 0, 0.3);
+    font-family: 'Games', sans-serif;
+
 }
 
 .levelEasy {
@@ -428,6 +433,8 @@ p {
     border: 2px solid rgba(0, 0, 0, 0.2);
     font-size: 28px;
     cursor: pointer;
+    font-family: 'Games', sans-serif;
+
 }
 
 .levelMedium {
@@ -438,6 +445,8 @@ p {
     border: 2px solid rgba(0, 0, 0, 0.2);
     font-size: 28px;
     cursor: pointer;
+    font-family: 'Games', sans-serif;
+
 }
 
 .levelHard {
@@ -448,6 +457,8 @@ p {
     border: 2px solid rgba(0, 0, 0, 0.2);
     font-size: 28px;
     cursor: pointer;
+    font-family: 'Games', sans-serif;
+
 }
 
 .home {
@@ -527,10 +538,6 @@ p {
     border-radius: 30px;
     z-index: 4;
     display: none;
-}
-
-.timer {
-    float: right;
 }
 
 
