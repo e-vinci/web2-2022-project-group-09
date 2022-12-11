@@ -1,15 +1,17 @@
 import Swal from 'sweetalert2';
 import {clearPage} from '../../utils/render';
 import Navbar from '../Navbar/Navbar';
-import lukaku from "../../img/Romelu-Lukaku.jpg"
-import courtois from "../../img/Courtois.png"
-import deBruyn from "../../img/deBruyn.jpg"
-import meunier from "../../img/meunier.jpg"
+
+import witsel from "../../img/Axel_Witsel.jpg"
+import carrasco from "../../img/Carrasco.jpg"
+import deBruyn from "../../img/Kevin_De_Bruyne.jpg"
+import batshuayi from "../../img/Michy_Batshuayi.jpg"
+import lukaku from "../../img/Romelu_Lukaku.jpg"
+import team from "../../img/team.jpg"
+import courtois from "../../img/Thibaut_Courtois.jpg"
+import tielemans from "../../img/Youri_Tielemans.jpg"
 import hazard from "../../img/hazard.jpg"
-import hazard2 from "../../img/hazard2.jpg"
-import equipe from "../../img/equipe.jpg"
-import mertenss from "../../img/thumbnail_unnamed.jpg"
-import batshuayi from "../../img/batshuayi.jpg"
+
 import Navigate from '../Router/Navigate';
 import cdm from '../../img/cdm.jpg';
 import sad from '../../img/sad.png';
@@ -53,7 +55,7 @@ const GameSoloPage = () => {
 
     const maxMovesCount = document.createElement('span');
     maxMovesCount.className = 'playerLivesCount';
-    
+    let lockboard= false;
     let nbePoints = 0;
     let nbeErreu = 0;
     let cmptCartes = 9;
@@ -101,23 +103,22 @@ const GameSoloPage = () => {
             {imgSrc: lukaku, name: "lukaku"},
             {imgSrc: courtois, name: "courtois"},
             {imgSrc: deBruyn, name: "deBruyn"},
-            {imgSrc: meunier, name: "meunier"},
-            {imgSrc: hazard, name: "hazard"},
-            {imgSrc: mertenss, name: "mertenss"},
-            {imgSrc: equipe, name: "equipe"},
             {imgSrc: batshuayi, name: "batshuayi"},
-            {imgSrc: hazard2, name: "hazard2"},
-
+            {imgSrc: carrasco, name: "carrasco"},
+            {imgSrc: team, name: "team"},
+            {imgSrc: tielemans, name: "tielemans"},
+            {imgSrc: witsel, name: "witsel"},
+            {imgSrc: hazard, name: "hazard"},
 
             {imgSrc: lukaku, name: "lukaku"},
             {imgSrc: courtois, name: "courtois"},
             {imgSrc: deBruyn, name: "deBruyn"},
-            {imgSrc: meunier, name: "meunier"},
-            {imgSrc: hazard, name: "hazard"},
-            {imgSrc: mertenss, name: "mertenss"},
-            {imgSrc: equipe, name: "equipe"},
             {imgSrc: batshuayi, name: "batshuayi"},
-            {imgSrc: hazard2, name: "hazard2"},
+            {imgSrc: carrasco, name: "carrasco"},
+            {imgSrc: team, name: "team"},
+            {imgSrc: tielemans, name: "tielemans"},
+            {imgSrc: hazard, name: "hazard"},
+            {imgSrc: witsel, name: "witsel"},
 
         ];
     const randomize = () => {
@@ -141,22 +142,28 @@ const GameSoloPage = () => {
             section.appendChild(card);
             card.appendChild(recto);
             card.appendChild(verso);
+            const carteFlip = document.querySelectorAll(".flipped");
+            
             card.addEventListener('click', (e) => {
+                if(lockboard) return;
                 card.classList.toggle("toggleCard");
                 regarderCarte(e);
             })
+        
+        
         })
     };
     let defilerTempsBool = false;
     //correspondance des cartes
     const regarderCarte = (e) => {
-
+        
         const carteClick = e.target;
         carteClick.classList.add("flipped");
         if (!defilerTempsBool) {
             defilerTemps();
             defilerTempsBool = true;
-        }
+        
+    }
         const carteFlip = document.querySelectorAll(".flipped");
         //PROBLEME on peut appuyer 2x sur la meme carte
         if (carteFlip.length === 2 && playerLives === 1 && carteFlip[0].getAttribute("name") !== carteFlip[1].getAttribute("name")) {
@@ -193,6 +200,7 @@ const GameSoloPage = () => {
             }
         }
         if (carteFlip.length === 2) {
+            
             if (carteFlip[0].getAttribute("name") === carteFlip[1].getAttribute("name")) {
                 console.log("match");
                 carteFlip.forEach((card) => {
@@ -202,6 +210,7 @@ const GameSoloPage = () => {
                 nbePoints +=1;
                 cmptCartes -= 1;
             } else {
+                lockboard=true;
                 console.log("wrong");
                 carteFlip.forEach((card) => {
                     card.classList.remove("flipped");
@@ -209,7 +218,9 @@ const GameSoloPage = () => {
                         card.classList.remove("toggleCard");
                         card.classList
 
-                    }, 1000);
+                        lockboard=false;
+
+                    }, 1500);
                 });
                 if (playerLives > 0) {
                     playerLives--;
@@ -221,6 +232,7 @@ const GameSoloPage = () => {
             if((cmptCartes == 0 || playerLives ==0 ) && getAuthenticatedUser()){
                    ajouterData(nbePoints,nbeErreu);
             }
+
         }/*else{
             carteFlip.forEach((card) => {
                 card.classList.remove("flipped");
@@ -232,6 +244,11 @@ const GameSoloPage = () => {
             })
     }*/
         if (cmptCartes === 8) {
+
+        }
+        if (cmptCartes === 0) {
+            clearTimeout(timeOut);
+
             Swal.fire({
                 title: `<span style="color:white"><strong>bravo tu a reussis en ${heures} : ${minutes} : ${secondes}</strong></span>`,
                 imageUrl: `${cdm}`,
