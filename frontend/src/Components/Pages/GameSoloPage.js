@@ -205,7 +205,11 @@ const GameSoloPage = () => {
                 console.log("wrong");
                 carteFlip.forEach((card) => {
                     card.classList.remove("flipped");
-                    setTimeout(() => card.classList.remove("toggleCard"), 1000);
+                    setTimeout(() => {
+                        card.classList.remove("toggleCard");
+                        card.classList
+
+                    }, 1000);
                 });
                 if (playerLives > 0) {
                     playerLives--;
@@ -217,7 +221,16 @@ const GameSoloPage = () => {
             if((cmptCartes == 0 || playerLives ==0 ) && getAuthenticatedUser()){
                    ajouterData(nbePoints,nbeErreu);
             }
-        }
+        }/*else{
+            carteFlip.forEach((card) => {
+                card.classList.remove("flipped");
+                setTimeout(() => {
+                    
+                    card.classList.remove("flipped");
+
+                }, 1000);
+            })
+    }*/
         if (cmptCartes === 8) {
             Swal.fire({
                 title: `<span style="color:white"><strong>bravo tu a reussis en ${heures} : ${minutes} : ${secondes}</strong></span>`,
