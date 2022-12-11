@@ -146,8 +146,11 @@ const GameSoloPage = () => {
             
             card.addEventListener('click', (e) => {
                 if(lockboard) return;
+                if(card.className != "card toggleCard flipped"){
                 card.classList.toggle("toggleCard");
                 regarderCarte(e);
+                }
+                
             })
         
         

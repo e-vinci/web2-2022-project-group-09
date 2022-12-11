@@ -207,8 +207,14 @@ const Game1v1Page = () => {
             setTimeout(() => card.classList.remove("toggleCard"), timer);
             setTimeout(() => card.addEventListener('click', e => {
                 if(lockboard) return;
+              
+                if(card.className !=="card toggleCard flipped"){
+
+                
                 card.classList.toggle("toggleCard")
                 regarderCarte(e)
+                }
+            
             }), timer + 2000);
         })
     };
