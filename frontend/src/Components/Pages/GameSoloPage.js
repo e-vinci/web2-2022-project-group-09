@@ -14,7 +14,7 @@ import hazard from "../../img/hazard.jpg"
 
 import Navigate from '../Router/Navigate';
 import cdm from '../../img/cdm.jpg';
-import sad from '../../img/sad.png';
+import sad from '../../img/gameOver.png';
 
 import { getAuthenticatedUser } from '../../utils/auths';
 import { addData } from '../../models/point';
@@ -184,7 +184,7 @@ const GameSoloPage = () => {
                 Swal.fire({
                     background : 'rgba(15, 15, 15, 0.7) ',
                     title: `<span style="color:white"><strong>dommage.... :'(</strong></span>`,
-                    imageUrl: `${sad}`,
+                    imageUrl: `${sad}`, //ici
                     width: 800,
                     padding: '3em',
                     showDenyButton: true,
@@ -223,7 +223,7 @@ const GameSoloPage = () => {
 
                         lockboard=false;
 
-                    }, 1500);
+                    }, 1000);
                 });
                 if (playerLives > 0) {
                     playerLives--;
