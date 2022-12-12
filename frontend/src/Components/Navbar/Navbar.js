@@ -2,17 +2,17 @@
 import { isAuthenticated } from "../../utils/auths";
 
 const Navbar = () => {
-  const navbarWrapper = document.querySelector('#navbarWrapper');
-  let navbar = '';
+    const navbarWrapper = document.querySelector('#navbarWrapper');
+    let navbar = '';
 
-  if (window.location.pathname === '/' && !isAuthenticated()) {
-    navbar += `
+    if (window.location.pathname === '/' && !isAuthenticated()) {
+        navbar += `
   <h1>
   DISCOVER OR RE  <span style="color:#FFFF8F">DISCOVER THE </span> <span style="color:#C41E3A">CAPITAL OF EUROPE	</span>
  </h1>
   `;
-  } else {
-    navbar += `
+    } else {
+        navbar += `
  <ul>
  <li >
    <a data-uri="/ranking">Ranking</a>
@@ -21,21 +21,22 @@ const Navbar = () => {
  <li>
    <a  href="#" data-uri="/contact">Contact</a>
   </li> 
+  ${!isAuthenticated() ?' <li> <a  href="#" data-uri="/">Home</a></li> ' : ''}
   ${isAuthenticated() ? '<li> <a href="#" data-uri="/logout" >Logout</a> </li>' : ''}
  </ul>
  `;
-  }
+    }
 
 
 
-  navbar += `
+    navbar += `
 <hr class="hr1">  
 <hr class="hr2">  
 <hr class="hr3"> 
 `;
 
 
-  navbarWrapper.innerHTML = navbar;
+    navbarWrapper.innerHTML = navbar;
 };
 
 
