@@ -14,9 +14,7 @@ const Navbar = () => {
     } else {
         navbar += `
  <ul>
- <li>
-   <a class="game"  href="#" data-uri="/level">Game</a>
-  </li> 
+ 
  <li >
    <a data-uri="/ranking">Ranking</a>
    </li> 
@@ -26,6 +24,9 @@ const Navbar = () => {
   </li> 
 
 ${isAuthenticated() ? '<li> <a href="#" data-uri="/logout" >Logout</a> </li>' : ''}
+<li>
+   <a class="game"  href="#" data-uri="/level">Game</a>
+  </li> 
  </ul>
  `;
     }
