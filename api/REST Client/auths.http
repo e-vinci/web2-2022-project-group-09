@@ -106,11 +106,6 @@ GET http://localhost:3000/point/getMorePoints
 
 
 ###
-GET http://localhost:3000/point/getFirst
+GET http://localhost:3000/point/getTop3
 
 
-###
-GET http://localhost:3000/point/getSeconde
-
-###
-GET http://localhost:3000/point/getThird

@@ -8,9 +8,7 @@ const Point = require('../models/point');
 router.get('/', (req, res) => {
     console.log(Point.get(req.session.user_id))
     return res.json(Point.get(req.session.user_id))
-
 });
-
 
 router.post('/', (req, res) => {
     console.log(req.body.nbePoint,req.body.nbeErreu)
@@ -22,44 +20,18 @@ router.post('/', (req, res) => {
 
 });
 
-
-
-
-//get top 10 points
-
-router.get('/getRanking', (req, res) => {
-    console.log(Point.getRanking())
-    return res.json(Point.getRanking())
-
-});
-
-
+// get top 10 points
 router.get('/getMorePoints', (req, res) => {
     console.log(Point.getMorePoints())
     return res.json(Point.getMorePoints())
 
 });
 
-
-router.get('/getFirst', (req, res) => {
-    console.log(Point.getFirst())
-    return res.json(Point.getFirst())
-
-});
-
-router.get('/getSeconde', (req, res) => {
-    console.log(Point.getSeconde())
-    return res.json(Point.getSeconde())
+// get top 3
+router.get('/getTop3', (req, res) => {
+    console.log(Point.getTop3())
+    return res.json(Point.getTop3())
 
 });
-
-router.get('/getThird', (req, res) => {
-    console.log(Point.getThird())
-    return res.json(Point.getThird())
-
-});
-
-
-
 
 module.exports = router;

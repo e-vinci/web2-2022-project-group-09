@@ -8,22 +8,8 @@ module.exports.addPoint = (nbePoint,nbeErreu,user) => {
     return info.changes;
 }
 
-
-
-
-
-
+// show top 10
 module.exports.getMorePoints = () => db.prepare("SELECT login, point FROM users ORDER BY point DESC LIMIT 10").all();
 
-
-module.exports.getFirst = () =>
- db.prepare("SELECT * FROM(SELECT ROW_NUMBER() OVER (ORDER BY point DESC ) AS row_num, login, point FROM users) WHERE row_num =1").all();
-
-
- module.exports.getSeconde = () =>
- db.prepare("SELECT * FROM(SELECT ROW_NUMBER() OVER (ORDER BY point DESC ) AS row_num, login, point FROM users) WHERE row_num =2").all();
-
-
- module.exports.getThird = () =>
- db.prepare("SELECT * FROM(SELECT ROW_NUMBER() OVER (ORDER BY point DESC ) AS row_num, login, point FROM users) WHERE row_num =3").all();
-
+// show top 3
+module.exports.getTop3 = () => db.prepare("SELECT login, point FROM users ORDER BY point DESC LIMIT 3").all();
