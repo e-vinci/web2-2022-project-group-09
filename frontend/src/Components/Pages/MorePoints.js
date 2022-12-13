@@ -16,26 +16,6 @@ let morePoint =
       
       <tbody class="tableData"> 
 
-        <tr >  
-          <td> user2 </td>
-          <td> 5 </td>
-        </tr> 
-
-        <tr >  
-          <td> user1 </td>
-          <td> 4 </td>
-        </tr> 
-
-        <tr >  
-          <td> qwerty </td>
-          <td> 1</td>
-        </tr>
-
-        <tr >  
-          <td> azerty </td>
-          <td> 1 </td>
-        </tr>  
-
       </tbody>    
       
   </table>
@@ -61,9 +41,10 @@ async function getMorePoint () {
       }
 
       const data = await response.json(); 
+
       console.log(data);
 
-      //loadTable(data);
+      loadTable(data);
 
     } catch (error) {
       console.error("getMorePoint::error: ", error);
@@ -73,11 +54,12 @@ async function getMorePoint () {
 
 
 function loadTable(data){
-  const tablePointBody = document.getElementById('.tableData');
-  let dataHtml = '';
+  let tablePointBody = document.querySelector('.tableData');
+  let dataHtml = ' ';
+  let size = data.length;
 
-  for(let userPoints of data){
-    dataHtml += `<tr> <td>${userPoints}</td> <td>${userPoints}</td> </tr>`;
+  for(let i = 0; i < size; i++){
+    dataHtml += `<tr> <td>${data[i].login}</td> <td>${data[i].point}</td> </tr>`;
 
   }
 
@@ -85,6 +67,8 @@ function loadTable(data){
   tablePointBody.innerHTML = dataHtml;
 
 }
+
+
 
 function text(){
   const main = document.querySelector('main');

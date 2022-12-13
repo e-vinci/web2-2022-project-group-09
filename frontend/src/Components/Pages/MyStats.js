@@ -1,7 +1,7 @@
 /* eslint-disable */
 
-let points = 0;
-const userName = "UserName";
+let points;
+let userName;
 
 let mystats = 
 

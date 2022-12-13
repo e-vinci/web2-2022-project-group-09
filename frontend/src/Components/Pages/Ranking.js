@@ -3,9 +3,9 @@ import Navigate from '../Router/Navigate';
 
 
 
-let user1 = "Kevin";
-let user2 = "Romelu";
-let user3 = "Eden";
+let user1;
+let user2;
+let user3;
 
 let point1;
 let point2;
@@ -18,19 +18,19 @@ let ranking =
 <div class="ranking">
 
     <div class="podium">
-        <p class="userName">${user2}</p>
+        <p class="userName2">${user2}</p>
         <div class="podium_rank second" id = "second">${point2}</div>
     </div>
 
     <div class="podium">
-        <p class="userName">${user1}</p>
+        <p class="userName1">${user1}</p>
         <div class="podium_rank first" id = "first">${point1}</div>
         
     </div>
 
     <div class="podium">
-        <p class="userName">${user3}</p>
-        <div class="podium_rank trois id = "third">${point3}</div>
+        <p class="userName3">${user3}</p>
+        <div class="podium_rank third" id="third">${point3}</div>
     </div>
 
 </div>
@@ -72,49 +72,45 @@ function getMorePoint() {
           },
         };
   
-        const first = await fetch("/api/point/getFirst", options); 
-        const seconde = await fetch("/api/point/getSeconde", options); 
-        const third = await fetch("/api/point/getThird", options); 
-  
-        if (!first.ok) {
-          throw new Error(
-            "fetch error : " + first.status + " : " + first.statusText
-          );
-        }
-
-        if (!seconde.ok) {
-          throw new Error(
-            "fetch error : " + seconde.status + " : " + seconde.statusText
-          );
-        }
-
-        if (!third.ok) {
-          throw new Error(
-            "fetch error : " + third.status + " : " + third.statusText
-          );
-        }
-
-        const data1 = await first.json(); 
-        const data2 = await seconde.json(); 
-        const data3 = await third.json(); 
+        const top3 = await fetch("/api/point/getTop3", options); 
         
-        console.log(data1);
-        console.log(data2);
-        console.log(data3);
+  
+        if (!top3.ok) {
+          throw new Error(
+            "fetch error : " + top3.status + " : " + top3.statusText
+          );
+        }
+
+        
+        const data = await top3.json(); 
+         
+        
+        console.log(data);
+        
+
+
+        user1 = document.querySelector('.userName1');
+        user1.innerHTML= JSON.stringify(data[0].login);
 
         point1 = document.querySelector('#first');
-        point1.innerHTML= data1;
+        point1.innerHTML=  JSON.stringify(data[0].point);
+
+
+
+        user2 = document.querySelector('.userName2');
+        user2.innerHTML= JSON.stringify(data[1].login);
 
         point2 = document.querySelector('#second');
-        point2.innerHTML= data2;
+        point2.innerHTML=  JSON.stringify(data[1].point);
+
+
+        
+        user3 = document.querySelector('.userName3'); 
+        user3.innerHTML= JSON.stringify(data[2].login);
 
         point3 = document.querySelector('#third');
-        point3.innerHTML= data3;
-        
-        
-        //point1.innerHTML=  JSON.stringify(data1);
-        //point2.innerHTML=  JSON.stringify(data2);
-        //point3.innerHTML=  JSON.stringify(data3);
+        point3.innerHTML=  JSON.stringify(data[2].point);
+
 
       } catch (error) {
         console.error("getRanking::error: ", error);
