@@ -8,12 +8,15 @@ const Navbar = () => {
     if (window.location.pathname === '/' && !isAuthenticated()) {
         navbar += `
   <h1>
-  DISCOVER OR RE  <span style="color:#FFFF8F">DISCOVER THE </span> <span style="color:#C41E3A">CAPITAL OF EUROPE	</span>
+  play with the belgium  <span style="color:#FFFF8F">team for one last  </span> <span style="color:#C41E3A">time before their retreat </span>
  </h1>
   `;
     } else {
         navbar += `
  <ul>
+ <li>
+   <a class="game"  href="#" data-uri="/level">Game</a>
+  </li> 
  <li >
    <a data-uri="/ranking">Ranking</a>
    </li> 
@@ -21,8 +24,8 @@ const Navbar = () => {
  <li>
    <a  href="#" data-uri="/contact">Contact</a>
   </li> 
-  ${!isAuthenticated() ?' <li> <a  href="#" data-uri="/">Home</a></li> ' : ''}
-  ${isAuthenticated() ? '<li> <a href="#" data-uri="/logout" >Logout</a> </li>' : ''}
+
+${isAuthenticated() ? '<li> <a href="#" data-uri="/logout" >Logout</a> </li>' : ''}
  </ul>
  `;
     }
