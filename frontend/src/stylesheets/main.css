@@ -603,11 +603,11 @@ p {
 
    width: 35%;
 
-   background-color: rgba(75, 2, 2, 0.3);
+   background-color: rgba(255, 255, 255, 0.3);
 
    text-align: center;
    padding: 20px;
-   font-family: Arial, Helvetica, sans-serif;
+   font-family: 'Games', sans-serif;
    color: white;
 }
 
@@ -651,7 +651,7 @@ p {
 .title {
    text-align: left;
    float: left;
-   font-family: Arial, Helvetica, sans-serif;
+   font-family: 'Games', sans-serif;
    font-size: 20px;
 }
 
@@ -670,7 +670,7 @@ p {
 
    width: 35%;
 
-   background-color: rgba(75, 2, 2, 0.3);
+   background-color: rgba(255, 255, 255, 0.2);
 
    text-align: center;
    padding-left: 15px;
@@ -737,6 +737,20 @@ p {
    text-align: center;
    margin-top: 20px;
 
+}
+.divMorePoint{
+   display: block;
+   margin : auto;
+   text-align: center;
+}
+.btn1 {
+   border: 2px solid #000000;
+   background-color: rgba(0, 0, 0, 0.9);
+   color: white;
+   position: relative;
+   font-family: 'Games', sans-serif;
+   font-size: 30px;
+   cursor: pointer;
 }
 /*---------------------------------------------------game 1v1---------------------------------------------------------*/
 
@@ -818,19 +832,20 @@ p {
 
 
 .tablePoints{
-
+   background-color: rgba(255, 255, 255, 0.2);
    border: 5px solid;
    border-color: black yellow red yellow;
    text-align: center;
    padding: 20px;
-   font-family: Arial, Helvetica, sans-serif;
+   font-family: 'Games', sans-serif;
    margin: auto;
+   font-size: 40px;
 
 }
 .th{
    border: 1px solid;
    border-color: black yellow red yellow;
 }
-
-
-
+.rankingTitle{
+margin-top: auto;
+}

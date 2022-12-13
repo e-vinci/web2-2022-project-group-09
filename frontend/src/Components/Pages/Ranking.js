@@ -15,8 +15,8 @@ let point3;
 let ranking =
 
 `
-<div class="ranking">
-
+<div class="ranking" style="font-family: 'Games', sans-serif;">
+    <h3 class="rankingTitle"> Ranking</h3>
     <div class="podium">
         <p class="userName2">${user2}</p>
         <div class="podium_rank second" id = "second">${point2}</div>
@@ -34,9 +34,6 @@ let ranking =
     </div>
 
 </div>
-
-    <div class = "morePoint"> 
-        <button type = "button"> </button>
     </div>
 
 
@@ -44,10 +41,15 @@ let ranking =
 
 
 function getMorePoint() {
-    const main = document.querySelector("button");
-    
-    main.innerText = 'Get more point';
-    main.addEventListener('click', () => {
+    const main = document.querySelector('main');
+    const divMorePoint = document.createElement('div');
+    divMorePoint.className = 'divMorePoint';
+    main.appendChild(divMorePoint);
+    const buttonMorePoints = document.createElement('button');
+    buttonMorePoints.className = 'btn1';
+    buttonMorePoints.innerHTML = 'Get more points';
+    divMorePoint.appendChild(buttonMorePoints);
+    buttonMorePoints.addEventListener('click', () => {
         Navigate('/morePoints');
       });
 
@@ -81,13 +83,8 @@ function getMorePoint() {
           );
         }
 
-        
-        const data = await top3.json(); 
-         
-        
+        const data = await top3.json();
         console.log(data);
-        
-
 
         user1 = document.querySelector('.userName1');
         user1.innerHTML= JSON.stringify(data[0].login);
@@ -95,16 +92,12 @@ function getMorePoint() {
         point1 = document.querySelector('#first');
         point1.innerHTML=  JSON.stringify(data[0].point);
 
-
-
         user2 = document.querySelector('.userName2');
         user2.innerHTML= JSON.stringify(data[1].login);
 
         point2 = document.querySelector('#second');
         point2.innerHTML=  JSON.stringify(data[1].point);
 
-
-        
         user3 = document.querySelector('.userName3'); 
         user3.innerHTML= JSON.stringify(data[2].login);
 

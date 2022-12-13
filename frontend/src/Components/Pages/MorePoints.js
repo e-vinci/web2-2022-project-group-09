@@ -59,7 +59,8 @@ function loadTable(data){
   let size = data.length;
 
   for(let i = 0; i < size; i++){
-    dataHtml += `<tr> <td>${data[i].login}</td> <td>${data[i].point}</td> </tr>`;
+    dataHtml += `<tr style="font-family: 'Games', sans-serif;">
+ <td>${data[i].login}</td> <td>${data[i].point}</td> </tr>`;
 
   }
 
