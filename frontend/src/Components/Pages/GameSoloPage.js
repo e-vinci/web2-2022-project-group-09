@@ -14,7 +14,7 @@ import hazard from "../../img/hazard.jpg"
 
 import Navigate from '../Router/Navigate';
 import cdm from '../../img/cdm.jpg';
-import sad from '../../img/sad.png';
+import sad from '../../img/gameOver.png';
 
 import { getAuthenticatedUser } from '../../utils/auths';
 import { addData } from '../../models/point';
@@ -55,7 +55,7 @@ const GameSoloPage = () => {
 
     const maxMovesCount = document.createElement('span');
     maxMovesCount.className = 'playerLivesCount';
-    
+    let lockboard= false;
     let nbePoints = 0;
     let nbeErreu = 0;
     let cmptCartes = 9;
@@ -142,22 +142,31 @@ const GameSoloPage = () => {
             section.appendChild(card);
             card.appendChild(recto);
             card.appendChild(verso);
+            const carteFlip = document.querySelectorAll(".flipped");
+            
             card.addEventListener('click', (e) => {
+                if(lockboard) return;
+                if(card.className != "card toggleCard flipped"){
                 card.classList.toggle("toggleCard");
                 regarderCarte(e);
+                }
+                
             })
+        
+        
         })
     };
     let defilerTempsBool = false;
     //correspondance des cartes
     const regarderCarte = (e) => {
-
+        
         const carteClick = e.target;
         carteClick.classList.add("flipped");
         if (!defilerTempsBool) {
             defilerTemps();
             defilerTempsBool = true;
-        }
+        
+    }
         const carteFlip = document.querySelectorAll(".flipped");
         //PROBLEME on peut appuyer 2x sur la meme carte
         if (carteFlip.length === 2 && playerLives === 1 && carteFlip[0].getAttribute("name") !== carteFlip[1].getAttribute("name")) {
@@ -175,7 +184,7 @@ const GameSoloPage = () => {
                 Swal.fire({
                     background : 'rgba(15, 15, 15, 0.7) ',
                     title: `<span style="color:white"><strong>dommage.... :'(</strong></span>`,
-                    imageUrl: `${sad}`,
+                    imageUrl: `${sad}`, //ici
                     width: 800,
                     padding: '3em',
                     showDenyButton: true,
@@ -194,6 +203,7 @@ const GameSoloPage = () => {
             }
         }
         if (carteFlip.length === 2) {
+            
             if (carteFlip[0].getAttribute("name") === carteFlip[1].getAttribute("name")) {
                 console.log("match");
                 carteFlip.forEach((card) => {
@@ -203,10 +213,17 @@ const GameSoloPage = () => {
                 nbePoints +=1;
                 cmptCartes -= 1;
             } else {
+                lockboard=true;
                 console.log("wrong");
                 carteFlip.forEach((card) => {
                     card.classList.remove("flipped");
-                    setTimeout(() => card.classList.remove("toggleCard"), 1000);
+                    setTimeout(() => {
+                        card.classList.remove("toggleCard");
+                        card.classList
+
+                        lockboard=false;
+
+                    }, 1000);
                 });
                 if (playerLives > 0) {
                     playerLives--;
@@ -218,9 +235,23 @@ const GameSoloPage = () => {
             if((cmptCartes == 0 || playerLives ==0 ) && getAuthenticatedUser()){
                    ajouterData(nbePoints,nbeErreu);
             }
+
+        }/*else{
+            carteFlip.forEach((card) => {
+                card.classList.remove("flipped");
+                setTimeout(() => {
+                    
+                    card.classList.remove("flipped");
+
+                }, 1000);
+            })
+    }*/
+        if (cmptCartes === 8) {
+
         }
         if (cmptCartes === 0) {
             clearTimeout(timeOut);
+
             Swal.fire({
                 title: `<span style="color:white"><strong>bravo tu a reussis en ${heures} : ${minutes} : ${secondes}</strong></span>`,
                 imageUrl: `${cdm}`,

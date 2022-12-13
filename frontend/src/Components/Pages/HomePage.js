@@ -9,8 +9,7 @@ import Navigate from '../Router/Navigate';
 
 
 let homePage = "";
-    homePage = `
-
+homePage = `
       <div class="card-outer">
       <div class="card-container">
       
@@ -43,7 +42,6 @@ let homePage = "";
           </div>
         </div>
       </div>
-
       <div class="card-outer2">
       <div class="card2">
           <div class="back">
@@ -77,12 +75,10 @@ let homePage = "";
          </div>
          <div class="accept">I accept the <a href="https://www.termsandconditionsgenerator.com/live.php?token=W7ej6n7AD9xsGGwDXSD6uwai7u6pUTUM" target="_blank"> terms & conditions:  </a>
             </div>
-
         <input type="checkbox" id="checkBox" value="" > 
            </form>
            <div class="by">
            <p>This project was created by Kubra Arslan, Adame Barhdadi, Ibrahim Bekkari and Leon Kelmendi</p>
-
 </div>
 `
 

@@ -28,7 +28,7 @@ const Game1v1Page = () => {
     } else {
         timer = 700;
     }
-
+    let lockboard= false;
     let cmptCartes = 9;
     let pointJoueur1 = 0
     let pointJoueur2 = 0
@@ -147,9 +147,12 @@ const Game1v1Page = () => {
                 if (joueur === 'Player 1') { pointJoueur1 += 1; mettreAJourCompteur(player1Cmpt, pointJoueur1,'joueur1') } else { pointJoueur2 += 1; mettreAJourCompteur(player2Cmpt, pointJoueur2,'joueur2') }
 
             } else {
+                lockboard=true;
                 carteFlip.forEach((card) => {
                     card.classList.remove("flipped");
-                    setTimeout(() => card.classList.remove("toggleCard"), 1000);
+                    setTimeout(() => {card.classList.remove("toggleCard")
+                    lockboard=false
+                }, 1000);
                 });
                 if (joueur === 'Player 1') {
                     joueur = 'Player 2';
@@ -203,8 +206,15 @@ const Game1v1Page = () => {
             card.classList.toggle("toggleCard");
             setTimeout(() => card.classList.remove("toggleCard"), timer);
             setTimeout(() => card.addEventListener('click', e => {
+                if(lockboard) return;
+              
+                if(card.className !=="card toggleCard flipped"){
+
+                
                 card.classList.toggle("toggleCard")
                 regarderCarte(e)
+                }
+            
             }), timer + 2000);
         })
     };
