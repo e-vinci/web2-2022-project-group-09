@@ -8,6 +8,7 @@ import GameSoloPage from "../Pages/GameSoloPage";
 import Ranking from "../Pages/Ranking";
 import MyStats from "../Pages/MyStats";
 import Game1v1Page from "../Pages/Game1v1Page";
+import MorePoints from "../Pages/MorePoints";
 
 const routes = {
   '/': HomePage,
@@ -18,7 +19,8 @@ const routes = {
   '/contactView': ContactView,
   '/ranking': Ranking,
   '/mystats': MyStats,
-  '/game1v1Page': Game1v1Page
+  '/game1v1Page': Game1v1Page,
+  '/morePoints':MorePoints,
 };
 
 export default routes;

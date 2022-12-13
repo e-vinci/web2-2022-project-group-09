@@ -32,4 +32,6 @@ app.use('/auth', authRouter);
 app.use('/message', messageRouteur);
 app.use('/point',pointRouteur);
 
+
+
 module.exports = app;

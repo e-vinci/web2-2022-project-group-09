@@ -36,7 +36,6 @@ let mystats =
  
 
 const Mystats = () => {
-
     const main = document.querySelector('main');
     main.innerHTML = mystats;
 

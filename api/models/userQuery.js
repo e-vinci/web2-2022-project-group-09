@@ -11,3 +11,6 @@ module.exports.find = (username) => db.prepare('SELECT * FROM users WHERE login 
 
 
 module.exports.list = () => db.prepare("SELECT * FROM users").all();
+
+
+
