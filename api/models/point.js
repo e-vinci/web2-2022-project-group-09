@@ -8,8 +8,10 @@ module.exports.addPoint = (nbePoint,nbeErreu,user) => {
     return info.changes;
 }
 
-// show top 10
-module.exports.getMorePoints = () => db.prepare("SELECT login, point FROM users ORDER BY point DESC LIMIT 10").all();
+// show the 10 best score
+module.exports.getRanking = () => db.prepare("SELECT login, point FROM users ORDER BY point DESC LIMIT 10").all();
 
-// show top 3
-module.exports.getTop3 = () => db.prepare("SELECT login, point FROM users ORDER BY point DESC LIMIT 3").all();
+// user stats
+module.exports.getUserStats = (userId) => 
+db.prepare("SELECT login,nbeGameJoue,moyennErreur,point FROM users WHERE id_user = ? ").all(userId);
+

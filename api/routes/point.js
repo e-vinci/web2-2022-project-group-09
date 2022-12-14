@@ -20,18 +20,22 @@ router.post('/', (req, res) => {
 
 });
 
-// get top 10 points
-router.get('/getMorePoints', (req, res) => {
-    console.log(Point.getMorePoints())
-    return res.json(Point.getMorePoints())
+// show top 10 player
+router.get('/getRanking', (req, res) => {
+    console.log(Point.getRanking())
+    return res.json(Point.getRanking())
 
 });
 
-// get top 3
-router.get('/getTop3', (req, res) => {
-    console.log(Point.getTop3())
-    return res.json(Point.getTop3())
+
+// show the user stats
+router.get('/getUserStats', (req, res) => {
+    console.log(Point.getUserStats(req.session.user_id))
+    return res.json(Point.getUserStats(req.session.user_id))
 
 });
+
 
 module.exports = router;
+
+

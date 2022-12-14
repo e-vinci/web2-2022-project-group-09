@@ -100,12 +100,15 @@ Content-Type: application/json
 }
 
 
+###
+GET http://localhost:3000/message
+
 
 ###
-GET http://localhost:3000/point/getMorePoints
+GET http://localhost:3000/point/getRanking
+
 
 
 ###
-GET http://localhost:3000/point/getTop3
-
+GET http://localhost:3000/point/getUserStats
 

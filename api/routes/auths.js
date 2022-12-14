@@ -12,7 +12,7 @@ router.post('/login', async (req, res) => {
   const user = await login(username, password);
 
   if (!user) return res.sendStatus(401);
-console.log(user);
+
   createCookieSessionData(req, user);
 
   return res.json({ username: user.username,token:user.token });

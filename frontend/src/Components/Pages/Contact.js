@@ -76,6 +76,7 @@ function pageHtml() {
   <option value=""   disabled select   >Please Choose</option>
     <option value="question">Question</option>
     <option value="suggestion">Suggestion</option>
+    <option value="supprimer">Supprimer mon compte</option>
   
   </select>
     </div>  

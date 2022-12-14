@@ -19,14 +19,16 @@ const Navbar = () => {
    <a data-uri="/ranking">Ranking</a>
    </li> 
  ${isAuthenticated() ? ' <li> <a data-uri="/mystats">MyStats</a> </li>   ' : '<li> <a   href="#"  data-uri="/" >Login/Register</a> </li>'}
+
+ <li>
+   <a class="game"  href="#" data-uri="/level">Game</a>
+  </li> 
  <li>
    <a  href="#" data-uri="/contact">Contact</a>
   </li> 
 
 ${isAuthenticated() ? '<li> <a href="#" data-uri="/logout" >Logout</a> </li>' : ''}
-<li>
-   <a class="game"  href="#" data-uri="/level">Game</a>
-  </li> 
+
  </ul>
  `;
     }
