@@ -58,8 +58,6 @@ async function getMystats () {
     }
   
     const data = await response.json(); 
-    console.log(data);
-
     userName = document.querySelector('.userName');
     userName.innerHTML= JSON.stringify(data[0].login);
 
