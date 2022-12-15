@@ -176,7 +176,7 @@ const GameSoloPage = () => {
             if (playerLives === 0) {
                 Swal.fire({
                     background : 'rgba(15, 15, 15, 0.7) ',
-                    title: `<span style="color:white"><strong>dommage.... :'(</strong></span>`,
+                    title: `<span style="color:white"><strong>Game Over :'(</strong></span>`,
                     imageUrl: `${sad}`,
                     width: 800,
                     padding: '3em',
@@ -246,7 +246,7 @@ const GameSoloPage = () => {
             clearTimeout(timeOut);
 
             Swal.fire({
-                title: `<span style="color:white"><strong>bravo tu a reussis en ${heures} : ${minutes} : ${secondes}</strong></span>`,
+                title: `<span style="color:white"><strong>congratulations, you succeeded in ${heures} : ${minutes} : ${secondes}</strong></span>`,
                 imageUrl: `${cdm}`,
                 width: 800,
                 padding: '3em',

@@ -166,7 +166,7 @@ const Game1v1Page = () => {
                 let gagnant = Math.max(pointJoueur1,pointJoueur2)
                 if(gagnant === pointJoueur1){gagnant = 'Player 1'} else{gagnant = 'Player 2'}
                 Swal.fire({
-                    title: `<span style="color:white"><strong>Le gagnant est ${gagnant}</strong></span>`,
+                    title: `<span style="color:white"><strong>${gagnant} won</strong></span>`,
                     imageUrl: `${cdm}`,
                     width: 800,
                     padding: '3em',
