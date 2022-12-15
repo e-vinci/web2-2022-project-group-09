@@ -1,11 +1,12 @@
 
-import { isAuthenticated } from "../../utils/auths";
+import { getAnonymUser, isAuthenticated } from "../../utils/auths";
 
 const Navbar = () => {
     const navbarWrapper = document.querySelector('#navbarWrapper');
     let navbar = '';
 
-    if (window.location.pathname === '/' && !isAuthenticated()) {
+    
+    if ((window.location.pathname === '/' || window.location.pathname === '/logout') && !getAnonymUser() ) { 
         navbar += `
   <h1>
   Play with the  <span style="color:#FFFF8F"> belgium team for  </span> <span style="color:#C41E3A">one last game  </span>
