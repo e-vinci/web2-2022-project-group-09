@@ -8,7 +8,7 @@ const Navbar = () => {
     if (window.location.pathname === '/' && !isAuthenticated()) {
         navbar += `
   <h1>
-  play with the belgium  <span style="color:#FFFF8F">team for one last  </span> <span style="color:#C41E3A">time before their retreat </span>
+  Play with the  <span style="color:#FFFF8F"> belgium team for  </span> <span style="color:#C41E3A">one last game  </span>
  </h1>
   `;
     } else {

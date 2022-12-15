@@ -50,7 +50,7 @@ const contactPage = async () => {
             const response = await fetch(`/api/message/${elementId}`, options);
     
             if (!response.ok) Swal.fire({
-                title: 'Le type doit etre  une "question" ou une "suggestion"',
+                title: 'Le type doit etre  une "question"  "suggestion" ou "Supprimer mon compte" ',
                 position: 'top',
             })
             Navigate('/contactView')

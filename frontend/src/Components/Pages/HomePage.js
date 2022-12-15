@@ -77,7 +77,7 @@ homePage = `
             </div>
         <input type="checkbox" id="checkBox" value="" > 
            </form>
-           <div class="by">
+           <div class="credits">
            <p>This project was created by Kubra Arslan, Adame Barhdadi, Ibrahim Bekkari and Leon Kelmendi</p>
 </div>
 `

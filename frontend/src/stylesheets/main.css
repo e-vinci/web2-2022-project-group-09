@@ -254,16 +254,18 @@ hr {
    width: 20px;
 }
 
-.by {
+.credits {
+   position: relative; 
    font-size: 24px;
    width: 680px;
    text-align: center;
-   margin-left: 18cm;
-   bottom: 0;
+   margin-left: auto;
+   margin-right: auto;
+   transform: translateY(60%);
    font-family: 'Games', sans-serif;
-   position: absolute; /* postulat de départ */
- 
-   background: rgba(0, 0, 0, 0.4);
+   color: blue;
+
+   
 }
 
 
@@ -273,7 +275,9 @@ hr {
    text-align: center;
 
 }
-
+.contactpage body {
+   transform: scale(1);
+}
 .contactpage #header button,
 p {
    display: inline-block;
@@ -329,11 +333,12 @@ p {
    width: 50%;
    border-color: black #FFFF8F #C41E3A;
    border-radius: 25px;
+
 }
 
 .contactpage #type2,
 #content2 {
-   font-size: large;
+
    font-weight: bold;
 }
 
