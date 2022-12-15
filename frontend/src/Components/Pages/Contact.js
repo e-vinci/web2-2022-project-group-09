@@ -72,11 +72,11 @@ function pageHtml() {
   <label for="">Choose a type of message:</label>
   </div>
   <div >
-  <select id="type" required >
-  <option value=""   disabled select   >Please Choose</option>
-    <option style="font-family: 'Games', sans-serif;" value="question">Question</option>
-    <option style="font-family: 'Games', sans-serif;" value="suggestion">Suggestion</option>
-   ${getAuthenticatedUser() ? '<option style="font-family: \'Games\', sans-serif;" value="suppresion">Delete my account </option>' : ''}
+  <select style="font-family: 'Games', sans-serif;" id="type" required >
+  <option  value=""   disabled select   >Please Choose</option>
+    <option value="question">Question</option>
+    <option  value="suggestion">Suggestion</option>
+   ${getAuthenticatedUser() ? '<option  value="suppresion">Delete my account </option>' : ''}
   
   </select>
     </div>  
@@ -86,7 +86,7 @@ function pageHtml() {
   <label for="message">Write your message:</label>
   </div>
     <div >
-        <textarea name="message" id="message" required ></textarea>
+        <textarea style="font-family: 'Games', sans-serif; name="message" id="message" required ></textarea>
            </div>  
            
            <div>
