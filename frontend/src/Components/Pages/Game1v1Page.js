@@ -179,7 +179,7 @@ const Game1v1Page = () => {
                     '<a style="font-family:\'Games\', sans-serif;">Restart</a>\n',
                 }).then((result) => {
                     if (result.isConfirmed) {
-                        Navigate('/')
+                        Navigate('/ranking')
                     }else if(result.isDenied){
                         Navigate('/level')
                     }
