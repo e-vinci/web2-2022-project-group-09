@@ -4,7 +4,7 @@ body {
    margin: 0 0;
    background-repeat: no-repeat;
    background-color: #1c801e;
-   overflow: hidden;
+   /*overflow: hidden;*/
 
 }
 
@@ -264,7 +264,7 @@ hr {
    margin-right: auto;
    transform: translateY(60%);
    font-family: 'Games', sans-serif;
-   color: blue;
+   color: darkblue;
 
    
 }
