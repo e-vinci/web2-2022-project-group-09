@@ -63,7 +63,7 @@ function pageHtml(mesage) {
     <section class="contactpage">
             
     <div id="header">
-    <button style="font-family: 'Games', sans-serif; type="button" id="changePage"  >Add Message</button >
+    <button style="font-family: 'Games', sans-serif;" type="button" id="changePage"  >Add Message</button >
      <p style="font-family: 'Games', sans-serif"> View Message</p>
     </div>`
     if (getAuthenticatedUser()) {
@@ -71,10 +71,10 @@ function pageHtml(mesage) {
             contactpage += `
         <div id="message2"> 
         <div id="container2">
-        <div style="font-family: 'Games', sans-serif; id="type2" data-element-id="${element.type}" contenteditable='true'> ${element.type}</div> 
-        <div style="font-family: 'Games', sans-serif; id="content2" data-element-id=" ${element.content}" contenteditable='true'> ${element.content} </div>
-        <button style="font-family: 'Games', sans-serif; type="button" id="update" data-element-id="${element.id_message}"> Update </button>
-        <button style="font-family: 'Games', sans-serif; type="button" id="delete" data-element-id="${element.id_message}"> Delete </button>
+        <div style="font-family: 'Games', sans-serif;" id="type2" data-element-id="${element.type}" contenteditable='true'> ${element.type}</div> 
+        <div style="font-family: 'Games', sans-serif;" id="content2" data-element-id=" ${element.content}" contenteditable='true'> ${element.content} </div>
+        <button style="font-family: 'Games', sans-serif;" type="button" id="update" data-element-id="${element.id_message}"> Update </button>
+        <button style="font-family: 'Games', sans-serif;" type="button" id="delete" data-element-id="${element.id_message}"> Delete </button>
         </div>
         </div>
            `;

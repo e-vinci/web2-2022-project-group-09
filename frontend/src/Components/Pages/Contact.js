@@ -73,7 +73,7 @@ function pageHtml() {
   </div>
   <div >
   <select style="font-family: 'Games', sans-serif;" id="type" required >
-  <option  value=""   disabled select   >Please Choose</option>
+  <option  value="" disabled select   >Please Choose</option>
     <option value="question">Question</option>
     <option  value="suggestion">Suggestion</option>
    ${getAuthenticatedUser() ? '<option  value="suppresion">Delete my account </option>' : ''}
@@ -86,11 +86,11 @@ function pageHtml() {
   <label for="message">Write your message:</label>
   </div>
     <div >
-        <textarea style="font-family: 'Games', sans-serif; name="message" id="message" required ></textarea>
+        <textarea style="font-family: 'Games', sans-serif;" name="message" id="message" required ></textarea>
            </div>  
            
            <div>
-          <center> <button style="font-family: 'Games', sans-serif; type="submit" id="messageSubmit"  value="Submit">Submit </button></center>
+          <center> <button style="font-family: 'Games', sans-serif;" type="submit" id="messageSubmit"  value="Submit">Submit </button></center>
      </div>  
 
   </form>
