@@ -174,7 +174,7 @@ const Game1v1Page = () => {
                     background: `rgba(15, 15, 15, 0.7)`,
                     showDenyButton: true,
                     confirmButtonText:
-                        '<i class="fa fa-home"></i>',
+                        '<a style="font-family:\'Games\', sans-serif;">Ranking</a>\n',
                     denyButtonText :
                     '<a style="font-family:\'Games\', sans-serif;">Restart</a>\n',
                 }).then((result) => {
