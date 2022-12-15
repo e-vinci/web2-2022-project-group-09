@@ -87,17 +87,10 @@ const GameSoloPage = () => {
     btnRestart.addEventListener('click', () => {
         Navigate('/level');
     });
-    const btnHome = document.createElement('button');
-    btnHome.className = 'btn';
+
     section.appendChild(divBackRestart);
     divBackRestart.appendChild(btnRestart);
-    divBackRestart.appendChild(btnHome);
-    const iHome = document.createElement('i');
-    iHome.className = 'fa fa-home';
-    btnHome.appendChild(iHome);
-    btnHome.addEventListener('click', () => {
-        Navigate('/');
-    });
+
     const generateData = () =>
         [
             {imgSrc: lukaku, name: "lukaku"},
@@ -184,18 +177,18 @@ const GameSoloPage = () => {
                 Swal.fire({
                     background : 'rgba(15, 15, 15, 0.7) ',
                     title: `<span style="color:white"><strong>dommage.... :'(</strong></span>`,
-                    imageUrl: `${sad}`, //ici
+                    imageUrl: `${sad}`,
                     width: 800,
                     padding: '3em',
                     showDenyButton: true,
                     confirmButtonText:
-                        '<i class="fa fa-home"></i>',
+                        '<a style="font-family:\'Games\', sans-serif;">Ranking</a>\n',
                     denyButtonText :
                     '<a style="font-family:\'Games\', sans-serif;">Restart</a>\n',
                     
                 }).then((result) => {
                     if (result.isConfirmed) {
-                        Navigate('/')
+                        Navigate('/ranking')
                     }else if(result.isDenied){
                         Navigate('/level')
                     }
@@ -261,7 +254,7 @@ const GameSoloPage = () => {
                 background: `rgba(15, 15, 15, 0.7)`,
                 showDenyButton: true,
                 confirmButtonText:
-                        '<i class="fa fa-home"></i>',
+                    '<a style="font-family:\'Games\', sans-serif;">Ranking</a>\n',
                     denyButtonText :
                     '<a style="font-family:\'Games\', sans-serif;">Restart</a>\n',
             }).then((result) => {
