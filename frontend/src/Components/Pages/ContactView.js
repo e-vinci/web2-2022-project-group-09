@@ -63,18 +63,18 @@ function pageHtml(mesage) {
     <section class="contactpage">
             
     <div id="header">
-    <button type="button" id="changePage"  >Add Message</button >
-     <p> View Message</p>
+    <button style="font-family: 'Games', sans-serif; type="button" id="changePage"  >Add Message</button >
+     <p style="font-family: 'Games', sans-serif"> View Message</p>
     </div>`
     if (getAuthenticatedUser()) {
         Array.from(mesage.message).forEach(element => {
             contactpage += `
         <div id="message2"> 
         <div id="container2">
-        <div id="type2" data-element-id="${element.type}" contenteditable='true'> ${element.type}</div> 
-        <div id="content2" data-element-id=" ${element.content}" contenteditable='true'> ${element.content} </div>
-        <button type="button" id="update" data-element-id="${element.id_message}"> Update </button>
-        <button type="button" id="delete" data-element-id="${element.id_message}"> Delete </button>
+        <div style="font-family: 'Games', sans-serif; id="type2" data-element-id="${element.type}" contenteditable='true'> ${element.type}</div> 
+        <div style="font-family: 'Games', sans-serif; id="content2" data-element-id=" ${element.content}" contenteditable='true'> ${element.content} </div>
+        <button style="font-family: 'Games', sans-serif; type="button" id="update" data-element-id="${element.id_message}"> Update </button>
+        <button style="font-family: 'Games', sans-serif; type="button" id="delete" data-element-id="${element.id_message}"> Delete </button>
         </div>
         </div>
            `;
@@ -82,7 +82,7 @@ function pageHtml(mesage) {
 
 
     } else {
-        contactpage += `<center><p style="font-size: x-large" >Vous n'etes pas connecter</p></center>`
+        contactpage += `<center><p style="font-family: 'Games', sans-serif; color: red">Not connected</p></center>`
     }
     return contactpage;
 }

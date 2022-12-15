@@ -54,29 +54,29 @@ function pageHtml() {
     const contactpage = `<section class="contactpage">
 
   <div id="header">
-   <p> Add Message</p> 
-     <button type="button" id="changePage"  >View Message</button >
+   <p style="font-family: 'Games', sans-serif;">  Add Message</p> 
+     <button style="font-family: 'Games', sans-serif;" type="button" id="changePage"  >View Message</button >
   </div>
   <div class="form">
   <div class="container">  
-          <form>
+          <form style="font-family: 'Games', sans-serif;">
   <div>
-  <label>From </label>
+  <label >From </label>
   </div>
   <div>
-        <input type="text" placeholder="${user}" id="username" readonly required/>  
+        <input type="text" style="font-family: 'Games', sans-serif;" placeholder="${user}" id="username" readonly required/>  
   </div>  
         
   <div>
      
   <label for="">Choose a type of message:</label>
   </div>
-  <div>
+  <div >
   <select id="type" required >
   <option value=""   disabled select   >Please Choose</option>
-    <option value="question">Question</option>
-    <option value="suggestion">Suggestion</option>
-   ${getAuthenticatedUser() ? '<option value="suppresion">Supprimer mon compte</option>' : ''}
+    <option style="font-family: 'Games', sans-serif;" value="question">Question</option>
+    <option style="font-family: 'Games', sans-serif;" value="suggestion">Suggestion</option>
+   ${getAuthenticatedUser() ? '<option style="font-family: \'Games\', sans-serif;" value="suppresion">Delete my account </option>' : ''}
   
   </select>
     </div>  
@@ -90,7 +90,7 @@ function pageHtml() {
            </div>  
            
            <div>
-          <center> <button type="submit" id="messageSubmit"  value="Submit">Submit </button></center>
+          <center> <button style="font-family: 'Games', sans-serif; type="submit" id="messageSubmit"  value="Submit">Submit </button></center>
      </div>  
 
   </form>
