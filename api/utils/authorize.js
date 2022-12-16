@@ -4,7 +4,7 @@ const { readOneUserFromUsername } = require('../models/users');
 const jwtSecret = 'ilovemymbelgium!';
 
 const authorize = (req, res, next) => {
-  const { token } = req.session;
+  const token = req.get('authorization');
   if (!token) return res.sendStatus(401);
 
   try {

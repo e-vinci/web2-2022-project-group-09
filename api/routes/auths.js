@@ -12,7 +12,6 @@ router.post('/login', async (req, res) => {
   const user = await login(username, password);
   if (!user) return res.sendStatus(401);
 
-  createCookieSessionData(req, user);
 
   return res.json({ username: user.username });
 });
@@ -23,8 +22,7 @@ router.post('/register', async (req, res) => {
   if (!username || !password) return res.sendStatus(400)
   const newUser = await register(username, password);
   if (!newUser) return res.sendStatus(401);
-  createCookieSessionData(req, newUser);
-  return res.json({ username: newUser.username});
+  return res.json({ username: newUser.username });
 });
 
 
@@ -34,8 +32,5 @@ router.get('/logout', (req, res) => {
   return res.sendStatus(200);
 });
 
-function createCookieSessionData(req, authenticatedUser) {
-  req.session.username = authenticatedUser.username;
-  req.session.token = authenticatedUser.token;
-}
+
 module.exports = router;
