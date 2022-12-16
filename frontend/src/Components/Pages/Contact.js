@@ -34,9 +34,9 @@ const contactPage = () => {
         };
 
         if (isAuthenticated()) {
-            response = await fetch('/api/message/addMessageUser', OPTIONS);
+            response = await fetch(`${process.env.API_BASE_URL}/message/addMessageUser`, OPTIONS);
         } else {
-            response = await fetch('/api/message/addMessageVisitor', OPTIONS);
+            response = await fetch(`${process.env.API_BASE_URL}/message/addMessageVisitor`, OPTIONS);
         }
 
         if (!response.ok) throw new Error(`fetch error : ${response.status} : ${response.statusText}`);

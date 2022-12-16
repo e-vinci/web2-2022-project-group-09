@@ -114,7 +114,7 @@ const HomePage = () => {
                     }
 
                 };
-                const response = await fetch('/api/auth/login', OPTIONS);
+                const response = await fetch(`${process.env.API_BASE_URL}/auth/login`, OPTIONS);
                 if (!response.ok) Swal.fire('Mauvais identifiant')
 
                 const authenticatedUser = await response.json();
@@ -134,7 +134,7 @@ const HomePage = () => {
                     }
 
                 };
-                const response = await fetch('/api/auth/register', OPTIONS);
+                const response = await fetch(`${process.env.API_BASE_URL}/auth/register`, OPTIONS);
                 if (!response.ok) Swal.fire('Ce compte existe deja ')
 
                 const authenticatedUser = await response.json();

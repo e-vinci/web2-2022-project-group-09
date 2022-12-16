@@ -1,4 +1,4 @@
-/* eslint-disable prefer-template */
+
 import Swal from 'sweetalert2';
 import { clearPage } from '../../utils/render';
 import Navbar from '../Navbar/Navbar';
@@ -141,17 +141,17 @@ const GameSoloPage = () => {
         //   affichage
         if (secondes < 10) {
             const s = `${secondes}`
-            secondes = "0" + s
+            secondes = `0${s}`
         }
 
         if (minutes < 10) {
             const m = `${minutes}`
-            minutes = "0" + m;
+            minutes = `0${m}`;
         }
 
         if (heures < 10) {
             const h = `${heures}`
-            heures = "0" + h;
+            heures = `0${h}`;
         }
 
         timer.textContent = `${heures} : ${minutes} : ${secondes}`;

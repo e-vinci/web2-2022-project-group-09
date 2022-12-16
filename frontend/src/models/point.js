@@ -1,11 +1,4 @@
 
-
-async function getPoints() {
-    const response = await fetch('/api/point');
-    const points = await response.json();
-    return points;
-}
-
 async function addData(points) {
     const options = {
         method: 'POST',
@@ -15,8 +8,9 @@ async function addData(points) {
 
         }
     }
-    await fetch(`/api/point`, options);
+    await fetch(`${process.env.API_BASE_URL}/point`, options);
 
 };
 
-export { getPoints, addData };
+// eslint-disable-next-line import/prefer-default-export
+export { addData }

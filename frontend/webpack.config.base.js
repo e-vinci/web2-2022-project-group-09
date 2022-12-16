@@ -1,8 +1,17 @@
-const webpack = require('webpack');
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const ESLintPlugin = require('eslint-webpack-plugin');
+const webpack = require('webpack');
+
+const DEVELOPMENT_API_BASE_URL = '/api';
+const PRODUCTION_API_BASE_URL = 'https://reddevilsmem.azurewebsites.net';
+
+
+const buildMode = process.argv[process.argv.indexOf('--mode') + 1];
+const isProductionBuild = buildMode === 'production';
+
+const API_BASE_URL = isProductionBuild ? PRODUCTION_API_BASE_URL : DEVELOPMENT_API_BASE_URL;
+
 
 module.exports = {
   mode: 'none',
@@ -14,12 +23,21 @@ module.exports = {
   },
   devtool: 'eval-source-map',
   devServer: {
+    // contentBase: path.join(__dirname, 'dist'),
     static: {
-      directory: path.join(__dirname, 'dist')
+      directory: path.join(__dirname, 'dist'),
+    },
+    client: {
+      overlay: {
+        errors: true,
+        warnings: false,
+      },
     },
     port: 8080,
+    // host: '0.0.0.0', // server to be accessible externally
     host: 'localhost',
     allowedHosts: 'all',
+    // public: 'localhost:8080', // force to open localhost instead of 0.0.0.0
     open: true, // open the default browser
     hot: true,
     historyApiFallback: true, // serve index.html instead of routes leading to no specific ressource
@@ -82,19 +100,10 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: './src/index.html',
     }),
-    new CleanWebpackPlugin({
-      root: path.resolve(__dirname, '../'),
-    }),
-    /* For more advanced use cases, these two global variables determine
-    which renderer is included in the Phaser build. If you only want to run
-    your game with WebGL, then you’d set WEBGL_RENDERER to true,
-    and CANVAS_RENDERER to false.
-    This way, your final code bundle would be smaller because all the canvas rendering
-    code would be left out. */
-    new webpack.DefinePlugin({
-      CANVAS_RENDERER: JSON.stringify(true),
-      WEBGL_RENDERER: JSON.stringify(true),
-    }),
     new ESLintPlugin(),
+    new webpack.DefinePlugin({
+      'process.env.BUILD_MODE': JSON.stringify(buildMode),
+      'process.env.API_BASE_URL': JSON.stringify(API_BASE_URL),
+    }),
   ],
 };

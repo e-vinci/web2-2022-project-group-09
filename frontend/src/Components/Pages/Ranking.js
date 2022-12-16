@@ -19,7 +19,7 @@ const morePoint =
   `
 async function getRanking() {
   try {
-    const response = await fetch("/api/point/getRanking");
+    const response = await fetch(`${process.env.API_BASE_URL}/point/getRanking`);
 
 
     if (!response.ok) {

@@ -26,7 +26,7 @@ const contactPage = async () => {
                 },
             };
 
-            await fetch(`/api/message/${elementId}`, options)
+            await fetch(`${process.env.API_BASE_URL}/message/${elementId}`, options)
             contactPage();
         });
     })
@@ -47,7 +47,7 @@ const contactPage = async () => {
                     'Content-Type': 'application/json',
                 },
             }
-            const response = await fetch(`/api/message/${elementId}`, options);
+            const response = await fetch(`${process.env.API_BASE_URL}/message/${elementId}`, options);
 
             if (!response.ok) Swal.fire({
                 title: 'Le type doit etre  une "question"  "suggestion" ou "Supprimer mon compte" ',
@@ -88,7 +88,7 @@ function pageHtml(mesage) {
 }
 
 async function getMessage() {
-    const response = await fetch('/api/message')
+    const response = await fetch(`${process.env.API_BASE_URL}/message`)
 
     if (!response.ok) {
         throw new Error(`readAllMovies:: fetch error : ${response.status} : ${response.statusText}`);
