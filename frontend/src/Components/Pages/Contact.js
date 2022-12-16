@@ -29,6 +29,7 @@ const contactPage = () => {
             }),
             headers: {
                 'Content-Type': 'application/json',
+                Authorization: getAuthenticatedUser()?.token,
             }
 
         };

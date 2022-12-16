@@ -1,21 +1,20 @@
 const jwt = require('jsonwebtoken');
-const { readOneFromUserName } = require('../models/users');
+const { readOneUserFromUsername } = require('../models/users');
 
-const jwtSecret = 'ilovemybelgium!';
+const jwtSecret = 'ilovemymbelgium!';
 
 const authorize = (req, res, next) => {
-  const { token } = req.session;
+  const token = req.get('authorization');
   if (!token) return res.sendStatus(401);
 
   try {
     const decoded = jwt.verify(token, jwtSecret);
     const { username } = decoded;
-
-    const existingUser = readOneFromUserName(username);
-
+    const existingUser = readOneUserFromUsername(username);
     if (!existingUser) return res.sendStatus(401);
 
     req.user = existingUser; // request.user object is available in all other middleware functions
+
     return next();
   } catch (err) {
     return res.sendStatus(401);
