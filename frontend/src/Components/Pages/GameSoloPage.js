@@ -1,3 +1,4 @@
+/* eslint-disable prefer-template */
 import Swal from 'sweetalert2';
 import { clearPage } from '../../utils/render';
 import Navbar from '../Navbar/Navbar';
@@ -19,11 +20,12 @@ import sad from '../../img/gameOver.png';
 import { getAuthenticatedUser } from '../../utils/auths';
 import { addData } from '../../models/point';
 
-/* eslint-disable */
+
 
 const GameSoloPage = () => {
     Navbar();
-    const difficulte = window.location.search.split('=')[1].split('%')[0]
+    const difficulte = window.location.search.split('=')[1].split('%')[0];
+    let playerLives;
     if (difficulte === 'Easy') {
         playerLives = 15;
     } else if (difficulte === 'Medium') {
@@ -59,7 +61,7 @@ const GameSoloPage = () => {
     let nbePoints = 0;
     let nbeErreu = 0;
     let cmptCartes = 9;
-    //timer
+    // timer
     const timer = document.createElement('h1');
     timer.className = 'timer';
     let heures = 0;
@@ -77,10 +79,10 @@ const GameSoloPage = () => {
     maxMoves.appendChild(maxMovesCount);
     divBackGame.appendChild(section);
 
-    let playerLives;
+
     maxMovesCount.textContent = playerLives;
 
-    //restart button for Game Over
+    // restart button for Game Over
     const btnRestart = document.createElement('button');
     btnRestart.className = 'restart';
     btnRestart.innerHTML = "Restart";
@@ -116,41 +118,47 @@ const GameSoloPage = () => {
         ];
     const randomize = () => {
         const cardData = generateData();
-        cardData.sort(() => Math.random() - 0.5); //hasard
+        cardData.sort(() => Math.random() - 0.5); // hasard
         return cardData;
     };
+    const defilerTemps = () => {
+        secondes = parseInt(secondes, 10);
+        minutes = parseInt(minutes, 10);
+        heures = parseInt(heures, 10);
 
-    const cardGenerator = () => {
-        const section = document.querySelector("section");
-        const cardData = randomize();
-        cardData.forEach((item) => {
-            const card = document.createElement("div");
-            const recto = document.createElement("img");
-            const verso = document.createElement("div");
-            card.classList = "card";
-            recto.classList = "recto";
-            verso.classList = "verso";
-            recto.src = item.imgSrc;
-            card.setAttribute("name", item.name);
-            section.appendChild(card);
-            card.appendChild(recto);
-            card.appendChild(verso);
-            const carteFlip = document.querySelectorAll(".flipped");
+        secondes += 1;
 
-            card.addEventListener('click', (e) => {
-                if (lockboard) return;
-                if (card.className != "card toggleCard flipped") {
-                    card.classList.toggle("toggleCard");
-                    regarderCarte(e);
-                }
+        if (secondes === 60) {
+            minutes += 1;
+            secondes = 0;
+        }
 
-            })
+        if (minutes === 60) {
+            heures += 1;
+            minutes = 0;
+        }
 
+        //   affichage
+        if (secondes < 10) {
+            const s = `${secondes}`
+            secondes = "0" + s
+        }
 
-        })
+        if (minutes < 10) {
+            const m = `${minutes}`
+            minutes = "0" + m;
+        }
+
+        if (heures < 10) {
+            const h = `${heures}`
+            heures = "0" + h;
+        }
+
+        timer.textContent = `${heures} : ${minutes} : ${secondes}`;
+        timeOut = setTimeout(defilerTemps, 1000);
     };
     let defilerTempsBool = false;
-    //correspondance des cartes
+    // correspondance des cartes
     const regarderCarte = (e) => {
 
         const carteClick = e.target;
@@ -161,7 +169,7 @@ const GameSoloPage = () => {
 
         }
         const carteFlip = document.querySelectorAll(".flipped");
-        //PROBLEME on peut appuyer 2x sur la meme carte
+        // PROBLEME on peut appuyer 2x sur la meme carte
         if (carteFlip.length === 2 && playerLives === 1 && carteFlip[0].getAttribute("name") !== carteFlip[1].getAttribute("name")) {
             carteFlip.forEach((card) => {
                 card.classList.remove("flipped");
@@ -198,50 +206,36 @@ const GameSoloPage = () => {
         if (carteFlip.length === 2) {
 
             if (carteFlip[0].getAttribute("name") === carteFlip[1].getAttribute("name")) {
-                console.log("match");
                 carteFlip.forEach((card) => {
-                    card.classList.remove("flipped");
-                    card.style.pointerEvents = "none";
+                    const cart = card
+                    cart.classList.remove("flipped");
+                    cart.style.pointerEvents = "none";
                 })
                 nbePoints += 1;
                 cmptCartes -= 1;
             } else {
                 lockboard = true;
-                console.log("wrong");
                 carteFlip.forEach((card) => {
                     card.classList.remove("flipped");
                     setTimeout(() => {
                         card.classList.remove("toggleCard");
-                        card.classList
-
                         lockboard = false;
 
                     }, 1000);
                 });
                 if (playerLives > 0) {
-                    playerLives--;
+                    playerLives -= 1;
                     maxMovesCount.textContent = playerLives;
                 }
                 nbeErreu += 1;
             }
 
-            if ((cmptCartes == 0 || playerLives == 0) && getAuthenticatedUser()) {
+            if ((cmptCartes === 0 || playerLives === 0) && getAuthenticatedUser()) {
                 ajouterData(nbePoints, nbeErreu);
             }
 
-        }/*else{
-            carteFlip.forEach((card) => {
-                card.classList.remove("flipped");
-                setTimeout(() => {
-                    
-                    card.classList.remove("flipped");
-
-                }, 1000);
-            })
-    }*/
-        if (cmptCartes === 8) {
-
         }
+
         if (cmptCartes === 0) {
             clearTimeout(timeOut);
 
@@ -267,45 +261,37 @@ const GameSoloPage = () => {
         }
 
     };
-    const defilerTemps = () => {
-        secondes = parseInt(secondes);
-        minutes = parseInt(minutes);
-        heures = parseInt(heures);
+    const cardGenerator = () => {
+        const cardData = randomize();
+        cardData.forEach((item) => {
+            const card = document.createElement("div");
+            const recto = document.createElement("img");
+            const verso = document.createElement("div");
+            card.classList = "card";
+            recto.classList = "recto";
+            verso.classList = "verso";
+            recto.src = item.imgSrc;
+            card.setAttribute("name", item.name);
+            section.appendChild(card);
+            card.appendChild(recto);
+            card.appendChild(verso);
+            card.addEventListener('click', (e) => {
+                if (lockboard) return;
+                if (card.className !== "card toggleCard flipped") {
+                    card.classList.toggle("toggleCard");
+                    regarderCarte(e);
+                }
 
-        secondes++;
+            })
 
-        if (secondes === 60) {
-            minutes++;
-            secondes = 0;
-        }
 
-        if (minutes === 60) {
-            heures++;
-            minutes = 0;
-        }
-
-        //   affichage
-        if (secondes < 10) {
-            secondes = "0" + secondes;
-        }
-
-        if (minutes < 10) {
-            minutes = "0" + minutes;
-        }
-
-        if (heures < 10) {
-            heures = "0" + heures;
-        }
-
-        timer.textContent = `${heures} : ${minutes} : ${secondes}`;
-        timeOut = setTimeout(defilerTemps, 1000);
+        })
     };
     cardGenerator();
 
 }
 
 async function ajouterData(point, erreur) {
-    console.log("requete")
     const pointData = {
         nbePoint: point,
         nbeErreu: erreur,
