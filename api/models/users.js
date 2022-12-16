@@ -1,71 +1,144 @@
 const jwt = require('jsonwebtoken');
-const bcrypt = require('bcrypt');
-const userQuery = require("./userQuery");
+const bcrypt = require('bcryptjs');
+const path = require('node:path');
+const { parse, serialize } = require('../utils/json');
 
-const jwtSecret = 'ilovemybelgium!';
+const jwtSecret = 'ilovemymovies!';
 const lifetimeJwt = 24 * 60 * 60 * 1000; // in ms : 24 * 60 * 60 * 1000 = 24h
 
 const saltRounds = 10;
 
+const jsonDbPath = path.join(__dirname, '/../data/users.json');
+
 
 
 async function login(username, password) {
-  const userNameFound = readOneFromUserName(username);
-  console.log(userNameFound)
-  if (!userNameFound) return undefined;
-  const comparatorPassword = await bcrypt.compare(password, userNameFound.password)
+  const userFound = readOneUserFromUsername(username);
+  if (!userFound) return undefined;
 
-  if (!comparatorPassword) return undefined;
+  const passwordMatch = await bcrypt.compare(password, userFound.password);
+  if (!passwordMatch) return undefined;
 
   const token = jwt.sign(
-    { username },
-    jwtSecret,
-    { expiresIn: lifetimeJwt },
+    { username }, // session data added to the payload (payload : part 2 of a JWT)
+    jwtSecret, // secret used for the signature (signature part 3 of a JWT)
+    { expiresIn: lifetimeJwt }, // lifetime of the JWT (added to the JWT payload)
   );
-
+  const {id} = userFound;
   const authenticatedUser = {
-    id_user: userNameFound.id_user,
-    username: userNameFound.login,
+    username,
     token,
+    id,
   };
 
   return authenticatedUser;
-
 }
 
 async function register(username, password) {
-  const userNameFound = readOneFromUserName(username);
-  if (userNameFound) return undefined;
-  await createUser(username, password);
+  const userFound = readOneUserFromUsername(username);
+  if (userFound) return undefined;
+
+  const user=await createOneUser(username, password);
 
   const token = jwt.sign(
-    { username },
-    jwtSecret,
-    { expiresIn: lifetimeJwt },
+    { username }, // session data added to the payload (payload : part 2 of a JWT)
+    jwtSecret, // secret used for the signature (signature part 3 of a JWT)
+    { expiresIn: lifetimeJwt }, // lifetime of the JWT (added to the JWT payload)
   );
-
+  const {id} = user;
   const authenticatedUser = {
     username,
     token,
+    id
   };
 
   return authenticatedUser;
 }
-async function createUser(username, password) {
+
+function readOneUserFromUsername(username) {
+  const users = parse(jsonDbPath);
+  const indexOfUserFound = users.findIndex((user) => user.username === username);
+  if (indexOfUserFound < 0) return undefined;
+
+  return users[indexOfUserFound];
+}
+
+async function createOneUser(username, password) {
+  const users = parse(jsonDbPath);
+
   const hashedPassword = await bcrypt.hash(password, saltRounds);
-  const data = {
+
+  const createdUser = {
+    id: getNextId(),
     username,
     password: hashedPassword,
+    nbePoint:0,
+    nbeGameJoue:0,
+    moyennErreur :0,
+  };
+
+  users.push(createdUser);
+
+  serialize(jsonDbPath, users);
+
+  return createdUser;
+}
+
+function getNextId() {
+  const users = parse(jsonDbPath);
+  const lastItemIndex = users?.length !== 0 ? users.length - 1 : undefined;
+  if (lastItemIndex === undefined) return 1;
+  const lastId = users[lastItemIndex]?.id;
+  const nextId = lastId + 1;
+  return nextId;
+}
+function getPoint(id) {
+  const idAsNumber = parseInt(id, 10);
+  const users = parse(jsonDbPath);
+  const indexOfUserFound = users.findIndex((user) => user.id === idAsNumber);
+  if (indexOfUserFound < 0) return undefined;
+
+  const points={
+    point:users[indexOfUserFound].nbePoint,
+    nbeGameJoue:users[indexOfUserFound].nbeGameJoue,
+    moyennErreur:users[indexOfUserFound].moyennErreur,
   }
-  const newUser = userQuery.save(data)
-  return newUser;
-
+  return points;
 }
 
-function readOneFromUserName(username) {
-  const users = userQuery.find(username)
-  if (!users) return undefined;
-  return users;
+function addPoint(nbePoint,nbeErreu,userId){
+  const users = parse(jsonDbPath);
+  const indexOfUserFound = users.findIndex((user) => user.id === userId);
+  if (indexOfUserFound < 0) return undefined;
+  users[indexOfUserFound].nbeGameJoue+=1;
+  users[indexOfUserFound].nbePoint += parseInt(nbePoint,10);
+  users[indexOfUserFound].moyennErreur += parseInt(nbeErreu,10) ;
+  serialize(jsonDbPath,users);
+ 
+return users[indexOfUserFound];
 }
 
-module.exports = { login, register, readOneFromUserName }
+function getMorePoints(){
+  const users = parse(jsonDbPath);
+  const ranking = users.sort(mycomparator);
+  const tab =[];
+  for(let i=0 ;i < ranking.length ; i+=1){
+    Array.prototype.push.call(tab, {
+      login:ranking[i].username,
+      point:ranking[i].nbePoint,
+    })
+  }
+ return tab.slice(0,10);
+}
+
+function mycomparator(a,b) {
+  return parseInt(b.nbePoint, 10) - parseInt(a.nbePoint, 10);
+}
+module.exports = {
+  login,
+  register,
+  readOneUserFromUsername,
+  getPoint,
+  addPoint,
+  getMorePoints,
+};

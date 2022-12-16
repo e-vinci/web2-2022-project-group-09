@@ -3,7 +3,7 @@ const { login, register } = require('../models/users')
 
 const router = express.Router();
 
-/* GET users listing. */
+
 router.post('/login', async (req, res) => {
   const username = req?.body?.username?.length !== 0 ? req.body.username : undefined;
   const password = req?.body?.password?.length !== 0 ? req.body.password : undefined;
@@ -26,7 +26,7 @@ router.post('/register', async (req, res) => {
   if (!newUser) return res.sendStatus(401);
   createCookieSessionData(req, newUser);
 
-  return res.json({ username: newUser.username });
+  return res.json({ username: newUser.username, token : newUser.token });
 });
 
 
@@ -39,6 +39,6 @@ router.get('/logout', (req, res) => {
 function createCookieSessionData(req, authenticatedUser) {
   req.session.username = authenticatedUser.username;
   req.session.token = authenticatedUser.token;
-  req.session.user_id = authenticatedUser.id_user
+  req.session.user_id = authenticatedUser.id
 }
 module.exports = router;

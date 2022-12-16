@@ -1,41 +1,30 @@
-/* eslint-disable */
+/* eslint-disable camelcase */
+
 const express = require('express');
 
 const router = express.Router();
 
-const Point = require('../models/point');
+const { getPoint, addPoint, getMorePoints } = require('../models/users');
 
-router.get('/', (req, res) => {
-    console.log(Point.get(req.session.user_id))
-    return res.json(Point.get(req.session.user_id))
-});
+// get user stats 
+router.get('/', (req, res) => res.json(getPoint(req.session.user_id)));
 
+// add point to user
 router.post('/', (req, res) => {
-    console.log(req.body.nbePoint,req.body.nbeErreu)
-    const user_id = req.session.user_id;
+    const { user_id } = req.session;
     const nbePoint = req?.body?.nbePoint?.length !== 0 ? req.body.nbePoint : undefined;
-    const nbeErreu =req?.body?.nbeErreu?.length !== 0 ? req.body.nbeErreu : undefined;
-    if(!nbePoint || !nbeErreu) return res.sendStatus(400);
-    return res.json(Point.addPoint(nbePoint,nbeErreu,user_id))
-
+    const nbeErreu = req?.body?.nbeErreu?.length !== 0 ? req.body.nbeErreu : undefined;
+    if (!nbePoint || !nbeErreu) return res.sendStatus(400);
+    return res.json(addPoint(nbePoint, nbeErreu, user_id))
 });
 
-// show top 10 player
+// get top 10 points
 router.get('/getRanking', (req, res) => {
-    console.log(Point.getRanking())
-    return res.json(Point.getRanking())
+    const points = getMorePoints();
+    return res.json(points)
 
 });
 
-
-// show the user stats
-router.get('/getUserStats', (req, res) => {
-    console.log(Point.getUserStats(req.session.user_id))
-    return res.json(Point.getUserStats(req.session.user_id))
-
-});
 
 
 module.exports = router;
-
-
