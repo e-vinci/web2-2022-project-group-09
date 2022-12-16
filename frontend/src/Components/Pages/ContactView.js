@@ -7,9 +7,13 @@ import { getAuthenticatedUser } from "../../utils/auths";
 const contactPage = async () => {
 
     const main = document.querySelector('main');
+    if(!getAuthenticatedUser()){
+        main.innerHTML=`<center><p style="font-family: 'Games', sans-serif; color: red">Not connected</p></center>`
+    }else{
     const mesage = await getMessage();
     const page = pageHtml(mesage);
     main.innerHTML = page;
+    }
     document.querySelector('#changePage').addEventListener('click', () => {
         Navigate('/contact');
     });
@@ -23,6 +27,7 @@ const contactPage = async () => {
                 method: 'DELETE',
                 headers: {
                     'Content-Type': 'application/json',
+                    Authorization: getAuthenticatedUser().token,
                 },
             };
 
@@ -45,6 +50,7 @@ const contactPage = async () => {
                 body: JSON.stringify(updatedMessage),
                 headers: {
                     'Content-Type': 'application/json',
+                    Authorization: getAuthenticatedUser().token,
                 },
             }
             const response = await fetch(`${process.env.API_BASE_URL}/message/${elementId}`, options);
@@ -66,7 +72,6 @@ function pageHtml(mesage) {
     <button style="font-family: 'Games', sans-serif;" type="button" id="changePage"  >Add Message</button >
      <p style="font-family: 'Games', sans-serif"> View Message</p>
     </div>`
-    if (getAuthenticatedUser()) {
         Array.from(mesage.message).forEach(element => {
             contactpage += `
         <div id="message2"> 
@@ -79,16 +84,17 @@ function pageHtml(mesage) {
         </div>
            `;
         });
-
-
-    } else {
-        contactpage += `<center><p style="font-family: 'Games', sans-serif; color: red">Not connected</p></center>`
-    }
     return contactpage;
 }
 
 async function getMessage() {
-    const response = await fetch(`${process.env.API_BASE_URL}/message`)
+    const options = {
+        method:"GET",
+        headers:{
+            Authorization: getAuthenticatedUser()?.token,
+        }
+    }
+    const response = await fetch(`${process.env.API_BASE_URL}/message`,options)
 
     if (!response.ok) {
         throw new Error(`readAllMovies:: fetch error : ${response.status} : ${response.statusText}`);

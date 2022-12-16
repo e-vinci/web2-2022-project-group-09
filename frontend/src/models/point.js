@@ -1,3 +1,4 @@
+import { getAuthenticatedUser } from "../utils/auths";
 
 async function addData(points) {
     const options = {
@@ -5,6 +6,7 @@ async function addData(points) {
         body: JSON.stringify(points),
         headers: {
             'Content-type': 'application/json',
+            Authorization: getAuthenticatedUser().token,
 
         }
     }
