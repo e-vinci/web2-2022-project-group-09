@@ -30,7 +30,7 @@ app.use(cookieParser());
 
 app.use('/auth', authRouter);
 app.use('/message', messageRouteur);
-app.use('/point',pointRouteur);
+app.use('/point', pointRouteur);
 
 
 

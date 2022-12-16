@@ -15,7 +15,7 @@ router.post('/login', async (req, res) => {
 
   createCookieSessionData(req, user);
 
-  return res.json({ username: user.username,token:user.token });
+  return res.json({ username: user.username, token: user.token });
 });
 
 router.post('/register', async (req, res) => {
@@ -26,7 +26,7 @@ router.post('/register', async (req, res) => {
   if (!newUser) return res.sendStatus(401);
   createCookieSessionData(req, newUser);
 
-  return res.json({ username: newUser.username, token : newUser.token });
+  return res.json({ username: newUser.username, token: newUser.token });
 });
 
 
