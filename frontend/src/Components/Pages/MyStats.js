@@ -1,3 +1,4 @@
+import Navbar from "../Navbar/Navbar";
 
 
 let nbeGameJoue;
@@ -44,14 +45,7 @@ const mystats = `
 
 
 async function getMystats () {
-  const options = {
-    method: "GET",
-    headers: {
-      "Content-Type": "application/json",
-    },
-  };
-  
-  const response = await fetch("/api/point/getUserStats",options); 
+  const response = await fetch("/api/point" ); 
   
     if (!response.ok) {
         throw new Error("fetch error : ");
@@ -59,20 +53,22 @@ async function getMystats () {
   
     const data = await response.json(); 
     userName = document.querySelector('.userName');
-    userName.innerHTML= JSON.stringify(data[0].login);
+    userName.innerHTML= JSON.stringify(data.login);
 
     nbeGameJoue = document.querySelector('.gamePlayed');
-    nbeGameJoue.innerHTML= JSON.stringify(data[0].nbeGameJoue);
+    nbeGameJoue.innerHTML= JSON.stringify(data.nbeGameJoue);
 
     moyennErreur = document.querySelector('.gameError');
-    moyennErreur.innerHTML= JSON.stringify(data[0].moyennErreur);
+    moyennErreur.innerHTML= JSON.stringify(data.moyennErreur);
 
     point = document.querySelector('.totalPoint');
-    point.innerHTML= JSON.stringify(data[0].point); 
+    point.innerHTML= JSON.stringify(data.point); 
+    point.innerHTML += ` / ${data.nbeGameJoue*9} ` 
 }
 
 
 const Mystats = () => {
+  Navbar();
   text();
   getMystats ()
 

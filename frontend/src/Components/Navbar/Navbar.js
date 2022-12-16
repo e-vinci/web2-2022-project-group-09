@@ -1,5 +1,5 @@
 
-import { getAnonymUser, isAuthenticated } from "../../utils/auths";
+import { getAnonymUser, getAuthenticatedUser} from "../../utils/auths";
 
 const Navbar = () => {
     const navbarWrapper = document.querySelector('#navbarWrapper');
@@ -19,7 +19,7 @@ const Navbar = () => {
  <li >
    <a data-uri="/ranking">Ranking</a>
    </li> 
- ${isAuthenticated() ? ' <li> <a data-uri="/mystats">MyStats</a> </li>   ' : '<li> <a   href="#"  data-uri="/" >Login/Register</a> </li>'}
+ ${getAuthenticatedUser() ? ' <li> <a data-uri="/mystats">MyStats</a> </li>   ' : '<li> <a   href="#"  data-uri="/" >Login/Register</a> </li>'}
 
  <li>
    <a class="game"  href="#" data-uri="/level">Game</a>
@@ -28,7 +28,7 @@ const Navbar = () => {
    <a  href="#" data-uri="/contact">Contact</a>
   </li> 
 
-${isAuthenticated() ? '<li> <a href="#" data-uri="/logout" >Logout</a> </li>' : ''}
+${getAuthenticatedUser() ? '<li> <a href="#" data-uri="/logout" >Logout</a> </li>' : ''}
 
  </ul>
  `;

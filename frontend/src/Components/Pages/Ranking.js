@@ -18,14 +18,7 @@ const morePoint =
 
   `
   async function getRanking () { try {
-        const options = {
-          method: "GET",
-          headers: {
-            "Content-Type": "application/json",
-          },
-        };
-  
-        const response = await fetch("/api/point/getRanking", options); 
+        const response = await fetch("/api/point/getRanking"); 
         
   
         if (!response.ok) {
