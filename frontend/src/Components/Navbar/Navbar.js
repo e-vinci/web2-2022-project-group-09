@@ -1,19 +1,19 @@
 
-import { getAnonymUser, getAuthenticatedUser} from "../../utils/auths";
+import { getAnonymUser, getAuthenticatedUser } from "../../utils/auths";
 
 const Navbar = () => {
-    const navbarWrapper = document.querySelector('#navbarWrapper');
-    let navbar = '';
+  const navbarWrapper = document.querySelector('#navbarWrapper');
+  let navbar = '';
 
-    
-    if ((window.location.pathname === '/' || window.location.pathname === '/logout') && !getAnonymUser() ) { 
-        navbar += `
+
+  if ((window.location.pathname === '/' || window.location.pathname === '/logout') && !getAnonymUser()) {
+    navbar += `
   <h1>
   Play with the  <span style="color:#FFFF8F"> belgium team for  </span> <span style="color:#C41E3A">one last game  </span>
  </h1>
   `;
-    } else {
-        navbar += `
+  } else {
+    navbar += `
  <ul>
  
  <li >
@@ -32,18 +32,18 @@ ${getAuthenticatedUser() ? '<li> <a href="#" data-uri="/logout" >Logout</a> </li
 
  </ul>
  `;
-    }
+  }
 
 
 
-    navbar += `
+  navbar += `
 <hr class="hr1">  
 <hr class="hr2">  
 <hr class="hr3"> 
 `;
 
 
-    navbarWrapper.innerHTML = navbar;
+  navbarWrapper.innerHTML = navbar;
 };
 
 

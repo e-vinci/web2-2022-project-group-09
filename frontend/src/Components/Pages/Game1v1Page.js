@@ -28,7 +28,7 @@ const Game1v1Page = () => {
     } else {
         timer = 700;
     }
-    let lockboard= false;
+    let lockboard = false;
     let cmptCartes = 9;
     let pointJoueur1 = 0
     let pointJoueur2 = 0
@@ -48,18 +48,18 @@ const Game1v1Page = () => {
     img.src = `${ballonJ}`
     img.setAttribute('id', 'imgBall0')
 
-    const divScore =document.createElement("div")
-    divScore.className="divScore"
+    const divScore = document.createElement("div")
+    divScore.className = "divScore"
 
-    const divJoueur =document.createElement("div")
-    divJoueur.className="divJoueur"
+    const divJoueur = document.createElement("div")
+    divJoueur.className = "divJoueur"
 
     const player1 = document.createElement("h1");
     player1.innerHTML = 'Player 1'
 
     const player1Cmpt = document.createElement("h6");
     player1Cmpt.innerHTML = `${pointJoueur1}&nbsp; -`
-    player1Cmpt.className='score'
+    player1Cmpt.className = 'score'
 
 
     const player2 = document.createElement("h1");
@@ -67,17 +67,17 @@ const Game1v1Page = () => {
 
     const player2Cmpt = document.createElement("h6");
     player2Cmpt.innerHTML = `&nbsp; ${pointJoueur2}`
-    player2Cmpt.className='score'
+    player2Cmpt.className = 'score'
 
     let section = document.createElement('section');
     section.className = 'sectionCard'
 
 
-  
+
     main.appendChild(divBackGame);
     divBackGame.appendChild(divScore)
     divBackGame.appendChild(divJoueur)
- 
+
 
     divJoueur.appendChild(divColumn1);
     divJoueur.appendChild(divColumn2);
@@ -87,10 +87,10 @@ const Game1v1Page = () => {
     divColumn1.appendChild(player1);
     divJoueur.appendChild(img)
     divColumn2.appendChild(player2);
- 
+
     divBackGame.appendChild(section);
-    
-    
+
+
 
     let joueur = tirageAuSort(player1, player2);
 
@@ -104,26 +104,26 @@ const Game1v1Page = () => {
 
     const generateData = () =>
         [
-            {imgSrc: lukaku, name: "lukaku"},
-            {imgSrc: courtois, name: "courtois"},
-            {imgSrc: deBruyn, name: "deBruyn"},
-            {imgSrc: batshuayi, name: "batshuayi"},
-            {imgSrc: carrasco, name: "carrasco"},
-            {imgSrc: team, name: "team"},
-            {imgSrc: tielemans, name: "tielemans"},
-            {imgSrc: witsel, name: "witsel"},
-            {imgSrc: hazard, name: "hazard"},
+            { imgSrc: lukaku, name: "lukaku" },
+            { imgSrc: courtois, name: "courtois" },
+            { imgSrc: deBruyn, name: "deBruyn" },
+            { imgSrc: batshuayi, name: "batshuayi" },
+            { imgSrc: carrasco, name: "carrasco" },
+            { imgSrc: team, name: "team" },
+            { imgSrc: tielemans, name: "tielemans" },
+            { imgSrc: witsel, name: "witsel" },
+            { imgSrc: hazard, name: "hazard" },
 
 
-            {imgSrc: lukaku, name: "lukaku"},
-            {imgSrc: courtois, name: "courtois"},
-            {imgSrc: deBruyn, name: "deBruyn"},
-            {imgSrc: batshuayi, name: "batshuayi"},
-            {imgSrc: carrasco, name: "carrasco"},
-            {imgSrc: team, name: "team"},
-            {imgSrc: tielemans, name: "tielemans"},
-            {imgSrc: hazard, name: "hazard"},
-            {imgSrc: witsel, name: "witsel"},
+            { imgSrc: lukaku, name: "lukaku" },
+            { imgSrc: courtois, name: "courtois" },
+            { imgSrc: deBruyn, name: "deBruyn" },
+            { imgSrc: batshuayi, name: "batshuayi" },
+            { imgSrc: carrasco, name: "carrasco" },
+            { imgSrc: team, name: "team" },
+            { imgSrc: tielemans, name: "tielemans" },
+            { imgSrc: hazard, name: "hazard" },
+            { imgSrc: witsel, name: "witsel" },
 
         ];
     const randomize = () => {
@@ -144,15 +144,16 @@ const Game1v1Page = () => {
                     cart.style.pointerEvents = "none";
                 })
                 cmptCartes -= 1;
-                if (joueur === 'Player 1') { pointJoueur1 += 1; mettreAJourCompteur(player1Cmpt, pointJoueur1,'joueur1') } else { pointJoueur2 += 1; mettreAJourCompteur(player2Cmpt, pointJoueur2,'joueur2') }
+                if (joueur === 'Player 1') { pointJoueur1 += 1; mettreAJourCompteur(player1Cmpt, pointJoueur1, 'joueur1') } else { pointJoueur2 += 1; mettreAJourCompteur(player2Cmpt, pointJoueur2, 'joueur2') }
 
             } else {
-                lockboard=true;
+                lockboard = true;
                 carteFlip.forEach((card) => {
                     card.classList.remove("flipped");
-                    setTimeout(() => {card.classList.remove("toggleCard")
-                    lockboard=false
-                }, 1000);
+                    setTimeout(() => {
+                        card.classList.remove("toggleCard")
+                        lockboard = false
+                    }, 1000);
                 });
                 if (joueur === 'Player 1') {
                     joueur = 'Player 2';
@@ -163,8 +164,8 @@ const Game1v1Page = () => {
                 }
             }
             if (carteFlip[0].getAttribute("name") === carteFlip[1].getAttribute("name") && cmptCartes === 0) {
-                let gagnant = Math.max(pointJoueur1,pointJoueur2)
-                if(gagnant === pointJoueur1){gagnant = 'Player 1'} else{gagnant = 'Player 2'}
+                let gagnant = Math.max(pointJoueur1, pointJoueur2)
+                if (gagnant === pointJoueur1) { gagnant = 'Player 1' } else { gagnant = 'Player 2' }
                 Swal.fire({
                     title: `<span style="color:white"><strong>${gagnant} wins</strong></span>`,
                     imageUrl: `${cdm}`,
@@ -175,12 +176,12 @@ const Game1v1Page = () => {
                     showDenyButton: true,
                     confirmButtonText:
                         '<a style="font-family:\'Games\', sans-serif;">Ranking</a>\n',
-                    denyButtonText :
-                    '<a style="font-family:\'Games\', sans-serif;">Restart</a>\n',
+                    denyButtonText:
+                        '<a style="font-family:\'Games\', sans-serif;">Restart</a>\n',
                 }).then((result) => {
                     if (result.isConfirmed) {
                         Navigate('/ranking')
-                    }else if(result.isDenied){
+                    } else if (result.isDenied) {
                         Navigate('/level')
                     }
                 })
@@ -206,33 +207,33 @@ const Game1v1Page = () => {
             card.classList.toggle("toggleCard");
             setTimeout(() => card.classList.remove("toggleCard"), timer);
             setTimeout(() => card.addEventListener('click', e => {
-                if(lockboard) return;
-              
-                if(card.className !=="card toggleCard flipped"){
+                if (lockboard) return;
 
-                
-                card.classList.toggle("toggleCard")
-                regarderCarte(e)
+                if (card.className !== "card toggleCard flipped") {
+
+
+                    card.classList.toggle("toggleCard")
+                    regarderCarte(e)
                 }
-            
+
             }), timer + 2000);
         })
     };
 
     cardGenerator();
-   
+
 };
 
 
-function mettreAJourCompteur(playerCmpt, cmpt,joueur) {
+function mettreAJourCompteur(playerCmpt, cmpt, joueur) {
     const player = playerCmpt;
-    
-   if(joueur === 'joueur1'){
-    player.innerHTML = `${cmpt} -`
-   }else{
-    player.innerHTML = `&nbsp ${cmpt}`
-   }
-  
+
+    if (joueur === 'joueur1') {
+        player.innerHTML = `${cmpt} -`
+    } else {
+        player.innerHTML = `&nbsp ${cmpt}`
+    }
+
 
 }
 function tirageAuSort(j1, j2) {

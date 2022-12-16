@@ -14,25 +14,25 @@ const contactPage = async () => {
         Navigate('/contact');
     });
 
-    document.querySelectorAll('#delete').forEach(b=>{
+    document.querySelectorAll('#delete').forEach(b => {
         b.addEventListener('click', async (e) => {
             e.preventDefault();
             const { elementId } = e.target.dataset;
-    
+
             const options = {
                 method: 'DELETE',
                 headers: {
                     'Content-Type': 'application/json',
                 },
             };
-    
+
             await fetch(`/api/message/${elementId}`, options)
             contactPage();
         });
     })
 
 
-    document.querySelectorAll('#update').forEach(b=>{
+    document.querySelectorAll('#update').forEach(b => {
         b.addEventListener('click', async (e) => {
             const { elementId } = e.target.dataset;
             const message = e.target.parentElement
@@ -48,7 +48,7 @@ const contactPage = async () => {
                 },
             }
             const response = await fetch(`/api/message/${elementId}`, options);
-    
+
             if (!response.ok) Swal.fire({
                 title: 'Le type doit etre  une "question"  "suggestion" ou "Supprimer mon compte" ',
                 position: 'top',

@@ -38,43 +38,42 @@ const mystats = `
   `;
 
 
-  function text(){
-    const main = document.querySelector('main');
-    main.innerHTML = mystats;
+function text() {
+  const main = document.querySelector('main');
+  main.innerHTML = mystats;
+}
+
+
+async function getMystats() {
+  const response = await fetch("/api/point");
+
+  if (!response.ok) {
+    throw new Error("fetch error : ");
   }
 
+  const data = await response.json();
+  userName = document.querySelector('.userName');
+  userName.innerHTML = JSON.stringify(data.login);
 
-async function getMystats () {
-  const response = await fetch("/api/point" ); 
-  
-    if (!response.ok) {
-        throw new Error("fetch error : ");
-    }
-  
-    const data = await response.json(); 
-    userName = document.querySelector('.userName');
-    userName.innerHTML= JSON.stringify(data.login);
+  nbeGameJoue = document.querySelector('.gamePlayed');
+  nbeGameJoue.innerHTML = JSON.stringify(data.nbeGameJoue);
 
-    nbeGameJoue = document.querySelector('.gamePlayed');
-    nbeGameJoue.innerHTML= JSON.stringify(data.nbeGameJoue);
+  moyennErreur = document.querySelector('.gameError');
+  moyennErreur.innerHTML = JSON.stringify(data.moyennErreur);
 
-    moyennErreur = document.querySelector('.gameError');
-    moyennErreur.innerHTML= JSON.stringify(data.moyennErreur);
-
-    point = document.querySelector('.totalPoint');
-    point.innerHTML= JSON.stringify(data.point); 
-    point.innerHTML += ` / ${data.nbeGameJoue*9} ` 
+  point = document.querySelector('.totalPoint');
+  point.innerHTML = JSON.stringify(data.point);
+  point.innerHTML += ` / ${data.nbeGameJoue * 9} `
 }
 
 
 const Mystats = () => {
   Navbar();
   text();
-  getMystats ()
+  getMystats()
 
 
 }
 
 
 export default Mystats;
-

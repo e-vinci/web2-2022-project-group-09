@@ -1,5 +1,5 @@
 import Swal from 'sweetalert2';
-import {clearPage} from '../../utils/render';
+import { clearPage } from '../../utils/render';
 import Navbar from '../Navbar/Navbar';
 
 import witsel from "../../img/Axel_Witsel.jpg"
@@ -55,7 +55,7 @@ const GameSoloPage = () => {
 
     const maxMovesCount = document.createElement('span');
     maxMovesCount.className = 'playerLivesCount';
-    let lockboard= false;
+    let lockboard = false;
     let nbePoints = 0;
     let nbeErreu = 0;
     let cmptCartes = 9;
@@ -93,25 +93,25 @@ const GameSoloPage = () => {
 
     const generateData = () =>
         [
-            {imgSrc: lukaku, name: "lukaku"},
-            {imgSrc: courtois, name: "courtois"},
-            {imgSrc: deBruyn, name: "deBruyn"},
-            {imgSrc: batshuayi, name: "batshuayi"},
-            {imgSrc: carrasco, name: "carrasco"},
-            {imgSrc: team, name: "team"},
-            {imgSrc: tielemans, name: "tielemans"},
-            {imgSrc: witsel, name: "witsel"},
-            {imgSrc: hazard, name: "hazard"},
+            { imgSrc: lukaku, name: "lukaku" },
+            { imgSrc: courtois, name: "courtois" },
+            { imgSrc: deBruyn, name: "deBruyn" },
+            { imgSrc: batshuayi, name: "batshuayi" },
+            { imgSrc: carrasco, name: "carrasco" },
+            { imgSrc: team, name: "team" },
+            { imgSrc: tielemans, name: "tielemans" },
+            { imgSrc: witsel, name: "witsel" },
+            { imgSrc: hazard, name: "hazard" },
 
-            {imgSrc: lukaku, name: "lukaku"},
-            {imgSrc: courtois, name: "courtois"},
-            {imgSrc: deBruyn, name: "deBruyn"},
-            {imgSrc: batshuayi, name: "batshuayi"},
-            {imgSrc: carrasco, name: "carrasco"},
-            {imgSrc: team, name: "team"},
-            {imgSrc: tielemans, name: "tielemans"},
-            {imgSrc: hazard, name: "hazard"},
-            {imgSrc: witsel, name: "witsel"},
+            { imgSrc: lukaku, name: "lukaku" },
+            { imgSrc: courtois, name: "courtois" },
+            { imgSrc: deBruyn, name: "deBruyn" },
+            { imgSrc: batshuayi, name: "batshuayi" },
+            { imgSrc: carrasco, name: "carrasco" },
+            { imgSrc: team, name: "team" },
+            { imgSrc: tielemans, name: "tielemans" },
+            { imgSrc: hazard, name: "hazard" },
+            { imgSrc: witsel, name: "witsel" },
 
         ];
     const randomize = () => {
@@ -136,30 +136,30 @@ const GameSoloPage = () => {
             card.appendChild(recto);
             card.appendChild(verso);
             const carteFlip = document.querySelectorAll(".flipped");
-            
+
             card.addEventListener('click', (e) => {
-                if(lockboard) return;
-                if(card.className != "card toggleCard flipped"){
-                card.classList.toggle("toggleCard");
-                regarderCarte(e);
+                if (lockboard) return;
+                if (card.className != "card toggleCard flipped") {
+                    card.classList.toggle("toggleCard");
+                    regarderCarte(e);
                 }
-                
+
             })
-        
-        
+
+
         })
     };
     let defilerTempsBool = false;
     //correspondance des cartes
     const regarderCarte = (e) => {
-        
+
         const carteClick = e.target;
         carteClick.classList.add("flipped");
         if (!defilerTempsBool) {
             defilerTemps();
             defilerTempsBool = true;
-        
-    }
+
+        }
         const carteFlip = document.querySelectorAll(".flipped");
         //PROBLEME on peut appuyer 2x sur la meme carte
         if (carteFlip.length === 2 && playerLives === 1 && carteFlip[0].getAttribute("name") !== carteFlip[1].getAttribute("name")) {
@@ -175,7 +175,7 @@ const GameSoloPage = () => {
             })
             if (playerLives === 0) {
                 Swal.fire({
-                    background : 'rgba(15, 15, 15, 0.7) ',
+                    background: 'rgba(15, 15, 15, 0.7) ',
                     title: `<span style="color:white"><strong>Game Over :'(</strong></span>`,
                     imageUrl: `${sad}`,
                     width: 800,
@@ -183,30 +183,30 @@ const GameSoloPage = () => {
                     showDenyButton: true,
                     confirmButtonText:
                         '<a style="font-family:\'Games\', sans-serif;">Ranking</a>\n',
-                    denyButtonText :
-                    '<a style="font-family:\'Games\', sans-serif;">Restart</a>\n',
-                    
+                    denyButtonText:
+                        '<a style="font-family:\'Games\', sans-serif;">Restart</a>\n',
+
                 }).then((result) => {
                     if (result.isConfirmed) {
                         Navigate('/ranking')
-                    }else if(result.isDenied){
+                    } else if (result.isDenied) {
                         Navigate('/level')
                     }
                 })
             }
         }
         if (carteFlip.length === 2) {
-            
+
             if (carteFlip[0].getAttribute("name") === carteFlip[1].getAttribute("name")) {
                 console.log("match");
                 carteFlip.forEach((card) => {
                     card.classList.remove("flipped");
                     card.style.pointerEvents = "none";
                 })
-                nbePoints +=1;
+                nbePoints += 1;
                 cmptCartes -= 1;
             } else {
-                lockboard=true;
+                lockboard = true;
                 console.log("wrong");
                 carteFlip.forEach((card) => {
                     card.classList.remove("flipped");
@@ -214,7 +214,7 @@ const GameSoloPage = () => {
                         card.classList.remove("toggleCard");
                         card.classList
 
-                        lockboard=false;
+                        lockboard = false;
 
                     }, 1000);
                 });
@@ -222,11 +222,11 @@ const GameSoloPage = () => {
                     playerLives--;
                     maxMovesCount.textContent = playerLives;
                 }
-                nbeErreu +=1;
+                nbeErreu += 1;
             }
-           
-            if((cmptCartes == 0 || playerLives ==0 ) && getAuthenticatedUser()){
-                   ajouterData(nbePoints,nbeErreu);
+
+            if ((cmptCartes == 0 || playerLives == 0) && getAuthenticatedUser()) {
+                ajouterData(nbePoints, nbeErreu);
             }
 
         }/*else{
@@ -255,12 +255,12 @@ const GameSoloPage = () => {
                 showDenyButton: true,
                 confirmButtonText:
                     '<a style="font-family:\'Games\', sans-serif;">Ranking</a>\n',
-                    denyButtonText :
+                denyButtonText:
                     '<a style="font-family:\'Games\', sans-serif;">Restart</a>\n',
             }).then((result) => {
                 if (result.isConfirmed) {
                     Navigate('/ranking')
-                }else if(result.isDenied){
+                } else if (result.isDenied) {
                     Navigate('/level')
                 }
             })
@@ -304,11 +304,11 @@ const GameSoloPage = () => {
 
 }
 
-async function ajouterData(point,erreur){
+async function ajouterData(point, erreur) {
     console.log("requete")
-    const pointData= {
-        nbePoint:point,
-        nbeErreu:erreur,
+    const pointData = {
+        nbePoint: point,
+        nbeErreu: erreur,
     }
     await addData(pointData)
 }

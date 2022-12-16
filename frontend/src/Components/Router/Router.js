@@ -19,7 +19,7 @@ function onNavBarClick() {
       const componentToRender = routes[uri];
       if (!componentToRender) throw Error(`The ${uri} ressource does not exist.`);
       componentToRender();
-      
+
       window.history.pushState({}, '', uri);
       Navbar();
     }

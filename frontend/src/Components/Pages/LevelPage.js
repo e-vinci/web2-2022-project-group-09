@@ -1,4 +1,3 @@
-/* eslint-disable */
 
 import Navigate from '../Router/Navigate';
 import { clearPage } from '../../utils/render';

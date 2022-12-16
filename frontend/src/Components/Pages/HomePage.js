@@ -3,7 +3,7 @@ import anime from 'animejs/lib/anime.es';
 import UserIcon1 from '../../img/userI1.jpg';
 import UserIcon2 from '../../img/userI2.png';
 import cardGame from '../../img/drapclickk.png';
-import {clearAuthenticatedUser, setAnonymeUser, setAuthenticatedUser} from '../../utils/auths';
+import { clearAuthenticatedUser, setAnonymeUser, setAuthenticatedUser } from '../../utils/auths';
 import Navbar from '../Navbar/Navbar';
 import Navigate from '../Router/Navigate';
 
@@ -115,7 +115,7 @@ const HomePage = () => {
 
                 };
                 const response = await fetch('/api/auth/login', OPTIONS);
-                if (!response.ok)  Swal.fire('Mauvais identifiant')
+                if (!response.ok) Swal.fire('Mauvais identifiant')
 
                 const authenticatedUser = await response.json();
                 setAuthenticatedUser(authenticatedUser)
@@ -135,7 +135,7 @@ const HomePage = () => {
 
                 };
                 const response = await fetch('/api/auth/register', OPTIONS);
-                if (!response.ok)   Swal.fire('Ce compte existe deja ')
+                if (!response.ok) Swal.fire('Ce compte existe deja ')
 
                 const authenticatedUser = await response.json();
                 setAuthenticatedUser(authenticatedUser)
@@ -166,8 +166,8 @@ const HomePage = () => {
         if (cardReturned === true) return;
         anime({
             targets: card,
-            scale: [{value: 1}, {value: 1.3}, {value: 1, delay: 250}],
-            rotateY: {value: "+=180", delay: 200},
+            scale: [{ value: 1 }, { value: 1.3 }, { value: 1, delay: 250 }],
+            rotateY: { value: "+=180", delay: 200 },
             easing: "easeInOutSine",
             duration: 400,
 
@@ -188,8 +188,8 @@ const HomePage = () => {
         if (cardReturned2 === true) return;
         anime({
             targets: card2,
-            scale: [{value: 1}, {value: 1.3}, {value: 1, delay: 250}],
-            rotateY: {value: "+=180", delay: 200},
+            scale: [{ value: 1 }, { value: 1.3 }, { value: 1, delay: 250 }],
+            rotateY: { value: "+=180", delay: 200 },
             easing: "easeInOutSine",
             duration: 400,
 
