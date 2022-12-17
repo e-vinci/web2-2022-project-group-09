@@ -263,7 +263,7 @@ hr {
    margin-left: auto;
    margin-right: auto;
    transform: translateY(60%);
-   font-family: 'Games', sans-serif;
+   font-family: 'Rubik Spray Paint', cursive;
    color: darkblue;
 
    
@@ -445,12 +445,14 @@ p {
 }
 
 /*--------------------------------------------------------------------------------LEVEL PAGE-----------------------------------------------------------*/
-
+.boxes{
+   position: relative;
+}
 .column1 {
-   width: 500px;
+   width: 33%;
    border: 5px solid rgba(0, 0, 0, 0.3);
    border-radius: .5em;
-   padding: 20px;
+   padding: 1%;
    margin-left: 10%;
    float: left;
    background-color: rgba(0, 0, 0, 0.3);
@@ -460,10 +462,10 @@ p {
 }
 
 .column2 {
-   width: 500px;
+   width: 33%;
    border: 5px solid rgba(0, 0, 0, 0.3);
    border-radius: .5em;
-   padding: 20px;
+   padding: 1%;
    float: right;
    background-color: rgba(0, 0, 0, 0.3);
    font-family: 'Games', sans-serif;
@@ -473,9 +475,8 @@ p {
 }
 
 .levelEasy {
-   width: 500px;
-   height: 100px;
-   padding: 10px;
+   width: 100%;
+   padding: 5%;
    background-color: rgba(0, 0, 0, 0.3);
    border: 2px solid rgba(0, 0, 0, 0.2);
    font-size: 28px;
@@ -486,9 +487,8 @@ p {
 }
 
 .levelMedium {
-   width: 500px;
-   height: 100px;
-   padding: 10px;
+   width: 100%;
+   padding: 5%;
    background-color: rgba(0, 0, 0, 0.3);
    border: 2px solid rgba(0, 0, 0, 0.2);
    font-size: 28px;
@@ -499,9 +499,8 @@ p {
 }
 
 .levelHard {
-   width: 500px;
-   height: 100px;
-   padding: 10px;
+   width: 100%;
+   padding: 5%;
    background-color: rgba(0, 0, 0, 0.3);
    border: 2px solid rgba(0, 0, 0, 0.2);
    font-size: 28px;
