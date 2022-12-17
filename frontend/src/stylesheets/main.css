@@ -256,17 +256,15 @@ hr {
 }
 
 .credits {
-   position: relative; 
+   position: relative;
    font-size: 24px;
-   width: 680px;
+   width: 50%;
    text-align: center;
    margin-left: auto;
    margin-right: auto;
-   transform: translateY(60%);
+   transform: translateY(50%);
    font-family: 'Rubik Spray Paint', cursive;
    color: darkblue;
-
-   
 }
 
 
@@ -632,7 +630,7 @@ p {
 
    text-align: right;
    background: linear-gradient(90deg, rgb(0, 0, 0), rgb(84, 84, 19), rgb(255, 0, 0));
-   
+
 }
 
 
@@ -761,5 +759,5 @@ p {
    border-color: black yellow red yellow;
 }
 .rankingTitle{
-margin-top: auto;
+   margin-top: auto;
 }
